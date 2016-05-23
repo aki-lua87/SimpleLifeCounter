@@ -11,3 +11,17 @@ G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter\obj\Debug\Symple
 G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter\obj\Debug\Symple_Life_Counter.pdb
 G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter\obj\Debug\Symple_Life_Counter.dll.mdb
 G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter\bin\Debug\Symple_Life_Counter.dll.mdb
+G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter\obj\Debug\Symple_Life_Counter.dll.mdb
+G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter\bin\Debug\Symple_Life_Counter.dll.mdb
+G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter\obj\Debug\Symple_Life_Counter.dll.mdb
+G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter\bin\Debug\Symple_Life_Counter.dll.mdb
+G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter\obj\Debug\Symple_Life_Counter.dll.mdb
+G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter\bin\Debug\Symple_Life_Counter.dll.mdb
+G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter\obj\Debug\Symple_Life_Counter.dll.mdb
+G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter\bin\Debug\Symple_Life_Counter.dll.mdb
+G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter\obj\Debug\Symple_Life_Counter.dll.mdb
+G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter\bin\Debug\Symple_Life_Counter.dll.mdb
+G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter\obj\Debug\Symple_Life_Counter.dll.mdb
+G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter\bin\Debug\Symple_Life_Counter.dll.mdb
+G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter\obj\Debug\Symple_Life_Counter.dll.mdb
+G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter\bin\Debug\Symple_Life_Counter.dll.mdb

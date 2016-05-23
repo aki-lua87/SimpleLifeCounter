@@ -1,6 +1,7 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <ReferenceAssembly PathName="g:\vs\symplelifecounter\symple life counter\symple_life_counter\bin\debug\symple_life_counter.dll" HashGuid="289929ce-b38e-df42-98c4-7bf7f80bb477" />
+    <LocalAssembly PathName="g:\vs\symplelifecounter\symple life counter\symple_life_counter.winphone\obj\debug\intermediatexaml\symple_life_counter.winphone.exe" HashGuid="ae2c1457-86ac-6c15-8ae1-05854c4d5e1b" />
+    <ReferenceAssembly PathName="g:\vs\symplelifecounter\symple life counter\symple_life_counter\bin\debug\symple_life_counter.dll" HashGuid="db35abb2-77a4-a672-1619-d5aec49b568d" />
     <ReferenceAssembly PathName="g:\vs\symplelifecounter\packages\xamarin.forms.2.0.0.6482\lib\wpa81\xamarin.forms.core.dll" HashGuid="c8a30eb8-5ae8-352d-b94f-7c913a7557ba" />
     <ReferenceAssembly PathName="g:\vs\symplelifecounter\packages\xamarin.forms.2.0.0.6482\lib\wpa81\xamarin.forms.platform.dll" HashGuid="d9389e38-8a39-bed5-406b-7a34fe4704ea" />
     <ReferenceAssembly PathName="g:\vs\symplelifecounter\packages\xamarin.forms.2.0.0.6482\lib\wpa81\xamarin.forms.platform.winrt.dll" HashGuid="dbd728c2-e21b-4125-2be0-f7931b605baa" />
