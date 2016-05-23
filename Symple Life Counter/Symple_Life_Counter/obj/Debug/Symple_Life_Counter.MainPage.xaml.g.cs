@@ -17,8 +17,36 @@ namespace Symple_Life_Counter {
     public partial class MainPage : global::Xamarin.Forms.ContentPage {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Button LeftPlyerLifeUp;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Button LeftPlyerLifeDown;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Button RightPlyerLifeUp;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Button RightPlyerLifeDown;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label LeftPlyerLife;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label RightPlyerLife;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Button LifeReset;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(MainPage));
+            LeftPlyerLifeUp = this.FindByName<global::Xamarin.Forms.Button>("LeftPlyerLifeUp");
+            LeftPlyerLifeDown = this.FindByName<global::Xamarin.Forms.Button>("LeftPlyerLifeDown");
+            RightPlyerLifeUp = this.FindByName<global::Xamarin.Forms.Button>("RightPlyerLifeUp");
+            RightPlyerLifeDown = this.FindByName<global::Xamarin.Forms.Button>("RightPlyerLifeDown");
+            LeftPlyerLife = this.FindByName<global::Xamarin.Forms.Label>("LeftPlyerLife");
+            RightPlyerLife = this.FindByName<global::Xamarin.Forms.Label>("RightPlyerLife");
+            LifeReset = this.FindByName<global::Xamarin.Forms.Button>("LifeReset");
         }
     }
 }

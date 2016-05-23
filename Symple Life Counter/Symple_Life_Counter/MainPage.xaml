@@ -2,5 +2,70 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Symple_Life_Counter.MainPage">
-  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+
+  <ContentPage.Padding>
+    5, 10, 5, 5
+  </ContentPage.Padding>
+
+  <ContentPage.BackgroundColor>
+    Aqua
+  </ContentPage.BackgroundColor>
+
+
+  <AbsoluteLayout>  
+  <!-- 値増減用ボタン　-->
+  <Button Text="UP"
+          x:Name="LeftPlyerLifeUp"
+          BackgroundColor="Aqua"
+          AbsoluteLayout.LayoutFlags="All"
+          AbsoluteLayout.LayoutBounds="0, 0, 0.5, 0.5"/>
+
+  <Button Text="DOWN"
+          x:Name="LeftPlyerLifeDown"
+          BackgroundColor="Aqua"
+          AbsoluteLayout.LayoutFlags="All"
+          AbsoluteLayout.LayoutBounds="0, 1, 0.5, 0.5"/>
+
+  <Button Text="UP"
+          x:Name="RightPlyerLifeUp"
+          BackgroundColor="Aqua"
+          AbsoluteLayout.LayoutFlags="All"
+          AbsoluteLayout.LayoutBounds="1, 0, 0.5, 0.5"/>
+
+  <Button Text="DOWN"
+          x:Name="RightPlyerLifeDown"
+          BackgroundColor="Aqua"
+          AbsoluteLayout.LayoutFlags="All"
+          AbsoluteLayout.LayoutBounds="1, 1, 0.5, 0.5"/>
+
+  <!-- 縦棒 -->
+  <BoxView Color="Black"
+           AbsoluteLayout.LayoutFlags="XProportional,HeightProportional"
+           AbsoluteLayout.LayoutBounds="0.5, 0.5, 1, 0.9"/>
+           
+
+  <!-- ライフ数値 -->
+  <Label Text="20"
+         x:Name="LeftPlyerLife"
+         FontSize="120"
+         TextColor="Black"
+         AbsoluteLayout.LayoutFlags="PositionProportional"
+         AbsoluteLayout.LayoutBounds="0.15, 0.5, AutoSize, AutoSize"/>
+
+  <Label Text="20"
+         x:Name="RightPlyerLife"
+         FontSize="120"
+         TextColor="Black"
+         AbsoluteLayout.LayoutFlags="PositionProportional"
+         AbsoluteLayout.LayoutBounds="0.85, 0.5, AutoSize, AutoSize"/>
+
+  <!-- リセットボタン　-->
+  <Button Text="リセット"
+          x:Name="LifeReset"
+          BackgroundColor="Teal"
+          AbsoluteLayout.LayoutFlags="PositionProportional"
+          AbsoluteLayout.LayoutBounds="0.5, 1, AutoSize, AutoSize"/>
+    
+  </AbsoluteLayout>
+  
 </ContentPage>
