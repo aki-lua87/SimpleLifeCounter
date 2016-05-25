@@ -21,10 +21,15 @@ namespace Symple_Life_Counter
             RightPlyerLifeUp.Clicked += (sender, e) => RightPlyerLife.Text = LifeUp(RightPlyerLife);
             RightPlyerLifeDown.Clicked += (sender,e) => RightPlyerLife.Text = LifeDown(RightPlyerLife);
 
-            LifeReset.Clicked += (sender, e) => 
+            LifeReset.Clicked += async(sender, e) => 
             {
-                LeftPlyerLife.Text = DefaultLife.ToString();
-                RightPlyerLife.Text = DefaultLife.ToString();
+                var accepted = await this.DisplayAlert(
+                "リセット", "ライフを初期値に戻しますか？", "はい", "いいえ");
+                if (accepted)
+                {
+                    LeftPlyerLife.Text = DefaultLife.ToString();
+                    RightPlyerLife.Text = DefaultLife.ToString();
+                }
             };
         }
 

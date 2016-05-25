@@ -16,7 +16,7 @@
 
   <AbsoluteLayout>  
     
-        <!-- 値増減用ボタン　--> <!-- WPで白い枠が出る、枠も色設定が必要？ -->
+        <!-- 値増減用ボタン　--> <!-- WPで白い枠が出る、枠も色設定が必要 -->
   <Button Text="UP"
           x:Name="LeftPlyerLifeUp"
           BorderColor="Aqua"  
