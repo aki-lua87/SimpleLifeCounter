@@ -19,24 +19,28 @@
         <!-- 値増減用ボタン　--> <!-- WPで白い枠が出る、枠も色設定が必要？ -->
   <Button Text="UP"
           x:Name="LeftPlyerLifeUp"
+          BorderColor="Aqua"  
           BackgroundColor="Aqua"
           AbsoluteLayout.LayoutFlags="All"
           AbsoluteLayout.LayoutBounds="0, 0, 0.5, 0.5"/>
 
   <Button Text="DOWN"
           x:Name="LeftPlyerLifeDown"
+          BorderColor="Aqua"
           BackgroundColor="Aqua"
           AbsoluteLayout.LayoutFlags="All"
           AbsoluteLayout.LayoutBounds="0, 1, 0.5, 0.5"/>
     
   <Button Text="UP"
           x:Name="RightPlyerLifeUp"
+          BorderColor="Aqua"  
           BackgroundColor="Aqua"
           AbsoluteLayout.LayoutFlags="All"
           AbsoluteLayout.LayoutBounds="1, 0, 0.5, 0.5"/>
 
   <Button Text="DOWN"
           x:Name="RightPlyerLifeDown"
+          BorderColor="Aqua"  
           BackgroundColor="Aqua"
           AbsoluteLayout.LayoutFlags="All"
           AbsoluteLayout.LayoutBounds="1, 1, 0.5, 0.5"/>
@@ -44,7 +48,7 @@
   <!-- 縦棒 -->
   <BoxView Color="White"
            AbsoluteLayout.LayoutFlags="XProportional,HeightProportional"
-           AbsoluteLayout.LayoutBounds="0.5, 0.5, 1, 0.9"/>
+           AbsoluteLayout.LayoutBounds="0.5, 0.5, 1.5, 0.9"/>
            
 
   <!-- ライフ数値 -->
@@ -61,10 +65,6 @@
          TextColor="Black"
          AbsoluteLayout.LayoutFlags="PositionProportional"
          AbsoluteLayout.LayoutBounds="0.80, 0.5, AutoSize, AutoSize"/>
-    
-
-
-
 
   <!-- リセットボタン　-->
   <Button Text="リセット"
