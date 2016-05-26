@@ -79,7 +79,7 @@ public class MonoPackageManager {
 
 class MonoPackageManager_Resources {
 	public static final String[] Assemblies = new String[]{
-		"Symple_Life_Counter.Droid.dll",
+		"Symple1_Life_Counter.Droid.dll",
 		"FormsViewGroup.dll",
 		"Symple_Life_Counter.dll",
 		"Xamarin.Android.Support.Design.dll",

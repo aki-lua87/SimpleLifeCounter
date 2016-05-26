@@ -5,7 +5,6 @@ G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter\bin\Debug\Xamari
 G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter\bin\Debug\Xamarin.Forms.Xaml.dll
 G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter\bin\Debug\Xamarin.Forms.Core.xml
 G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter\bin\Debug\Xamarin.Forms.Xaml.xml
-G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter\obj\Debug\Symple_Life_Counter.csprojResolveAssemblyReference.cache
 G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter\obj\Debug\Symple_Life_Counter.MainPage.xaml.g.cs
 G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter\obj\Debug\Symple_Life_Counter.dll
 G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter\obj\Debug\Symple_Life_Counter.pdb

@@ -1,7 +1,7 @@
-G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\bin\Debug\Symple_Life_Counter.Droid.dll
-G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\bin\Debug\Symple_Life_Counter.Droid.pdb
-G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\bin\Debug\Symple_Life_Counter.Droid.apk
-G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\bin\Debug\Symple_Life_Counter.Droid-Signed.apk
+G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\bin\Debug\Symple1_Life_Counter.Droid.dll
+G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\bin\Debug\Symple1_Life_Counter.Droid.pdb
+G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\bin\Debug\jp.outlook.aki_lua87.SympleLifeCounter.apk
+G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\bin\Debug\jp.outlook.aki_lua87.SympleLifeCounter-Signed.apk
 G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\bin\Debug\FormsViewGroup.dll
 G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\bin\Debug\Symple_Life_Counter.dll
 G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\bin\Debug\Xamarin.Android.Support.Design.dll
@@ -17,9 +17,9 @@ G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\bin\Debug\
 G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\bin\Debug\Xamarin.Forms.Core.xml
 G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\bin\Debug\Xamarin.Forms.Xaml.xml
 G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\obj\Debug\Symple_Life_Counter.Droid.csprojResolveAssemblyReference.cache
-G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\obj\Debug\Symple_Life_Counter.Droid.dll
-G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\obj\Debug\Symple_Life_Counter.Droid.pdb
-G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\obj\Debug\android\bin\Symple_Life_Counter.Droid.apk
+G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\obj\Debug\Symple1_Life_Counter.Droid.dll
+G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\obj\Debug\Symple1_Life_Counter.Droid.pdb
+G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\obj\Debug\android\bin\jp.outlook.aki_lua87.SympleLifeCounter.apk
 G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\obj\Debug\res\drawable\icon.png
 G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\obj\Debug\res\drawable-hdpi\icon.png
 G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\obj\Debug\res\drawable-xhdpi\icon.png
@@ -27,5 +27,5 @@ G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\obj\Debug\
 G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\obj\Debug\R.cs.flag
 G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\obj\Debug\uploadflags.txt
 G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\bin\Debug\Symple_Life_Counter.dll.mdb
-G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\obj\Debug\Symple_Life_Counter.Droid.dll.mdb
-G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\bin\Debug\Symple_Life_Counter.Droid.dll.mdb
+G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\obj\Debug\Symple1_Life_Counter.Droid.dll.mdb
+G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\bin\Debug\Symple1_Life_Counter.Droid.dll.mdb

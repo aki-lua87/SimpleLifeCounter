@@ -10,7 +10,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Symple_Life_Counter.Droid</RootNamespace>
-    <AssemblyName>Symple_Life_Counter.Droid</AssemblyName>
+    <AssemblyName>Symple1_Life_Counter.Droid</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidApplication>true</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
@@ -101,7 +101,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>

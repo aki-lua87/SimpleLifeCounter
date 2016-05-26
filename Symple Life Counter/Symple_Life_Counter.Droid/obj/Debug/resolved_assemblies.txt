@@ -1,4 +1,4 @@
-G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\obj\Debug\assemblies\Symple_Life_Counter.Droid.dll
+G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\obj\Debug\assemblies\Symple1_Life_Counter.Droid.dll
 G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\obj\Debug\assemblies\FormsViewGroup.dll
 G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\obj\Debug\assemblies\Mono.Android.dll
 G:\vs\SympleLifeCounter\Symple Life Counter\Symple_Life_Counter.Droid\obj\Debug\assemblies\mscorlib.dll
