@@ -10,7 +10,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Symple_Life_Counter.Droid</RootNamespace>
-    <AssemblyName>Symple1_Life_Counter.Droid</AssemblyName>
+    <AssemblyName>Symple_Life_Counter.Droid</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidApplication>true</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>

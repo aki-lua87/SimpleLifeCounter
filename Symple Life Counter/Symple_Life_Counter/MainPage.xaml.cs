@@ -31,6 +31,7 @@ namespace Symple_Life_Counter
                     RightPlyerLife.Text = DefaultLife.ToString();
                 }
             };
+            
         }
 
         //ライフ増減
