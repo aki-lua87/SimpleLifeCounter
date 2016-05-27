@@ -10,7 +10,7 @@ namespace SimpleLifeCounter
 {
     public partial class LifePage : ContentPage
     {
-        const int DefaultLife = 20;
+        int DefaultLife = 20;
 
         public LifePage()
         {

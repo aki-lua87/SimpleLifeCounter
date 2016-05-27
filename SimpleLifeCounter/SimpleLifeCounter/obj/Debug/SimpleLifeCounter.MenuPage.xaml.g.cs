@@ -32,7 +32,10 @@ namespace SimpleLifeCounter {
         private global::Xamarin.Forms.Label cc;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Entry LifeNum;
+        private global::Xamarin.Forms.Picker LifeNum;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Button SaveButton;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
@@ -42,7 +45,8 @@ namespace SimpleLifeCounter {
             bc = this.FindByName<global::Xamarin.Forms.Label>("bc");
             BackgroundColorPicker = this.FindByName<global::Xamarin.Forms.Picker>("BackgroundColorPicker");
             cc = this.FindByName<global::Xamarin.Forms.Label>("cc");
-            LifeNum = this.FindByName<global::Xamarin.Forms.Entry>("LifeNum");
+            LifeNum = this.FindByName<global::Xamarin.Forms.Picker>("LifeNum");
+            SaveButton = this.FindByName<global::Xamarin.Forms.Button>("SaveButton");
         }
     }
 }

@@ -37,6 +37,5 @@ G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\res\
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\res\drawable-xxhdpi\icon.png
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\R.cs.flag
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\uploadflags.txt
-G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\SimpleLifeCounter.dll.mdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\SimpleLifeCounter.Droid.dll.mdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\SimpleLifeCounter.Droid.dll.mdb

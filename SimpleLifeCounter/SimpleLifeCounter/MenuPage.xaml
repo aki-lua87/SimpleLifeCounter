@@ -21,7 +21,10 @@
     <Label Text="Default Life"
           x:Name="cc"
           />
-    <Entry x:Name="LifeNum" />
+    <Picker x:Name="LifeNum" />
+
+    <Button x:Name="SaveButton"
+            Text="Save" />
 
   </StackLayout>
 </ContentPage>
