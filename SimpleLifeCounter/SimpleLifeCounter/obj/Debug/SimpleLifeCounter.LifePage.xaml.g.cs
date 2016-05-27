@@ -38,6 +38,9 @@ namespace SimpleLifeCounter {
         private global::Xamarin.Forms.Button LifeReset;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Button toMenuPage;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(LifePage));
             LeftPlyerLifeUp = this.FindByName<global::Xamarin.Forms.Button>("LeftPlyerLifeUp");
@@ -47,6 +50,7 @@ namespace SimpleLifeCounter {
             LeftPlyerLife = this.FindByName<global::Xamarin.Forms.Label>("LeftPlyerLife");
             RightPlyerLife = this.FindByName<global::Xamarin.Forms.Label>("RightPlyerLife");
             LifeReset = this.FindByName<global::Xamarin.Forms.Button>("LifeReset");
+            toMenuPage = this.FindByName<global::Xamarin.Forms.Button>("toMenuPage");
         }
     }
 }

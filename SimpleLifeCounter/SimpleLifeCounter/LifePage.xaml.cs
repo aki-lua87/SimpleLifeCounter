@@ -16,10 +16,14 @@ namespace SimpleLifeCounter
         {
             InitializeComponent();
 
+            // 上の邪魔なの消すおまじない
+            NavigationPage.SetHasNavigationBar(this, false);
+
             LeftPlyerLifeUp.Clicked += (sender, e) => LeftPlyerLife.Text = LifeUp(LeftPlyerLife);
             LeftPlyerLifeDown.Clicked += (sender, e) => LeftPlyerLife.Text = LifeDown(LeftPlyerLife);
             RightPlyerLifeUp.Clicked += (sender, e) => RightPlyerLife.Text = LifeUp(RightPlyerLife);
             RightPlyerLifeDown.Clicked += (sender, e) => RightPlyerLife.Text = LifeDown(RightPlyerLife);
+            toMenuPage.Clicked += async(sender,e) => await Navigation.PushAsync(new MenuPage());
 
             LifeReset.Clicked += async (sender, e) =>
             {

@@ -7,11 +7,14 @@ G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\asse
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\assemblies\System.dll
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\assemblies\System.Xml.dll
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\assemblies\System.Xml.Linq.dll
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\assemblies\Xamarin.Android.Support.Animated.Vector.Drawable.dll
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\assemblies\Xamarin.Android.Support.Design.dll
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\assemblies\Xamarin.Android.Support.v4.dll
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\assemblies\Xamarin.Android.Support.v7.AppCompat.dll
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\assemblies\Xamarin.Android.Support.v7.CardView.dll
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\assemblies\Xamarin.Android.Support.v7.MediaRouter.dll
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\assemblies\Xamarin.Android.Support.v7.RecyclerView.dll
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\assemblies\Xamarin.Android.Support.Vector.Drawable.dll
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\assemblies\Xamarin.Forms.Core.dll
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\assemblies\Xamarin.Forms.Platform.Android.dll
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\assemblies\Xamarin.Forms.Platform.dll
