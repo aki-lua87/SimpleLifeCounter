@@ -20,17 +20,29 @@ namespace SimpleLifeCounter {
         private global::Xamarin.Forms.Label lc;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Picker LifeColorPicker;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Label bc;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Picker BackgroundColorPicker;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Label cc;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Entry LifeNum;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(MenuPage));
             lc = this.FindByName<global::Xamarin.Forms.Label>("lc");
+            LifeColorPicker = this.FindByName<global::Xamarin.Forms.Picker>("LifeColorPicker");
             bc = this.FindByName<global::Xamarin.Forms.Label>("bc");
+            BackgroundColorPicker = this.FindByName<global::Xamarin.Forms.Picker>("BackgroundColorPicker");
             cc = this.FindByName<global::Xamarin.Forms.Label>("cc");
+            LifeNum = this.FindByName<global::Xamarin.Forms.Entry>("LifeNum");
         }
     }
 }

@@ -7,14 +7,21 @@
     <Label Text="Life Coloer cange"
           x:Name="lc"
           />
+    <Picker 
+            x:Name="LifeColorPicker"
+            />
 
     <Label Text="Background Coloer cange"
           x:Name="bc"
           />
+    <Picker
+            x:Name="BackgroundColorPicker"
+            />
 
     <Label Text="Default Life"
           x:Name="cc"
           />
+    <Entry x:Name="LifeNum" />
 
   </StackLayout>
 </ContentPage>
