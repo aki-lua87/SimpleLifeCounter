@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SimpleLifeCounter.LifePage">
+
+  <ContentPage.Padding>
+    5, 10, 5, 5
+  </ContentPage.Padding>
+
+  <ContentPage.BackgroundColor>
+    Blue
+  </ContentPage.BackgroundColor>
+
+
+  <AbsoluteLayout>
+
+    <!-- 値増減用ボタン　-->
+    <Button Text="UP"
+            x:Name="LeftPlyerLifeUp"
+            BorderColor="Blue"
+            BackgroundColor="Blue"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="0, 0, 0.5, 0.5"/>
+
+    <Button Text="DOWN"
+            x:Name="LeftPlyerLifeDown"
+            BorderColor="Blue"
+            BackgroundColor="Blue"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="0, 1, 0.5, 0.5"/>
+
+    <Button Text="UP"
+            x:Name="RightPlyerLifeUp"
+            BorderColor="Blue"
+            BackgroundColor="Blue"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="1, 0, 0.5, 0.5"/>
+
+    <Button Text="DOWN"
+            x:Name="RightPlyerLifeDown"
+            BorderColor="Blue"
+            BackgroundColor="Blue"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="1, 1, 0.5, 0.5"/>
+
+    <!-- 縦棒 -->
+    <BoxView Color="White"
+             AbsoluteLayout.LayoutFlags="XProportional,HeightProportional"
+             AbsoluteLayout.LayoutBounds="0.5, 0.5, 1.5, 0.9"/>
+
+
+    <!-- ライフ数値 -->
+    <Label Text="20"
+           x:Name="LeftPlyerLife"
+           FontSize="120"
+           TextColor="White"
+           AbsoluteLayout.LayoutFlags="PositionProportional"
+           AbsoluteLayout.LayoutBounds="0.20, 0.5, AutoSize, AutoSize"/>
+
+    <Label Text="20"
+           x:Name="RightPlyerLife"
+           FontSize="120"
+           TextColor="White"
+           AbsoluteLayout.LayoutFlags="PositionProportional"
+           AbsoluteLayout.LayoutBounds="0.80, 0.5, AutoSize, AutoSize"/>
+
+    <!-- リセットボタン　-->
+    <Button Text="リセット"
+            x:Name="LifeReset"
+            BackgroundColor="Gray"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            AbsoluteLayout.LayoutBounds="0.5, 1, AutoSize, AutoSize"/>
+
+  </AbsoluteLayout>
+
+</ContentPage>

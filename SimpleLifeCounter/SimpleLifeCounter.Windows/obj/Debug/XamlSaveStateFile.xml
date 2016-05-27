@@ -1,5 +1,6 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
+    <ReferenceAssembly PathName="g:\vs\symplelifecounter\simplelifecounter\simplelifecounter\bin\debug\simplelifecounter.dll" HashGuid="cf7cffd6-145a-7d38-f0d4-653bc5e3d5ee" />
     <ReferenceAssembly PathName="g:\vs\symplelifecounter\packages\xamarin.forms.2.0.0.6482\lib\win81\xamarin.forms.core.dll" HashGuid="c8a30eb8-5ae8-352d-b94f-7c913a7557ba" />
     <ReferenceAssembly PathName="g:\vs\symplelifecounter\packages\xamarin.forms.2.0.0.6482\lib\win81\xamarin.forms.platform.dll" HashGuid="d9389e38-8a39-bed5-406b-7a34fe4704ea" />
     <ReferenceAssembly PathName="g:\vs\symplelifecounter\packages\xamarin.forms.2.0.0.6482\lib\win81\xamarin.forms.platform.winrt.dll" HashGuid="dbd728c2-e21b-4125-2be0-f7931b605baa" />

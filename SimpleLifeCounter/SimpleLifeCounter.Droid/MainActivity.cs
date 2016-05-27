@@ -16,6 +16,9 @@ namespace SimpleLifeCounter.Droid
         {
             base.OnCreate(bundle);
 
+            // 横画面に固定
+            this.RequestedOrientation = ScreenOrientation.Landscape;
+
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
         }
