@@ -12,7 +12,7 @@ namespace SimpleLifeCounter
         public App()
         {
             // The root page of your application
-            NavigationPage.SetHasNavigationBar(this, false);
+            // NavigationPage.SetHasNavigationBar(this, false);
             MainPage = new NavigationPage(new LifePage());
         }
 
@@ -30,5 +30,6 @@ namespace SimpleLifeCounter
         {
             // Handle when your app resumes
         }
+
     }
 }

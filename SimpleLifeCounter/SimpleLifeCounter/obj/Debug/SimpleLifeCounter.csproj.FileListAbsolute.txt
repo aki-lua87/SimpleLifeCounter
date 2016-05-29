@@ -12,5 +12,8 @@ G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\obj\Debug\SimpleLife
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\obj\Debug\SimpleLifeCounter.MenuPage.xaml.g.cs
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\obj\Debug\SimpleLifeCounter.dll
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\obj\Debug\SimpleLifeCounter.pdb
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\obj\Debug\SimpleLifeCounter.csprojResolveAssemblyReference.cache
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\obj\Debug\SimpleLifeCounter.dll.mdb
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\SimpleLifeCounter.dll.mdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\obj\Debug\SimpleLifeCounter.dll.mdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\SimpleLifeCounter.dll.mdb
