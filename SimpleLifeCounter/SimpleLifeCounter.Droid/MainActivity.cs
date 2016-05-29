@@ -19,6 +19,9 @@ namespace SimpleLifeCounter.Droid
             // 横画面に固定
             this.RequestedOrientation = ScreenOrientation.Landscape;
 
+            // スリープモードにしない制御？
+            this.Window.SetFlags(WindowManagerFlags.KeepScreenOn, WindowManagerFlags.KeepScreenOn);
+
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
         }

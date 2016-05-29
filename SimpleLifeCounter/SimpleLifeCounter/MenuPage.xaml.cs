@@ -28,9 +28,10 @@ namespace SimpleLifeCounter
 
             // 上の邪魔なの消すおまじない
             NavigationPage.SetHasNavigationBar(this, false);
+            
 
             // Pickerに要素を追加
-            int Num = 10;
+            int Num = 10; //LifPoint
             foreach (string colorName in nameToColor.Keys)
             {
                 LifeColorPicker.Items.Add(colorName);
@@ -38,9 +39,7 @@ namespace SimpleLifeCounter
                 LifeNum.Items.Add(Num.ToString());
                 Num += 10;
             }
-
             SaveButton.Clicked += (sender, e) => SaveClicked();
-
         }
 
         private void SaveClicked()
@@ -50,6 +49,8 @@ namespace SimpleLifeCounter
             Application.Current.Properties["id"] = BackgroundColorPicker;
             Application.Current.Properties["id"] = LifeNum;
         }
+
+        
 
     }
 }
