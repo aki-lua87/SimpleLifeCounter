@@ -17,7 +17,9 @@ namespace SimpleLifeCounter.Droid
             base.OnCreate(bundle);
 
             // 横画面に固定
-            this.RequestedOrientation = ScreenOrientation.Landscape;
+            //this.RequestedOrientation = ScreenOrientation.Landscape;
+            //this.RequestedOrientation = ScreenOrientation.ReverseLandscape;
+            this.RequestedOrientation = ScreenOrientation.SensorLandscape;
 
             // スリープモードにしない制御？
             this.Window.SetFlags(WindowManagerFlags.KeepScreenOn, WindowManagerFlags.KeepScreenOn);
