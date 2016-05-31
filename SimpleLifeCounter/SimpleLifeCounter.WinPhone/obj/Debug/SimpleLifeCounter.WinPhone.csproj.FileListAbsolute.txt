@@ -45,3 +45,5 @@ G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\obj\Debug\M
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\obj\Debug\Xamarin.Forms.Platform.WinRT.pri.xml
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\obj\Debug\Xamarin.Forms.Platform.WinRT.Phone.pri.xml
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\obj\Debug\ProjectArchitectures.txt
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\bin\Debug\Newtonsoft.Json.dll
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\bin\Debug\Newtonsoft.Json.xml

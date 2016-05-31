@@ -11,7 +11,7 @@ namespace SimpleLifeCounter.ViewModels
 {
     class AllPagesViewModel : INotifyPropertyChanged
     {
-        private int _life = 20;
+        private int _life;
 
         public int Life
         {
@@ -26,9 +26,9 @@ namespace SimpleLifeCounter.ViewModels
             }
         }
 
-        private Color _backcolor = Color.Blue;
+        private int _backcolor;
 
-        public Color Backcolor
+        public int Backcolor
         {
             get { return _backcolor; }
             set
@@ -41,9 +41,9 @@ namespace SimpleLifeCounter.ViewModels
             }
         }
 
-        private Color _lifecolor = Color.White;
+        private int _lifecolor;
 
-        public Color Lifecolor
+        public int Lifecolor
         {
             get { return _lifecolor; }
             set
@@ -67,5 +67,11 @@ namespace SimpleLifeCounter.ViewModels
                     new PropertyChangedEventArgs(propertyName));
             }
         }
+
+        public Color Life_Color;
+        public Color Background_Color;
+        public int Life_point;
+
+
     }
 }

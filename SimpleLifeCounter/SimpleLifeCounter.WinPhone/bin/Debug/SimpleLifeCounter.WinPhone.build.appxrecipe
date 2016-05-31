@@ -39,6 +39,9 @@
     <AppxPackagedFile Include="G:\vs\SympleLifeCounter\packages\Xamarin.Forms.2.2.0.31\lib\wpa81\Xamarin.Forms.Xaml.dll">
       <PackagePath>Xamarin.Forms.Xaml.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\Assets\Logo.scale-240.png">
       <PackagePath>Assets\Logo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>

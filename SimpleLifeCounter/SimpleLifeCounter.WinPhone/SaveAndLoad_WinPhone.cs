@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using Xamarin.Forms;
 using Windows.Storage;
 using SimpleLifeCounter.WinPhone;
+using System.Text;
 
 [assembly: Dependency(typeof(SaveAndLoad_WinPhone))]
 namespace SimpleLifeCounter.WinPhone
@@ -16,7 +14,7 @@ namespace SimpleLifeCounter.WinPhone
         public string LoadData(string filename)
         {
             var task = LoadDataAsync(filename);
-            task.Wait(); // HACK: to keep Interface return types simple (sorry!)
+            task.Wait();
             return task.Result;
         }
         async Task<string> LoadDataAsync(string filename)
@@ -25,7 +23,8 @@ namespace SimpleLifeCounter.WinPhone
             if (local != null)
             {
                 var file = await local.GetItemAsync(filename);
-                using (StreamReader streamReader = new StreamReader(file.Path))
+                Stream stream = new MemoryStream(Encoding.Unicode.GetBytes(file.Path));
+                using (StreamReader streamReader = new StreamReader(stream))
                 {
                     var text = streamReader.ReadToEnd();
                     return text;
@@ -46,7 +45,7 @@ namespace SimpleLifeCounter.WinPhone
         public bool ClearData(string filename)
         {
             var task = ClearDataAsync(filename);
-            task.Wait(); // HACK: to keep Interface return types simple (sorry!)
+            task.Wait(); 
             return task.Result;
         }
 

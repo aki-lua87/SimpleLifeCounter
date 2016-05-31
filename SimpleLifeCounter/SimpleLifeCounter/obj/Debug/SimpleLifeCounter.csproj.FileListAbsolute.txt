@@ -17,3 +17,5 @@ G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\Newtonsoft
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\Newtonsoft.Json.xml
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\obj\Debug\SimpleLifeCounter.dll.mdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\SimpleLifeCounter.dll.mdb
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\obj\Debug\SimpleLifeCounter.dll.mdb
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\SimpleLifeCounter.dll.mdb
