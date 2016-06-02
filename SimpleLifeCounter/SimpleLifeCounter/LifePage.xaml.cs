@@ -15,21 +15,10 @@ namespace SimpleLifeCounter
         private AllPagesViewModel vm = new AllPagesViewModel();
 
         int DefaultLife;
-        Color LifeFont_Color; //この変数名ダメ
-        Color LifeButtonColor;
+        Color LifeFont_Color; 
+        Color LifeButton_Color;
 
-        // どっかで統合したい
-        Dictionary<string, Color> nameToColor = new Dictionary<string, Color>
-        {
-            { "Aqua", Color.Aqua }, { "Black", Color.Black },
-            { "Blue", Color.Blue },
-            { "Gray", Color.Gray }, { "Green", Color.Green },
-            { "Lime", Color.Lime }, { "Maroon", Color.Maroon },
-            { "Navy", Color.Navy }, { "Olive", Color.Olive },
-            { "Purple", Color.Purple }, { "Red", Color.Red },
-            { "Silver", Color.Silver }, { "Teal", Color.Teal },
-            { "White", Color.White }, { "Yellow", Color.Yellow }
-        };
+        Dictionary<string, Color> stringToColor;
 
         public LifePage()
         {
@@ -37,6 +26,9 @@ namespace SimpleLifeCounter
 
             // 上の邪魔なの消すおまじない
             NavigationPage.SetHasNavigationBar(this, false);
+
+            // 色と文字列のリスト
+            stringToColor = vm.getStringToColorList();
 
             // json read
             DataDraw();
@@ -53,8 +45,6 @@ namespace SimpleLifeCounter
                 "リセット", "ライフを初期値に戻しますか？", "はい", "いいえ");
                 if (accepted)
                 {
-                    //LeftPlyerLife.Text = DefaultLife.ToString();
-                    //RightPlyerLife.Text = DefaultLife.ToString();
                     DataDraw();
                 }
             };
@@ -81,26 +71,26 @@ namespace SimpleLifeCounter
                 LeftPlyerLife.Text = DefaultLife.ToString();
                 RightPlyerLife.Text = DefaultLife.ToString();
 
-                LifeButtonColor = nameToColor[vm.Life_Color];
-                LeftPlyerLifeDown.BackgroundColor = LifeButtonColor;
-                LeftPlyerLifeDown.BorderColor = LifeButtonColor;
-                LeftPlyerLifeUp.BackgroundColor = LifeButtonColor;
-                LeftPlyerLifeUp.BorderColor = LifeButtonColor;
-                RightPlyerLifeDown.BackgroundColor = LifeButtonColor;
-                RightPlyerLifeDown.BorderColor = LifeButtonColor;
-                RightPlyerLifeUp.BackgroundColor = LifeButtonColor;
-                RightPlyerLifeUp.BorderColor = LifeButtonColor;
-                Content.BackgroundColor = LifeButtonColor;
+                //LifeButton_Color = nameToColor[vm.Life_Color];
+                LifeButton_Color = stringToColor[vm.Life_Color];
+                LeftPlyerLifeDown.BackgroundColor = LifeButton_Color;
+                LeftPlyerLifeDown.BorderColor = LifeButton_Color;
+                LeftPlyerLifeUp.BackgroundColor = LifeButton_Color;
+                LeftPlyerLifeUp.BorderColor = LifeButton_Color;
+                RightPlyerLifeDown.BackgroundColor = LifeButton_Color;
+                RightPlyerLifeDown.BorderColor = LifeButton_Color;
+                RightPlyerLifeUp.BackgroundColor = LifeButton_Color;
+                RightPlyerLifeUp.BorderColor = LifeButton_Color;
+                Content.BackgroundColor = LifeButton_Color;
 
-                LifeFont_Color = nameToColor[vm.LifeFont_Color];
+                //LifeFont_Color = nameToColor[vm.LifeFont_Color];
+                LifeFont_Color = stringToColor[vm.LifeFont_Color];
                 LeftPlyerLife.TextColor = LifeFont_Color;
                 RightPlyerLife.TextColor = LifeFont_Color;
             }
             catch (Exception)
             {
-                DisplayAlert("Error", "Data cannot be cleared", "OK");
-
-                // jsonデータがない場合初期値をイン〔ここじゃないと思う〕 //というか事前に作っておくべき
+                // ここは起動時に必ず読み込む
                 vm.Life = 1;
                 vm.Lifecolor = 1;
                 vm.Backcolor = 13;
@@ -114,7 +104,7 @@ namespace SimpleLifeCounter
 
                 DataDraw();
             }
-
+            
         }
 
     }

@@ -6,7 +6,7 @@
 
     <Label Text="Life Font Coloer cange"
           x:Name="lc" />
-    <Picker x:Name="LifeColorPicker"
+    <Picker x:Name="LifeFontColorPicker"
            
             />
 

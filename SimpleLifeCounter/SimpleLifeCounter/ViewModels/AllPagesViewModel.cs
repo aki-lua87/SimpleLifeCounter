@@ -11,6 +11,18 @@ namespace SimpleLifeCounter.ViewModels
 {
     class AllPagesViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+
+        // menuPage にバインドしたい
         private int _life;
 
         public int Life
@@ -56,20 +68,7 @@ namespace SimpleLifeCounter.ViewModels
             }
         }
 
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this,
-                    new PropertyChangedEventArgs(propertyName));
-            }
-        }
-
-
-        //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa!!!WDefergedgergerg
+        //LifePage にバインドしたい
         private string _Life_Color;
         public string Life_Color
         {
@@ -99,9 +98,6 @@ namespace SimpleLifeCounter.ViewModels
             }
         }
 
-
-
-
         private int _Life_point;
         public int Life_point
         {
@@ -114,6 +110,23 @@ namespace SimpleLifeCounter.ViewModels
                     OnPropertyChanged("Life_point");
                 }
             }
+        }
+
+        //"""""""""""""""""""""""""""""""""""""""""""""""""""""
+        Dictionary<string, Color> nameToColor = new Dictionary<string, Color>
+        {
+            { "Aqua", Color.Aqua }, { "Black", Color.Black },
+            { "Blue", Color.Blue },
+            { "Gray", Color.Gray }, { "Green", Color.Green },
+            { "Lime", Color.Lime }, { "Maroon", Color.Maroon },
+            { "Navy", Color.Navy }, { "Olive", Color.Olive },
+            { "Purple", Color.Purple }, { "Red", Color.Red },
+            { "Silver", Color.Silver }, { "Teal", Color.Teal },
+            { "White", Color.White }, { "Yellow", Color.Yellow }
+        };
+        public Dictionary<string, Color> getStringToColorList()
+        {
+            return nameToColor;
         }
 
     }
