@@ -43,20 +43,22 @@ namespace SimpleLifeCounter
         // セーブ
         private void SaveClicked()
         {
+            
             // ベタ書き(´・ω・｀)
             vm.Life = LifeNum.SelectedIndex;
             vm.Lifecolor = LifeColorPicker.SelectedIndex;
             vm.Backcolor = BackgroundColorPicker.SelectedIndex;
 
-            vm.Life_Color = nameToColor[LifeColorPicker.Items[LifeColorPicker.SelectedIndex]];
+            vm.Life_Color = LifeColorPicker.Items[LifeColorPicker.SelectedIndex];
             vm.Life_point = int.Parse(LifeNum.Items[LifeNum.SelectedIndex]);
-            vm.Background_Color = nameToColor[BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex]];
+            vm.LifeFont_Color = BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex];
 
 
             var json = JsonConvert.SerializeObject(vm);
             DependencyService.Get<ISaveAndLoad>().SaveData("temp.json", json);
 
-            Navigation.PushAsync(new LifePage());
+            DisplayAlert("セーブ値", "" + vm.Life_Color + vm.Life_point + vm.LifeFont_Color, "OK");
+            //DisplayAlert("現在の値", "" + LeftPlyerLife.Text + LeftPlyerLifeUp.BackgroundColor + Content.BackgroundColor, "OK");
         }
 
         // ピッカーに値を
@@ -75,34 +77,13 @@ namespace SimpleLifeCounter
 
         // 読み出し
         private void DataDraw()
-        {
-            try
-            {
+        { 
                 var data = DependencyService.Get<ISaveAndLoad>().LoadData("temp.json");
                 this.vm = JsonConvert.DeserializeObject<AllPagesViewModel>(data);
 
                 LifeNum.SelectedIndex = vm.Life;
                 BackgroundColorPicker.SelectedIndex = vm.Backcolor;
                 LifeColorPicker.SelectedIndex = vm.Lifecolor;
-            }
-            catch (Exception)
-            {
-
-                // jsonデータがない場合初期値をイン〔ここじゃないと思う〕 //というか事前に作っておくべき
-                vm.Life = 1;
-                vm.Lifecolor = 1;
-                vm.Backcolor = 13;
-
-                vm.Life_Color = Color.White;
-                vm.Life_point = 20;
-                vm.Background_Color = Color.Black;
-
-                var json = JsonConvert.SerializeObject(vm);
-                DependencyService.Get<ISaveAndLoad>().SaveData("temp.json", json);
-
-                DataDraw();
-                
-            }
 
         }
     }

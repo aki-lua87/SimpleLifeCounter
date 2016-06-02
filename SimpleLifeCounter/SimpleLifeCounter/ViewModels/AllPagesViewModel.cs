@@ -68,10 +68,53 @@ namespace SimpleLifeCounter.ViewModels
             }
         }
 
-        public Color Life_Color;
-        public Color Background_Color;
-        public int Life_point;
 
+        //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa!!!WDefergedgergerg
+        private string _Life_Color;
+        public string Life_Color
+        {
+            get { return _Life_Color; }
+            set
+            {
+                if (_Life_Color != value)
+                {
+                    _Life_Color = value;
+                    OnPropertyChanged("Life_Color");
+                }
+            }
+        }
+
+
+        private string _LifeFont_Color;
+        public string LifeFont_Color
+        {
+            get { return _LifeFont_Color; }
+            set
+            {
+                if (_LifeFont_Color != value)
+                {
+                    _LifeFont_Color = value;
+                    OnPropertyChanged("LifeFont_Color");
+                }
+            }
+        }
+
+
+
+
+        private int _Life_point;
+        public int Life_point
+        {
+            get { return _Life_point; }
+            set
+            {
+                if (_Life_point != value)
+                {
+                    _Life_point = value;
+                    OnPropertyChanged("Life_point");
+                }
+            }
+        }
 
     }
 }

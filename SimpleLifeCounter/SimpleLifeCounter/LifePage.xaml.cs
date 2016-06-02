@@ -15,8 +15,21 @@ namespace SimpleLifeCounter
         private AllPagesViewModel vm = new AllPagesViewModel();
 
         int DefaultLife;
-        Color Background_Color;
+        Color LifeFont_Color; //この変数名ダメ
         Color LifeButtonColor;
+
+        // どっかで統合したい
+        Dictionary<string, Color> nameToColor = new Dictionary<string, Color>
+        {
+            { "Aqua", Color.Aqua }, { "Black", Color.Black },
+            { "Blue", Color.Blue },
+            { "Gray", Color.Gray }, { "Green", Color.Green },
+            { "Lime", Color.Lime }, { "Maroon", Color.Maroon },
+            { "Navy", Color.Navy }, { "Olive", Color.Olive },
+            { "Purple", Color.Purple }, { "Red", Color.Red },
+            { "Silver", Color.Silver }, { "Teal", Color.Teal },
+            { "White", Color.White }, { "Yellow", Color.Yellow }
+        };
 
         public LifePage()
         {
@@ -62,13 +75,13 @@ namespace SimpleLifeCounter
             try
             {
                 var data = DependencyService.Get<ISaveAndLoad>().LoadData("temp.json");
-                this.vm = JsonConvert.DeserializeObject<AllPagesViewModel>(data);
+                vm = JsonConvert.DeserializeObject<AllPagesViewModel>(data);
 
                 DefaultLife = vm.Life_point;
                 LeftPlyerLife.Text = DefaultLife.ToString();
                 RightPlyerLife.Text = DefaultLife.ToString();
 
-                LifeButtonColor = vm.Life_Color;
+                LifeButtonColor = nameToColor[vm.Life_Color];
                 LeftPlyerLifeDown.BackgroundColor = LifeButtonColor;
                 LeftPlyerLifeDown.BorderColor = LifeButtonColor;
                 LeftPlyerLifeUp.BackgroundColor = LifeButtonColor;
@@ -77,21 +90,24 @@ namespace SimpleLifeCounter
                 RightPlyerLifeDown.BorderColor = LifeButtonColor;
                 RightPlyerLifeUp.BackgroundColor = LifeButtonColor;
                 RightPlyerLifeUp.BorderColor = LifeButtonColor;
+                Content.BackgroundColor = LifeButtonColor;
 
-                Background_Color = vm.Background_Color;
-                this.Content.BackgroundColor = Background_Color;
+                LifeFont_Color = nameToColor[vm.LifeFont_Color];
+                LeftPlyerLife.TextColor = LifeFont_Color;
+                RightPlyerLife.TextColor = LifeFont_Color;
             }
             catch (Exception)
             {
+                DisplayAlert("Error", "Data cannot be cleared", "OK");
 
                 // jsonデータがない場合初期値をイン〔ここじゃないと思う〕 //というか事前に作っておくべき
                 vm.Life = 1;
                 vm.Lifecolor = 1;
                 vm.Backcolor = 13;
 
-                vm.Life_Color = Color.White;
+                vm.Life_Color = "White";
                 vm.Life_point = 20;
-                vm.Background_Color = Color.Black;
+                vm.LifeFont_Color = "Black";
 
                 var json = JsonConvert.SerializeObject(vm);
                 DependencyService.Get<ISaveAndLoad>().SaveData("temp.json", json);

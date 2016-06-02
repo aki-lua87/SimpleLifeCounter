@@ -39,6 +39,5 @@ G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\R.cs
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\uploadflags.txt
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\Newtonsoft.Json.dll
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\Newtonsoft.Json.xml
-G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\SimpleLifeCounter.dll.mdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\SimpleLifeCounter.Droid.dll.mdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\SimpleLifeCounter.Droid.dll.mdb

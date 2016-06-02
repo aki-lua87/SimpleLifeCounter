@@ -622,3 +622,4 @@ namespace SimpleLifeCounter.WinPhone.SimpleLifeCounter_WinPhone_XamlTypeInfo
 }
 
 
+

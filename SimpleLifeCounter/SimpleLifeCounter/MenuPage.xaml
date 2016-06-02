@@ -4,7 +4,7 @@
              x:Class="SimpleLifeCounter.MenuPage">
   <StackLayout>
 
-    <Label Text="Life Coloer cange"
+    <Label Text="Life Font Coloer cange"
           x:Name="lc" />
     <Picker x:Name="LifeColorPicker"
            
