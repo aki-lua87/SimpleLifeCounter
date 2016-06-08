@@ -1,10 +1,14 @@
 
 Bin/
+bin/
 Obj/
+obj/
 Debug/
+debug/
 packages/
 
-
+test1/
+test3/
 
 Components
 [Pp]ackages
