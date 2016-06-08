@@ -2,5 +2,10 @@
 /bin
 /obj
 
+bin/
+obj/
+
 /obj/Debug/
 /bin/Debug/
+
+*.apk
