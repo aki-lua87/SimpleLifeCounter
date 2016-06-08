@@ -1,3 +1,11 @@
+
+Bin/
+Obj/
+Debug/
+
+
+
+
 Components
 [Pp]ackages
 *.userprefs
