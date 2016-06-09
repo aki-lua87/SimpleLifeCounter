@@ -6,7 +6,8 @@ public class FragmentContainer
 	implements
 		mono.android.IGCUserPeer
 {
-	static final String __md_methods;
+/** @hide */
+	public static final String __md_methods;
 	static {
 		__md_methods = 
 			"n_getUserVisibleHint:()Z:GetGetUserVisibleHintHandler\n" +
@@ -84,7 +85,7 @@ public class FragmentContainer
 
 	private native void n_onResume ();
 
-	java.util.ArrayList refList;
+	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
 	{
 		if (refList == null)

@@ -112,6 +112,20 @@ namespace SimpleLifeCounter.ViewModels
             }
         }
 
+        private Boolean _lifeResetCheck;
+        public Boolean LifeResetCheck
+        {
+            get { return _lifeResetCheck; }
+            set
+            {
+                if (_lifeResetCheck != value)
+                {
+                    _lifeResetCheck = value;
+                    OnPropertyChanged("LifeResetCheck");
+                }
+            }
+        }
+
         //"""""""""""""""""""""""""""""""""""""""""""""""""""""
         Dictionary<string, Color> nameToColor = new Dictionary<string, Color>
         {

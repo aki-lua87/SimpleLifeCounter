@@ -51,11 +51,13 @@ namespace SimpleLifeCounter
             vm.Life_point = int.Parse(LifeNum.Items[LifeNum.SelectedIndex]);
             vm.LifeFont_Color = BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex];
 
+            vm.LifeResetCheck = lrcSwitch.IsToggled;
+
 
             var json = JsonConvert.SerializeObject(vm);
             DependencyService.Get<ISaveAndLoad>().SaveData("temp.json", json);
 
-            DisplayAlert("セーブ値", "" + vm.Life_Color + vm.Life_point + vm.LifeFont_Color, "OK");
+            //DisplayAlert("セーブ値", "" + vm.Life_Color + vm.Life_point + vm.LifeFont_Color, "OK");
         }
 
         // ピッカーに値を
@@ -72,18 +74,21 @@ namespace SimpleLifeCounter
             }
         }
 
-        // 読み出し
+        // 読み出し 
         private void DataDraw()
         { 
             var data = DependencyService.Get<ISaveAndLoad>().LoadData("temp.json");
             this.vm = JsonConvert.DeserializeObject<AllPagesViewModel>(data);
 
+            // バインドできればここも(´・ω・`)
             LifeNum.SelectedIndex = vm.Life;
             BackgroundColorPicker.SelectedIndex = vm.Backcolor;
             LifeFontColorPicker.SelectedIndex = vm.Lifecolor;
 
             LifeFontColorPicker.BackgroundColor = stringToColor[LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex]];
             BackgroundColorPicker.BackgroundColor = stringToColor[BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex]];
+
+            lrcSwitch.IsToggled = vm.LifeResetCheck;
         }
     }
 }

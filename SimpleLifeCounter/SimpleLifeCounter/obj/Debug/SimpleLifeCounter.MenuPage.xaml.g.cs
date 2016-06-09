@@ -35,6 +35,12 @@ namespace SimpleLifeCounter {
         private global::Xamarin.Forms.Picker LifeNum;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label lrc;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Switch lrcSwitch;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Button SaveButton;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
@@ -46,6 +52,8 @@ namespace SimpleLifeCounter {
             BackgroundColorPicker = this.FindByName<global::Xamarin.Forms.Picker>("BackgroundColorPicker");
             cc = this.FindByName<global::Xamarin.Forms.Label>("cc");
             LifeNum = this.FindByName<global::Xamarin.Forms.Picker>("LifeNum");
+            lrc = this.FindByName<global::Xamarin.Forms.Label>("lrc");
+            lrcSwitch = this.FindByName<global::Xamarin.Forms.Switch>("lrcSwitch");
             SaveButton = this.FindByName<global::Xamarin.Forms.Button>("SaveButton");
         }
     }

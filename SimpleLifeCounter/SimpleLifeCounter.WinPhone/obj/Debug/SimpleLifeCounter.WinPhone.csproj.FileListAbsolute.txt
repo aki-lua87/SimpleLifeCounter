@@ -12,11 +12,9 @@ G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\bin\Debug\X
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\bin\Debug\Xamarin.Forms.Platform.WinRT.dll
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\bin\Debug\Xamarin.Forms.Platform.WinRT.Phone.dll
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\bin\Debug\Xamarin.Forms.Xaml.dll
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\bin\Debug\Newtonsoft.Json.dll
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\bin\Debug\SimpleLifeCounter.pdb
-G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\bin\Debug\Xamarin.Forms.Core.xml
-G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\bin\Debug\Xamarin.Forms.Platform.WinRT.pri
-G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\bin\Debug\Xamarin.Forms.Platform.WinRT.Phone.pri
-G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\bin\Debug\Xamarin.Forms.Xaml.xml
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\bin\Debug\Newtonsoft.Json.xml
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\obj\Debug\SimpleLifeCounter.WinPhone.csprojResolveAssemblyReference.cache
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\obj\Debug\App.g.i.cs
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\obj\Debug\App.g.cs
@@ -42,8 +40,4 @@ G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\obj\Debug\p
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\obj\Debug\qualifiers.txt
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\obj\Debug\qualifiers.txt.intermediate
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\obj\Debug\MultipleQualifiersPerDimensionFound.txt
-G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\obj\Debug\Xamarin.Forms.Platform.WinRT.pri.xml
-G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\obj\Debug\Xamarin.Forms.Platform.WinRT.Phone.pri.xml
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\obj\Debug\ProjectArchitectures.txt
-G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\bin\Debug\Newtonsoft.Json.dll
-G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\bin\Debug\Newtonsoft.Json.xml

@@ -6,7 +6,8 @@ public class EntryCellEditText
 	implements
 		mono.android.IGCUserPeer
 {
-	static final String __md_methods;
+/** @hide */
+	public static final String __md_methods;
 	static {
 		__md_methods = 
 			"n_onKeyPreIme:(ILandroid/view/KeyEvent;)Z:GetOnKeyPreIme_ILandroid_view_KeyEvent_Handler\n" +
@@ -63,7 +64,7 @@ public class EntryCellEditText
 
 	private native void n_onFocusChanged (boolean p0, int p1, android.graphics.Rect p2);
 
-	java.util.ArrayList refList;
+	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)
 	{
 		if (refList == null)

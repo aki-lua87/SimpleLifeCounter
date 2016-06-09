@@ -41,12 +41,17 @@ namespace SimpleLifeCounter
 
             LifeReset.Clicked += async (sender, e) =>
             {
-                var accepted = await this.DisplayAlert(
-                "リセット", "ライフを初期値に戻しますか？", "はい", "いいえ");
+                var accepted = true;
+                if (vm.LifeResetCheck)
+                {
+                    accepted = await DisplayAlert(
+                    "リセット", "ライフを初期値に戻しますか？", "はい", "いいえ");
+                }
                 if (accepted)
                 {
                     DataDraw();
                 }
+
             };
         }
 
@@ -60,6 +65,7 @@ namespace SimpleLifeCounter
             return (int.Parse(Lifelabel.Text) - 1).ToString();
         }
 
+        // json read
         private void DataDraw()
         {
             try
@@ -88,7 +94,7 @@ namespace SimpleLifeCounter
                 LeftPlyerLife.TextColor = LifeFont_Color;
                 RightPlyerLife.TextColor = LifeFont_Color;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 // ここは起動時に必ず読み込む
                 vm.Life = 1;
@@ -98,6 +104,8 @@ namespace SimpleLifeCounter
                 vm.Life_Color = "White";
                 vm.Life_point = 20;
                 vm.LifeFont_Color = "Black";
+
+                vm.LifeResetCheck = false;
 
                 var json = JsonConvert.SerializeObject(vm);
                 DependencyService.Get<ISaveAndLoad>().SaveData("temp.json", json);

@@ -6,22 +6,24 @@
 
     <Label Text="Life Font Coloer cange"
           x:Name="lc" />
-    <Picker x:Name="LifeFontColorPicker"
-           
-            />
+    <Picker x:Name="LifeFontColorPicker" />
 
     <Label Text="Background Coloer cange"
           x:Name="bc" />
-    <Picker x:Name="BackgroundColorPicker"
-             />
+    <Picker x:Name="BackgroundColorPicker" />
 
     <Label Text="Default Life"
            x:Name="cc" />
-    <Picker x:Name="LifeNum"
-            />
+    <Picker x:Name="LifeNum" />
+
+    <Label Text="Life Reset Confirmation"
+           x:Name="lrc" />
+    <Switch x:Name="lrcSwitch" />
 
     <Button x:Name="SaveButton"
             Text="Save" />
+
+    
 
   </StackLayout>
 </ContentPage>
