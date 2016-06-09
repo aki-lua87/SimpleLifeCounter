@@ -57,6 +57,8 @@ namespace SimpleLifeCounter
             var json = JsonConvert.SerializeObject(vm);
             DependencyService.Get<ISaveAndLoad>().SaveData("temp.json", json);
 
+            Navigation.PopAsync();
+
             //DisplayAlert("セーブ値", "" + vm.Life_Color + vm.Life_point + vm.LifeFont_Color, "OK");
         }
 
