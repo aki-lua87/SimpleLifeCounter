@@ -24,6 +24,8 @@ namespace SimpleLifeCounter
         {
             InitializeComponent();
 
+            BindingContext = vm;
+
             // 上の邪魔なの消すおまじない
             NavigationPage.SetHasNavigationBar(this, false);
 
@@ -49,11 +51,20 @@ namespace SimpleLifeCounter
                 }
                 if (accepted)
                 {
+                    // バインドできればライフりせっとのみでおｋ
                     DataDraw();
                 }
 
             };
         }
+
+        // CIP
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            DataDraw();
+        }
+
 
         //ライフ増減
         private string LifeUp(Label Lifelabel)
@@ -73,6 +84,7 @@ namespace SimpleLifeCounter
                 var data = DependencyService.Get<ISaveAndLoad>().LoadData("temp.json");
                 vm = JsonConvert.DeserializeObject<AllPagesViewModel>(data);
 
+                // ばいんどできればここから下はいらないはず？
                 DefaultLife = vm.Life_point;
                 LeftPlyerLife.Text = DefaultLife.ToString();
                 RightPlyerLife.Text = DefaultLife.ToString();
@@ -94,7 +106,7 @@ namespace SimpleLifeCounter
                 LeftPlyerLife.TextColor = LifeFont_Color;
                 RightPlyerLife.TextColor = LifeFont_Color;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 // ここは起動時に必ず読み込む
                 vm.Life = 1;

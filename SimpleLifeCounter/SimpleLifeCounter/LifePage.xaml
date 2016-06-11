@@ -12,6 +12,7 @@
     <!-- 値増減用ボタン　-->
     <Button Text="UP"
             x:Name="LeftPlyerLifeUp"
+            BackgroundColor="{Binding Life_Color}"
             AbsoluteLayout.LayoutFlags="All"
             AbsoluteLayout.LayoutBounds="0, 0, 0.5, 0.5"/>
 

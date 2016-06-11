@@ -10,7 +10,8 @@
 
     <Label Text="Background Coloer cange"
           x:Name="bc" />
-    <Picker x:Name="BackgroundColorPicker" />
+    <Picker x:Name="BackgroundColorPicker"
+            BackgroundColor="{Binding Life_Color}"/>
 
     <Label Text="Default Life"
            x:Name="cc" />

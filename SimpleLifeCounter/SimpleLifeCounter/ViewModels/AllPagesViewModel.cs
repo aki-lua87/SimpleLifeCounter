@@ -24,7 +24,6 @@ namespace SimpleLifeCounter.ViewModels
 
         // menuPage にバインドしたい
         private int _life;
-
         public int Life
         {
             get { return _life; }
@@ -39,7 +38,6 @@ namespace SimpleLifeCounter.ViewModels
         }
 
         private int _backcolor;
-
         public int Backcolor
         {
             get { return _backcolor; }
@@ -54,7 +52,6 @@ namespace SimpleLifeCounter.ViewModels
         }
 
         private int _lifecolor;
-
         public int Lifecolor
         {
             get { return _lifecolor; }
@@ -68,7 +65,21 @@ namespace SimpleLifeCounter.ViewModels
             }
         }
 
-        //LifePage にバインドしたい
+        private Boolean _lifeResetCheck;
+        public Boolean LifeResetCheck
+        {
+            get { return _lifeResetCheck; }
+            set
+            {
+                if (_lifeResetCheck != value)
+                {
+                    _lifeResetCheck = value;
+                    OnPropertyChanged("LifeResetCheck");
+                }
+            }
+        }
+
+        //LifePage にバインドしたい //Color投げられてStringで保存あと逆も
         private string _Life_Color;
         public string Life_Color
         {
@@ -81,6 +92,10 @@ namespace SimpleLifeCounter.ViewModels
                     OnPropertyChanged("Life_Color");
                 }
             }
+        }
+        public Color getLifeColor()
+        {
+            return nameToColor[_Life_Color];
         }
 
 
@@ -112,19 +127,7 @@ namespace SimpleLifeCounter.ViewModels
             }
         }
 
-        private Boolean _lifeResetCheck;
-        public Boolean LifeResetCheck
-        {
-            get { return _lifeResetCheck; }
-            set
-            {
-                if (_lifeResetCheck != value)
-                {
-                    _lifeResetCheck = value;
-                    OnPropertyChanged("LifeResetCheck");
-                }
-            }
-        }
+        
 
         //"""""""""""""""""""""""""""""""""""""""""""""""""""""
         Dictionary<string, Color> nameToColor = new Dictionary<string, Color>

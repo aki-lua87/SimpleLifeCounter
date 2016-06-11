@@ -19,7 +19,7 @@ namespace SimpleLifeCounter
         public MenuPage()
         {
             InitializeComponent();
-            //this.BindingContext = vm; //バインドができない切れそう
+            this.BindingContext = vm; //バインドができない切れそう
 
             // 上の邪魔なの消すおまじない
             NavigationPage.SetHasNavigationBar(this, false);
@@ -59,7 +59,7 @@ namespace SimpleLifeCounter
 
             Navigation.PopAsync();
 
-            //DisplayAlert("セーブ値", "" + vm.Life_Color + vm.Life_point + vm.LifeFont_Color, "OK");
+            // DisplayAlert("セーブ", "一度リセットして設定をてきおうしてください", "OK");
         }
 
         // ピッカーに値を
@@ -91,6 +91,12 @@ namespace SimpleLifeCounter
             BackgroundColorPicker.BackgroundColor = stringToColor[BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex]];
 
             lrcSwitch.IsToggled = vm.LifeResetCheck;
+        }
+
+        // PIG
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
         }
     }
 }
