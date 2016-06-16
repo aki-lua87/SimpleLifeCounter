@@ -13,13 +13,14 @@ namespace SimpleLifeCounter
     public partial class MenuPage : ContentPage
     {
         private AllPagesViewModel vm = new AllPagesViewModel();
-
+        private MenuPagesViewModel mvm = new MenuPagesViewModel();
         Dictionary<string, Color> stringToColor;
 
         public MenuPage()
         {
             InitializeComponent();
-            this.BindingContext = vm; //バインドができない切れそう
+            this.BindingContext = vm;
+            this.BindingContext = mvm; 
 
             // 上の邪魔なの消すおまじない
             NavigationPage.SetHasNavigationBar(this, false);
@@ -33,23 +34,23 @@ namespace SimpleLifeCounter
             SaveButton.Clicked += (sender, e) => SaveClicked();
 
             LifeFontColorPicker.SelectedIndexChanged += (sender, s) => 
-            LifeFontColorPicker.BackgroundColor = stringToColor[LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex]];
+            mvm.ConfirmationLifeFontColor = stringToColor[LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex]];
 
             BackgroundColorPicker.SelectedIndexChanged += (sender, e) =>
-            BackgroundColorPicker.BackgroundColor = stringToColor[BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex]];
+            mvm.ConfirmationBackgroundColor = stringToColor[BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex]];
         }
 
         // セーブ
         private void SaveClicked()
         {
             // ベタ書き(´・ω・｀) バインドできるんですよね……
-            vm.Life = LifeNum.SelectedIndex;
-            vm.Lifecolor = LifeFontColorPicker.SelectedIndex;
-            vm.Backcolor = BackgroundColorPicker.SelectedIndex;
+            vm.LifeIndex = LifeNum.SelectedIndex;
+            vm.LifeColorIndex = LifeFontColorPicker.SelectedIndex;
+            vm.BackgroundColorIndex = BackgroundColorPicker.SelectedIndex;
 
-            vm.Life_Color = LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex];
-            vm.Life_point = int.Parse(LifeNum.Items[LifeNum.SelectedIndex]);
-            vm.LifeFont_Color = BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex];
+            vm.LifeFontColor = LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex];
+            vm.DefaultLifePoint = int.Parse(LifeNum.Items[LifeNum.SelectedIndex]);
+            vm.BackgroundColor = BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex];
 
             vm.LifeResetCheck = lrcSwitch.IsToggled;
 
@@ -82,13 +83,13 @@ namespace SimpleLifeCounter
             var data = DependencyService.Get<ISaveAndLoad>().LoadData("temp.json");
             this.vm = JsonConvert.DeserializeObject<AllPagesViewModel>(data);
 
-            // バインドできればここも(´・ω・`)
-            LifeNum.SelectedIndex = vm.Life;
-            BackgroundColorPicker.SelectedIndex = vm.Backcolor;
-            LifeFontColorPicker.SelectedIndex = vm.Lifecolor;
+            mvm.ConfirmationLifeFontColor = vm.getLifeFontColor();
+            mvm.ConfirmationBackgroundColor = vm.getBackgroundColor();
 
-            LifeFontColorPicker.BackgroundColor = stringToColor[LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex]];
-            BackgroundColorPicker.BackgroundColor = stringToColor[BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex]];
+            // バインドできればここも(´・ω・`)
+            LifeNum.SelectedIndex = vm.LifeIndex;
+            BackgroundColorPicker.SelectedIndex = vm.BackgroundColorIndex;
+            LifeFontColorPicker.SelectedIndex = vm.LifeColorIndex;
 
             lrcSwitch.IsToggled = vm.LifeResetCheck;
         }

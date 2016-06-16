@@ -13,12 +13,13 @@ namespace SimpleLifeCounter
     public partial class LifePage : ContentPage
     {
         private AllPagesViewModel vm = new AllPagesViewModel();
+        
 
         int DefaultLife;
         Color LifeFont_Color; 
         Color LifeButton_Color;
 
-        Dictionary<string, Color> stringToColor;
+        //Dictionary<string, Color> stringToColor;
 
         public LifePage()
         {
@@ -30,7 +31,7 @@ namespace SimpleLifeCounter
             NavigationPage.SetHasNavigationBar(this, false);
 
             // 色と文字列のリスト
-            stringToColor = vm.getStringToColorList();
+            //stringToColor = vm.getStringToColorList();
 
             // json read
             DataDraw();
@@ -85,12 +86,11 @@ namespace SimpleLifeCounter
                 vm = JsonConvert.DeserializeObject<AllPagesViewModel>(data);
 
                 // ばいんどできればここから下はいらないはず？
-                DefaultLife = vm.Life_point;
+                DefaultLife = vm.DefaultLifePoint;
                 LeftPlyerLife.Text = DefaultLife.ToString();
                 RightPlyerLife.Text = DefaultLife.ToString();
 
-                //LifeButton_Color = nameToColor[vm.Life_Color];
-                LifeButton_Color = stringToColor[vm.Life_Color];
+                LifeButton_Color = vm.getBackgroundColor();
                 LeftPlyerLifeDown.BackgroundColor = LifeButton_Color;
                 LeftPlyerLifeDown.BorderColor = LifeButton_Color;
                 LeftPlyerLifeUp.BackgroundColor = LifeButton_Color;
@@ -102,20 +102,20 @@ namespace SimpleLifeCounter
                 Content.BackgroundColor = LifeButton_Color;
 
                 //LifeFont_Color = nameToColor[vm.LifeFont_Color];
-                LifeFont_Color = stringToColor[vm.LifeFont_Color];
+                LifeFont_Color = vm.getLifeFontColor();
                 LeftPlyerLife.TextColor = LifeFont_Color;
                 RightPlyerLife.TextColor = LifeFont_Color;
             }
             catch (Exception)
             {
                 // ここは起動時に必ず読み込む
-                vm.Life = 1;
-                vm.Lifecolor = 1;
-                vm.Backcolor = 13;
+                vm.LifeColorIndex = 1;
+                vm.LifeColorIndex = 1;
+                vm.BackgroundColorIndex = 13;
 
-                vm.Life_Color = "White";
-                vm.Life_point = 20;
-                vm.LifeFont_Color = "Black";
+                vm.BackgroundColor = "White";
+                vm.DefaultLifePoint = 20;
+                vm.LifeFontColor = "Black";
 
                 vm.LifeResetCheck = false;
 

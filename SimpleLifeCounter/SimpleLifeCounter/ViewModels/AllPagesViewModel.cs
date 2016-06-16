@@ -23,50 +23,50 @@ namespace SimpleLifeCounter.ViewModels
 
 
         // menuPage にバインドしたい
-        private int _life;
-        public int Life
+        private int _lifeIndex;
+        public int LifeIndex
         {
-            get { return _life; }
+            get { return _lifeIndex; }
             set
             {
-                if (_life != value)
+                if (_lifeIndex != value)
                 {
-                    _life = value;
-                    OnPropertyChanged("Life");
+                    _lifeIndex = value;
+                    OnPropertyChanged("LifeIndex");
                 }
             }
         }
 
-        private int _backcolor;
-        public int Backcolor
+        private int _backgroundColorIndex;
+        public int BackgroundColorIndex
         {
-            get { return _backcolor; }
+            get { return _backgroundColorIndex; }
             set
             {
-                if (_backcolor != value)
+                if (_backgroundColorIndex != value)
                 {
-                    _backcolor = value;
-                    OnPropertyChanged("Backcolor");
+                    _backgroundColorIndex = value;
+                    OnPropertyChanged("BackgroundColorIndex");
                 }
             }
         }
 
-        private int _lifecolor;
-        public int Lifecolor
+        private int _lifeColorIndex;
+        public int LifeColorIndex
         {
-            get { return _lifecolor; }
+            get { return _lifeColorIndex; }
             set
             {
-                if (_lifecolor != value)
+                if (_lifeColorIndex != value)
                 {
-                    _lifecolor = value;
-                    OnPropertyChanged("Lifecolor");
+                    _lifeColorIndex = value;
+                    OnPropertyChanged("LifeColorIndex");
                 }
             }
         }
 
-        private Boolean _lifeResetCheck;
-        public Boolean LifeResetCheck
+        private bool _lifeResetCheck;
+        public bool LifeResetCheck
         {
             get { return _lifeResetCheck; }
             set
@@ -80,49 +80,53 @@ namespace SimpleLifeCounter.ViewModels
         }
 
         //LifePage にバインドしたい //Color投げられてStringで保存あと逆も
-        private string _Life_Color;
-        public string Life_Color
+        private string _backgroundColor;
+        public string BackgroundColor
         {
-            get { return _Life_Color; }
+            get { return _backgroundColor; }
             set
             {
-                if (_Life_Color != value)
+                if (_backgroundColor != value)
                 {
-                    _Life_Color = value;
-                    OnPropertyChanged("Life_Color");
+                    _backgroundColor = value;
+                    OnPropertyChanged("BackgroundColor");
                 }
             }
         }
-        public Color getLifeColor()
+        public Color getBackgroundColor()
         {
-            return nameToColor[_Life_Color];
+            return nameToColor[_backgroundColor];
         }
 
 
-        private string _LifeFont_Color;
-        public string LifeFont_Color
+        private string _lifeFontColor;
+        public string LifeFontColor
         {
-            get { return _LifeFont_Color; }
+            get { return _lifeFontColor; }
             set
             {
-                if (_LifeFont_Color != value)
+                if (_lifeFontColor != value)
                 {
-                    _LifeFont_Color = value;
-                    OnPropertyChanged("LifeFont_Color");
+                    _lifeFontColor = value;
+                    OnPropertyChanged("LifeFontColor");
                 }
             }
         }
-
-        private int _Life_point;
-        public int Life_point
+        public Color getLifeFontColor()
         {
-            get { return _Life_point; }
+            return nameToColor[_lifeFontColor];
+        }
+
+        private int _defaultLifePoint;
+        public int DefaultLifePoint
+        {
+            get { return _defaultLifePoint; }
             set
             {
-                if (_Life_point != value)
+                if (_defaultLifePoint != value)
                 {
-                    _Life_point = value;
-                    OnPropertyChanged("Life_point");
+                    _defaultLifePoint = value;
+                    OnPropertyChanged("DefaultLifePoint");
                 }
             }
         }
