@@ -13,14 +13,12 @@ namespace SimpleLifeCounter
     public partial class MenuPage : ContentPage
     {
         private AllPagesViewModel vm = new AllPagesViewModel();
-        private MenuPagesViewModel mvm = new MenuPagesViewModel();
         Dictionary<string, Color> stringToColor;
 
         public MenuPage()
         {
             InitializeComponent();
-            this.BindingContext = mvm;
-            //this.BindingContext = vm;
+            this.BindingContext = vm;
 
 
             // 上の邪魔なの消すおまじない
@@ -35,10 +33,10 @@ namespace SimpleLifeCounter
             SaveButton.Clicked += (sender, e) => SaveClicked();
 
             LifeFontColorPicker.SelectedIndexChanged += (sender, s) => 
-            mvm.ConfirmationLifeFontColor = stringToColor[LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex]];
+            LifeFontColorPicker.BackgroundColor = stringToColor[LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex]];
 
             BackgroundColorPicker.SelectedIndexChanged += (sender, e) =>
-            mvm.ConfirmationBackgroundColor = stringToColor[BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex]];
+            BackgroundColorPicker.BackgroundColor = stringToColor[BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex]];
         }
 
         // セーブ
@@ -75,9 +73,6 @@ namespace SimpleLifeCounter
             var data = DependencyService.Get<ISaveAndLoad>().LoadData("temp.json");
             this.vm = JsonConvert.DeserializeObject<AllPagesViewModel>(data);
             this.BindingContext = vm;
-
-            mvm.ConfirmationLifeFontColor = vm.getLifeFontColor();
-            mvm.ConfirmationBackgroundColor = vm.getBackgroundColor();
         }
 
         // PIG

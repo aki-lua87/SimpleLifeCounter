@@ -84,14 +84,15 @@ namespace SimpleLifeCounter
             catch (Exception)
             {
                 // ここは起動時に必ず読み込む
-                vm.LifeColorIndex = 1;
-                vm.LifeColorIndex = 1;
-                vm.BackgroundColorIndex = 13;
-
-                vm.BackgroundColor = "White";
+                vm.LifeIndex = 1;
                 vm.DefaultLifePoint = 20;
-                vm.LifeFontColor = "Black";
 
+                vm.LifeColorIndex = 13;
+                vm.LifeFontColor = "White";
+                
+                vm.BackgroundColorIndex = 3;
+                vm.BackgroundColor = "Blue";
+                
                 vm.LifeResetCheck = false;
 
                 var json = JsonConvert.SerializeObject(vm);

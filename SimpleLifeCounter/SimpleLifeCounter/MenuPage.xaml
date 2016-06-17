@@ -8,13 +8,13 @@
           x:Name="lc" />
     <Picker x:Name="LifeFontColorPicker"
             SelectedIndex="{Binding LifeColorIndex}"
-            BackgroundColor="{Binding ConfirmationLifeFontColor}" />
+            BackgroundColor="{Binding LifeFontColor}" />
 
     <Label Text="Background Coloer cange"
           x:Name="bc" />
     <Picker x:Name="BackgroundColorPicker"
             SelectedIndex="{Binding BackgroundColorIndex}"
-            BackgroundColor="{Binding ConfirmationBackgroundColor}"/>
+            BackgroundColor="{Binding BackgroundColor}"/>
 
     <Label Text="Default Life"
            x:Name="cc" />
