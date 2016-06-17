@@ -21,8 +21,7 @@ namespace SimpleLifeCounter.ViewModels
             }
         }
 
-
-        // menuPage にバインドしたい
+        // MenuPage Binding
         private int _lifeIndex;
         public int LifeIndex
         {
@@ -79,7 +78,7 @@ namespace SimpleLifeCounter.ViewModels
             }
         }
 
-        //LifePage にバインドしたい //Color投げられてStringで保存あと逆も
+        //LifePage Bainding
         private string _backgroundColor;
         public string BackgroundColor
         {

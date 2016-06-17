@@ -7,22 +7,24 @@
     <Label Text="Life Font Coloer cange"
           x:Name="lc" />
     <Picker x:Name="LifeFontColorPicker"
-            BackgroundColor="{Binding ConfirmationLifeFontColor}"/>
+            SelectedIndex="{Binding LifeColorIndex}"
+            BackgroundColor="{Binding ConfirmationLifeFontColor}" />
 
     <Label Text="Background Coloer cange"
           x:Name="bc" />
     <Picker x:Name="BackgroundColorPicker"
+            SelectedIndex="{Binding BackgroundColorIndex}"
             BackgroundColor="{Binding ConfirmationBackgroundColor}"/>
 
     <Label Text="Default Life"
            x:Name="cc" />
     <Picker x:Name="LifeNum"
-             />
+            SelectedIndex="{Binding LifeIndex}" />
 
     <Label Text="Life Reset Confirmation"
            x:Name="lrc" />
     <Switch x:Name="lrcSwitch"
-            />
+            IsToggled="{Binding LifeResetCheck}" />
 
     <Button x:Name="SaveButton"
             Text="Save" />

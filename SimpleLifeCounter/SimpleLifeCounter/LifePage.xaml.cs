@@ -16,22 +16,13 @@ namespace SimpleLifeCounter
         
 
         int DefaultLife;
-        Color LifeFont_Color; 
-        Color LifeButton_Color;
-
-        //Dictionary<string, Color> stringToColor;
 
         public LifePage()
         {
             InitializeComponent();
 
-            BindingContext = vm;
-
             // 上の邪魔なの消すおまじない
             NavigationPage.SetHasNavigationBar(this, false);
-
-            // 色と文字列のリスト
-            //stringToColor = vm.getStringToColorList();
 
             // json read
             DataDraw();
@@ -84,27 +75,11 @@ namespace SimpleLifeCounter
             {
                 var data = DependencyService.Get<ISaveAndLoad>().LoadData("temp.json");
                 vm = JsonConvert.DeserializeObject<AllPagesViewModel>(data);
+                BindingContext = vm;
 
-                // ばいんどできればここから下はいらないはず？
                 DefaultLife = vm.DefaultLifePoint;
                 LeftPlyerLife.Text = DefaultLife.ToString();
                 RightPlyerLife.Text = DefaultLife.ToString();
-
-                LifeButton_Color = vm.getBackgroundColor();
-                LeftPlyerLifeDown.BackgroundColor = LifeButton_Color;
-                LeftPlyerLifeDown.BorderColor = LifeButton_Color;
-                LeftPlyerLifeUp.BackgroundColor = LifeButton_Color;
-                LeftPlyerLifeUp.BorderColor = LifeButton_Color;
-                RightPlyerLifeDown.BackgroundColor = LifeButton_Color;
-                RightPlyerLifeDown.BorderColor = LifeButton_Color;
-                RightPlyerLifeUp.BackgroundColor = LifeButton_Color;
-                RightPlyerLifeUp.BorderColor = LifeButton_Color;
-                Content.BackgroundColor = LifeButton_Color;
-
-                //LifeFont_Color = nameToColor[vm.LifeFont_Color];
-                LifeFont_Color = vm.getLifeFontColor();
-                LeftPlyerLife.TextColor = LifeFont_Color;
-                RightPlyerLife.TextColor = LifeFont_Color;
             }
             catch (Exception)
             {

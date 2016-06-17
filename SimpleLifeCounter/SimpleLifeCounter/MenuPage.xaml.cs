@@ -19,16 +19,17 @@ namespace SimpleLifeCounter
         public MenuPage()
         {
             InitializeComponent();
-            this.BindingContext = vm;
-            this.BindingContext = mvm; 
+            this.BindingContext = mvm;
+            //this.BindingContext = vm;
+
 
             // 上の邪魔なの消すおまじない
             NavigationPage.SetHasNavigationBar(this, false);
 
-            // 色と文字列のリスト
+            // 色と文字列のリストを取得
             stringToColor = vm.getStringToColorList();
 
-            DataSet();
+            PickerSet();
             DataDraw();
 
             SaveButton.Clicked += (sender, e) => SaveClicked();
@@ -43,28 +44,19 @@ namespace SimpleLifeCounter
         // セーブ
         private void SaveClicked()
         {
-            // ベタ書き(´・ω・｀) バインドできるんですよね……
-            vm.LifeIndex = LifeNum.SelectedIndex;
-            vm.LifeColorIndex = LifeFontColorPicker.SelectedIndex;
-            vm.BackgroundColorIndex = BackgroundColorPicker.SelectedIndex;
-
+            // データバインドできない部分をViewModelに手書き
             vm.LifeFontColor = LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex];
             vm.DefaultLifePoint = int.Parse(LifeNum.Items[LifeNum.SelectedIndex]);
             vm.BackgroundColor = BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex];
-
-            vm.LifeResetCheck = lrcSwitch.IsToggled;
-
 
             var json = JsonConvert.SerializeObject(vm);
             DependencyService.Get<ISaveAndLoad>().SaveData("temp.json", json);
 
             Navigation.PopAsync();
-
-            // DisplayAlert("セーブ", "一度リセットして設定をてきおうしてください", "OK");
         }
 
-        // ピッカーに値を
-        private void DataSet()
+        // ピッカーに値をセット
+        private void PickerSet()
         {
             // Pickerに要素を追加
             int Num = 10; //LifePoint
@@ -77,21 +69,15 @@ namespace SimpleLifeCounter
             }
         }
 
-        // 読み出し 
+        // JSON読み出し 
         private void DataDraw()
         { 
             var data = DependencyService.Get<ISaveAndLoad>().LoadData("temp.json");
             this.vm = JsonConvert.DeserializeObject<AllPagesViewModel>(data);
+            this.BindingContext = vm;
 
             mvm.ConfirmationLifeFontColor = vm.getLifeFontColor();
             mvm.ConfirmationBackgroundColor = vm.getBackgroundColor();
-
-            // バインドできればここも(´・ω・`)
-            LifeNum.SelectedIndex = vm.LifeIndex;
-            BackgroundColorPicker.SelectedIndex = vm.BackgroundColorIndex;
-            LifeFontColorPicker.SelectedIndex = vm.LifeColorIndex;
-
-            lrcSwitch.IsToggled = vm.LifeResetCheck;
         }
 
         // PIG
