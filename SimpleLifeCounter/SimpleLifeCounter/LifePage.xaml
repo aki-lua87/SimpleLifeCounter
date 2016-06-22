@@ -44,9 +44,6 @@
              AbsoluteLayout.LayoutFlags="XProportional,HeightProportional"
              AbsoluteLayout.LayoutBounds="0.5, 0.5, 1.5, 0.9"/>
     
-    
-
-
     <!-- ライフ数値 -->
     <Label Text="20"
            x:Name="LeftPlyerLife"
@@ -63,18 +60,16 @@
            AbsoluteLayout.LayoutBounds="0.80, 0.5, AutoSize, AutoSize"/>
 
     <!-- リセットボタン　-->
-    <Button Text="リセット"
-            x:Name="LifeReset"
-            BackgroundColor="Gray"
+    <Button x:Name="LifeReset"
             AbsoluteLayout.LayoutFlags="PositionProportional"
-            AbsoluteLayout.LayoutBounds="0.5, 1, AutoSize, AutoSize"/>
+            AbsoluteLayout.LayoutBounds="0.5, 1, AutoSize, AutoSize"
+            />
 
     <!--設定遷移-->
-    <Button Text="設定へ"
-            BackgroundColor="Gray"
-            x:Name="toMenuPage"
+    <Button x:Name="toMenuPage"
             AbsoluteLayout.LayoutFlags="PositionProportional"
-            AbsoluteLayout.LayoutBounds="0.5, -0.05, AutoSize, AutoSize"/>
+            AbsoluteLayout.LayoutBounds="0.5, -0.05, AutoSize, AutoSize"
+             />
 
   </AbsoluteLayout>
 

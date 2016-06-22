@@ -2,5 +2,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 	<uses-sdk android:minSdkVersion="15" />
 	<application></application>
-  <!--　<uses-permission android:name="android.permission.WAKE_LOCK" /> スリープ制御-->
+	<!--　<uses-permission android:name="android.permission.WAKE_LOCK" /> スリープ制御-->
 </manifest>

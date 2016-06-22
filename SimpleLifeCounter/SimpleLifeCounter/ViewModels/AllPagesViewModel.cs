@@ -28,7 +28,7 @@ namespace SimpleLifeCounter.ViewModels
                 if (_lifeIndex != value)
                 {
                     _lifeIndex = value;
-                    OnPropertyChanged("LifeIndex");
+                    OnPropertyChanged(nameof(LifeIndex));
                 }
             }
         }
@@ -42,7 +42,7 @@ namespace SimpleLifeCounter.ViewModels
                 if (_backgroundColorIndex != value)
                 {
                     _backgroundColorIndex = value;
-                    OnPropertyChanged("BackgroundColorIndex");
+                    OnPropertyChanged(nameof(BackgroundColorIndex));
                 }
             }
         }
@@ -56,7 +56,7 @@ namespace SimpleLifeCounter.ViewModels
                 if (_lifeColorIndex != value)
                 {
                     _lifeColorIndex = value;
-                    OnPropertyChanged("LifeColorIndex");
+                    OnPropertyChanged(nameof(LifeColorIndex));
                 }
             }
         }
@@ -70,7 +70,7 @@ namespace SimpleLifeCounter.ViewModels
                 if (_lifeResetCheck != value)
                 {
                     _lifeResetCheck = value;
-                    OnPropertyChanged("LifeResetCheck");
+                    OnPropertyChanged(nameof(LifeResetCheck));
                 }
             }
         }
@@ -85,7 +85,7 @@ namespace SimpleLifeCounter.ViewModels
                 if (_backgroundColor != value)
                 {
                     _backgroundColor = value;
-                    OnPropertyChanged("BackgroundColor");
+                    OnPropertyChanged(nameof(BackgroundColor));
                 }
             }
         }
@@ -104,7 +104,7 @@ namespace SimpleLifeCounter.ViewModels
                 if (_lifeFontColor != value)
                 {
                     _lifeFontColor = value;
-                    OnPropertyChanged("LifeFontColor");
+                    OnPropertyChanged(nameof(LifeFontColor));
                 }
             }
         }
@@ -122,7 +122,7 @@ namespace SimpleLifeCounter.ViewModels
                 if (_defaultLifePoint != value)
                 {
                     _defaultLifePoint = value;
-                    OnPropertyChanged("DefaultLifePoint");
+                    OnPropertyChanged(nameof(DefaultLifePoint));
                 }
             }
         }

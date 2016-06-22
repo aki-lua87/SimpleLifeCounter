@@ -2,6 +2,7 @@
 using SimpleLifeCounter.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ using Xamarin.Forms;
 
 namespace SimpleLifeCounter
 {
+
     public partial class MenuPage : ContentPage
     {
         private AllPagesViewModel vm = new AllPagesViewModel();
@@ -30,17 +32,18 @@ namespace SimpleLifeCounter
             PickerSet();
             DataDraw();
 
-            SaveButton.Clicked += (sender, e) => SaveClicked();
+            // SaveButton.Clicked += (sender, e) => SaveClicked(); // Xamlで指定できる
 
             LifeFontColorPicker.SelectedIndexChanged += (sender, s) => 
             LifeFontColorPicker.BackgroundColor = stringToColor[LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex]];
 
             BackgroundColorPicker.SelectedIndexChanged += (sender, e) =>
             BackgroundColorPicker.BackgroundColor = stringToColor[BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex]];
+
         }
 
         // セーブ
-        private void SaveClicked()
+        private void SaveClicked(object sender, EventArgs e)
         {
             // データバインドできない部分をViewModelに手書き
             vm.LifeFontColor = LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex];

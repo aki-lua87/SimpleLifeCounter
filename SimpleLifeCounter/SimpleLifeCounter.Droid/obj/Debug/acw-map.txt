@@ -458,10 +458,6 @@ Xamarin.Forms.Platform.Android.TimePickerRenderer/TimePickerListener, Xamarin.Fo
 Xamarin.Forms.Platform.Android.TimePickerRenderer+TimePickerListener, Xamarin.Forms.Platform.Android, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null;md5b60ffeb829f638581ab2bb9b1a7f4f3f.TimePickerRenderer_TimePickerListener
 Xamarin.Forms.Platform.Android.TimePickerRenderer.TimePickerListener;md5b60ffeb829f638581ab2bb9b1a7f4f3f.TimePickerRenderer_TimePickerListener
 xamarin.forms.platform.android.TimePickerRenderer_TimePickerListener;md5b60ffeb829f638581ab2bb9b1a7f4f3f.TimePickerRenderer_TimePickerListener
-Xamarin.Forms.Platform.Android.ToolbarRenderer, Xamarin.Forms.Platform.Android;md5b60ffeb829f638581ab2bb9b1a7f4f3f.ToolbarRenderer
-Xamarin.Forms.Platform.Android.ToolbarRenderer, Xamarin.Forms.Platform.Android, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null;md5b60ffeb829f638581ab2bb9b1a7f4f3f.ToolbarRenderer
-Xamarin.Forms.Platform.Android.ToolbarRenderer;md5b60ffeb829f638581ab2bb9b1a7f4f3f.ToolbarRenderer
-xamarin.forms.platform.android.ToolbarRenderer;md5b60ffeb829f638581ab2bb9b1a7f4f3f.ToolbarRenderer
 Xamarin.Forms.Platform.Android.WebViewRenderer, Xamarin.Forms.Platform.Android;md5b60ffeb829f638581ab2bb9b1a7f4f3f.WebViewRenderer
 Xamarin.Forms.Platform.Android.WebViewRenderer, Xamarin.Forms.Platform.Android, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null;md5b60ffeb829f638581ab2bb9b1a7f4f3f.WebViewRenderer
 Xamarin.Forms.Platform.Android.WebViewRenderer;md5b60ffeb829f638581ab2bb9b1a7f4f3f.WebViewRenderer

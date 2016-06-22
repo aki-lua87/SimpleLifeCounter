@@ -41,3 +41,9 @@ G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\obj\Debug\q
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\obj\Debug\qualifiers.txt.intermediate
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\obj\Debug\ProjectArchitectures.txt
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\bin\Debug\Xamarin.Forms.Core.xml
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\bin\Debug\Xamarin.Forms.Platform.WinRT.pri
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\bin\Debug\Xamarin.Forms.Platform.WinRT.Phone.pri
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\bin\Debug\Xamarin.Forms.Xaml.xml
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\obj\Debug\Xamarin.Forms.Platform.WinRT.pri.xml
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\obj\Debug\Xamarin.Forms.Platform.WinRT.Phone.pri.xml
