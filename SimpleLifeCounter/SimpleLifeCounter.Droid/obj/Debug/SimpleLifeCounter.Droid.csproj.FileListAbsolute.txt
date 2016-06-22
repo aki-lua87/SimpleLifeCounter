@@ -84,10 +84,10 @@ G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\Xama
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\Xamarin.Forms.Platform.Android.dll.mdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\Xamarin.Forms.Xaml.dll.mdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\SimpleLifeCounter.Droid.dll.mdb
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\SimpleLifeCounter.dll.mdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\Java.Interop.dll.mdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\Mono.Android.dll.mdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\mscorlib.dll.mdb
-G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\SimpleLifeCounter.dll.mdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\System.ComponentModel.Composition.dll.mdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\System.Core.dll.mdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\System.dll.mdb

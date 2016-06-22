@@ -30,7 +30,7 @@ namespace SimpleLifeCounter
             stringToColor = vm.getStringToColorList();
 
             PickerSet();
-            DataDraw();
+            JsonRead();
 
             // SaveButton.Clicked += (sender, e) => SaveClicked(); // Xamlで指定できる
 
@@ -71,7 +71,7 @@ namespace SimpleLifeCounter
         }
 
         // JSON読み出し 
-        private void DataDraw()
+        private void JsonRead()
         { 
             var data = DependencyService.Get<ISaveAndLoad>().LoadData("temp.json");
             this.vm = JsonConvert.DeserializeObject<AllPagesViewModel>(data);

@@ -36,5 +36,3 @@ G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\Xamarin.Fo
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\obj\Debug\SimpleLifeCounter.csprojResolveAssemblyReference.cache
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\obj\Debug\SimpleLifeCounter.dll.mdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\SimpleLifeCounter.dll.mdb
-G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\obj\Debug\SimpleLifeCounter.dll.mdb
-G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\SimpleLifeCounter.dll.mdb

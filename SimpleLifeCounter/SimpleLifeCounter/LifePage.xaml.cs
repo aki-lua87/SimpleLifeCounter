@@ -25,36 +25,40 @@ namespace SimpleLifeCounter
             NavigationPage.SetHasNavigationBar(this, false);
 
             // json read
-            DataDraw();
+            JsonRead();
+
+            // メニュー用画像にタップイベントを追加
+            var toMenu = new TapGestureRecognizer();
+            toMenu.Tapped += (sender,e) => Navigation.PushAsync(new MenuPage());
+            toMenuPage.GestureRecognizers.Add(toMenu);
+            toMenuPage.Source = ImageSource.FromResource("SimpleLifeCounter.images.set.png");
+
+            // ライフリセット以下同上
+            var resetLife = new TapGestureRecognizer();
+            resetLife.Tapped += async (sender, e) => 
+            {
+                if(vm.LifeResetCheck ? (await DisplayAlert("リセット", "ライフを初期値に戻しますか？", "はい", "いいえ")) : true)
+                {
+                    LeftPlyerLife.Text = DefaultLife.ToString();
+                    RightPlyerLife.Text = DefaultLife.ToString();
+                }
+            };
+            LifeReset.GestureRecognizers.Add(resetLife);
+            LifeReset.Source = ImageSource.FromResource("SimpleLifeCounter.images.rst.png");
 
             LeftPlyerLifeUp.Clicked += (sender, e) => LeftPlyerLife.Text = LifeUp(LeftPlyerLife);
             LeftPlyerLifeDown.Clicked += (sender, e) => LeftPlyerLife.Text = LifeDown(LeftPlyerLife);
             RightPlyerLifeUp.Clicked += (sender, e) => RightPlyerLife.Text = LifeUp(RightPlyerLife);
             RightPlyerLifeDown.Clicked += (sender, e) => RightPlyerLife.Text = LifeDown(RightPlyerLife);
-            toMenuPage.Clicked += async(sender,e) => await Navigation.PushAsync(new MenuPage());
 
-            LifeReset.Clicked += async (sender, e) =>
-            {
-                var accepted = true;
-                if (vm.LifeResetCheck)
-                {
-                    accepted = await DisplayAlert(
-                    "リセット", "ライフを初期値に戻しますか？", "はい", "いいえ");
-                }
-                if (accepted)
-                {
-                    // バインドできればライフりせっとのみでおｋ
-                    DataDraw();
-                }
-
-            };
+            //toMenuPage.Clicked += async(sender,e) => await Navigation.PushAsync(new MenuPage());
         }
 
         // CIP
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            DataDraw();
+            JsonRead();
         }
 
 
@@ -69,7 +73,7 @@ namespace SimpleLifeCounter
         }
 
         // json read
-        private void DataDraw()
+        private void JsonRead()
         {
             try
             {
@@ -98,7 +102,7 @@ namespace SimpleLifeCounter
                 var json = JsonConvert.SerializeObject(vm);
                 DependencyService.Get<ISaveAndLoad>().SaveData("temp.json", json);
 
-                DataDraw();
+                JsonRead();
             }
             
         }

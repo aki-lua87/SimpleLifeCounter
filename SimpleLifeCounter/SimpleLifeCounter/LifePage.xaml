@@ -5,7 +5,7 @@
              BackgroundColor="{Binding BackgroundColor}" >
 
   <ContentPage.Padding>
-    5, 10, 5, 5
+    0, 5, 0, 0
   </ContentPage.Padding>
 
   <AbsoluteLayout>
@@ -40,36 +40,38 @@
             AbsoluteLayout.LayoutBounds="1, 1, 0.5, 0.5"/>
 
     <!-- 縦棒 -->
-    <BoxView Color="White"
-             AbsoluteLayout.LayoutFlags="XProportional,HeightProportional"
-             AbsoluteLayout.LayoutBounds="0.5, 0.5, 1.5, 0.9"/>
+    <BoxView Color="{Binding BackgroundColor}"
+             AbsoluteLayout.LayoutFlags="All"
+             AbsoluteLayout.LayoutBounds="0.5, 0.5, 0.1, 1.5"/>
     
     <!-- ライフ数値 -->
     <Label Text="20"
            x:Name="LeftPlyerLife"
            TextColor="{Binding LifeFontColor}"
            FontSize="120"
-           AbsoluteLayout.LayoutFlags="PositionProportional"
-           AbsoluteLayout.LayoutBounds="0.20, 0.5, AutoSize, AutoSize"/>
+           AbsoluteLayout.LayoutFlags="All"
+           AbsoluteLayout.LayoutBounds="0.22, 0.5, 0.35, 0.5"
+           VerticalOptions="CenterAndExpand"
+           HorizontalOptions="Fill"/>
 
     <Label Text="20"
            x:Name="RightPlyerLife"
            TextColor="{Binding LifeFontColor}"
            FontSize="120"
-           AbsoluteLayout.LayoutFlags="PositionProportional"
-           AbsoluteLayout.LayoutBounds="0.80, 0.5, AutoSize, AutoSize"/>
+           AbsoluteLayout.LayoutFlags="All"
+           AbsoluteLayout.LayoutBounds="0.98, 0.5, 0.35, 0.5"
+           VerticalOptions="CenterAndExpand"
+           HorizontalOptions="Fill" />
 
     <!-- リセットボタン　-->
-    <Button x:Name="LifeReset"
-            AbsoluteLayout.LayoutFlags="PositionProportional"
-            AbsoluteLayout.LayoutBounds="0.5, 1, AutoSize, AutoSize"
-            />
+    <Image x:Name="LifeReset"
+           AbsoluteLayout.LayoutFlags="All"
+           AbsoluteLayout.LayoutBounds="0.5, 0.9, 0.1, 0.1" />
 
     <!--設定遷移-->
-    <Button x:Name="toMenuPage"
-            AbsoluteLayout.LayoutFlags="PositionProportional"
-            AbsoluteLayout.LayoutBounds="0.5, -0.05, AutoSize, AutoSize"
-             />
+    <Image x:Name="toMenuPage"
+           AbsoluteLayout.LayoutFlags="All"
+           AbsoluteLayout.LayoutBounds="0.5, 0.1, 0.1, 0.1"/>
 
   </AbsoluteLayout>
 
