@@ -1,2 +1,0 @@
-G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Windows\SimpleLifeCounter.Windows.csproj;neutral
-G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.csproj;neutral

@@ -27,13 +27,14 @@ namespace SimpleLifeCounter
             // json read
             JsonRead();
 
+            /* 画像がなんか微妙い
             // メニュー用画像にタップイベントを追加
             var toMenu = new TapGestureRecognizer();
             toMenu.Tapped += (sender,e) => Navigation.PushAsync(new MenuPage());
             toMenuPage.GestureRecognizers.Add(toMenu);
             toMenuPage.Source = ImageSource.FromResource("SimpleLifeCounter.images.set.png");
 
-            // ライフリセット以下同上
+            // ライフリセット画像にタップイベントを追加
             var resetLife = new TapGestureRecognizer();
             resetLife.Tapped += async (sender, e) => 
             {
@@ -46,12 +47,22 @@ namespace SimpleLifeCounter
             LifeReset.GestureRecognizers.Add(resetLife);
             LifeReset.Source = ImageSource.FromResource("SimpleLifeCounter.images.rst.png");
 
+            */
+
             LeftPlyerLifeUp.Clicked += (sender, e) => LeftPlyerLife.Text = LifeUp(LeftPlyerLife);
             LeftPlyerLifeDown.Clicked += (sender, e) => LeftPlyerLife.Text = LifeDown(LeftPlyerLife);
             RightPlyerLifeUp.Clicked += (sender, e) => RightPlyerLife.Text = LifeUp(RightPlyerLife);
             RightPlyerLifeDown.Clicked += (sender, e) => RightPlyerLife.Text = LifeDown(RightPlyerLife);
 
-            //toMenuPage.Clicked += async(sender,e) => await Navigation.PushAsync(new MenuPage());
+            toMenuPageButton.Clicked += async(sender,e) => await Navigation.PushAsync(new MenuPage());
+            LifeResetButton.Clicked += async (sender, e) =>
+            {
+                if (vm.LifeResetCheck ? (await DisplayAlert("リセット", "ライフを初期値に戻しますか？", "はい", "いいえ")) : true)
+                {
+                    LeftPlyerLife.Text = DefaultLife.ToString();
+                    RightPlyerLife.Text = DefaultLife.ToString();
+                }
+            };
         }
 
         // CIP
@@ -97,7 +108,7 @@ namespace SimpleLifeCounter
                 vm.BackgroundColorIndex = 3;
                 vm.BackgroundColor = "Blue";
                 
-                vm.LifeResetCheck = false;
+                vm.LifeResetCheck = true;
 
                 var json = JsonConvert.SerializeObject(vm);
                 DependencyService.Get<ISaveAndLoad>().SaveData("temp.json", json);

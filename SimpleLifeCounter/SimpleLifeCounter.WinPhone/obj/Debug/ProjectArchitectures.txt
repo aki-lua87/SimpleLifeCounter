@@ -1,2 +1,0 @@
-G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.WinPhone\SimpleLifeCounter.WinPhone.csproj;neutral
-G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.csproj;neutral

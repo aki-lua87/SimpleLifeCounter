@@ -45,34 +45,51 @@
              AbsoluteLayout.LayoutBounds="0.5, 0.5, 0.1, 1.5"/>
     
     <!-- ライフ数値 -->
-    <Label Text="20"
-           x:Name="LeftPlyerLife"
+    <Label x:Name="LeftPlyerLife"
            TextColor="{Binding LifeFontColor}"
            FontSize="120"
-           AbsoluteLayout.LayoutFlags="All"
-           AbsoluteLayout.LayoutBounds="0.22, 0.5, 0.35, 0.5"
-           VerticalOptions="CenterAndExpand"
-           HorizontalOptions="Fill"/>
+           AbsoluteLayout.LayoutFlags="PositionProportional"
+           AbsoluteLayout.LayoutBounds="0.2, 0.5, AutoSize, AutoSize"
+           VerticalOptions="CenterAndExpand" />
 
-    <Label Text="20"
-           x:Name="RightPlyerLife"
+    <Label x:Name="RightPlyerLife"
            TextColor="{Binding LifeFontColor}"
            FontSize="120"
-           AbsoluteLayout.LayoutFlags="All"
-           AbsoluteLayout.LayoutBounds="0.98, 0.5, 0.35, 0.5"
-           VerticalOptions="CenterAndExpand"
-           HorizontalOptions="Fill" />
+           AbsoluteLayout.LayoutFlags="PositionProportional"
+           AbsoluteLayout.LayoutBounds="0.8, 0.5, AutoSize, AutoSize"
+           VerticalOptions="CenterAndExpand" />
 
-    <!-- リセットボタン　-->
+    <Button x:Name="LifeResetButton"
+            Text="Reset"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="0.5, 0.95, 0.1, 0.15"/>
+
+    <Button x:Name="toMenuPageButton"
+            Text="設定"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="0.5, 0.05, 0.1, 0.15"/>
+
+    <Button x:Name="CiinToss"
+            Text="コイン"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="0.5, 0.33, 0.1, 0.15"/>
+
+    <Button x:Name="DiceThrow"
+            Text="ダイス"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="0.5, 0.66, 0.1, 0.15"/>
+    
+    <!--
+    - リセットボタン　-
     <Image x:Name="LifeReset"
            AbsoluteLayout.LayoutFlags="All"
-           AbsoluteLayout.LayoutBounds="0.5, 0.9, 0.1, 0.1" />
+           AbsoluteLayout.LayoutBounds="0.5, 0.9, 0.1, 0.1"/>
 
-    <!--設定遷移-->
+    - 設定遷移 -
     <Image x:Name="toMenuPage"
            AbsoluteLayout.LayoutFlags="All"
            AbsoluteLayout.LayoutBounds="0.5, 0.1, 0.1, 0.1"/>
-
+    -->
   </AbsoluteLayout>
 
 </ContentPage>

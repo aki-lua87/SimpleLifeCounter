@@ -35,10 +35,16 @@ namespace SimpleLifeCounter {
         private global::Xamarin.Forms.Label RightPlyerLife;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Image LifeReset;
+        private global::Xamarin.Forms.Button LifeResetButton;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Image toMenuPage;
+        private global::Xamarin.Forms.Button toMenuPageButton;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Button CiinToss;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Button DiceThrow;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
@@ -49,8 +55,10 @@ namespace SimpleLifeCounter {
             RightPlyerLifeDown = this.FindByName<global::Xamarin.Forms.Button>("RightPlyerLifeDown");
             LeftPlyerLife = this.FindByName<global::Xamarin.Forms.Label>("LeftPlyerLife");
             RightPlyerLife = this.FindByName<global::Xamarin.Forms.Label>("RightPlyerLife");
-            LifeReset = this.FindByName<global::Xamarin.Forms.Image>("LifeReset");
-            toMenuPage = this.FindByName<global::Xamarin.Forms.Image>("toMenuPage");
+            LifeResetButton = this.FindByName<global::Xamarin.Forms.Button>("LifeResetButton");
+            toMenuPageButton = this.FindByName<global::Xamarin.Forms.Button>("toMenuPageButton");
+            CiinToss = this.FindByName<global::Xamarin.Forms.Button>("CiinToss");
+            DiceThrow = this.FindByName<global::Xamarin.Forms.Button>("DiceThrow");
         }
     }
 }
