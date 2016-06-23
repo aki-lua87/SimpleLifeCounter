@@ -41,7 +41,7 @@ namespace SimpleLifeCounter {
         private global::Xamarin.Forms.Button toMenuPageButton;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Button CiinToss;
+        private global::Xamarin.Forms.Button CoinToss;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Button DiceThrow;
@@ -57,7 +57,7 @@ namespace SimpleLifeCounter {
             RightPlyerLife = this.FindByName<global::Xamarin.Forms.Label>("RightPlyerLife");
             LifeResetButton = this.FindByName<global::Xamarin.Forms.Button>("LifeResetButton");
             toMenuPageButton = this.FindByName<global::Xamarin.Forms.Button>("toMenuPageButton");
-            CiinToss = this.FindByName<global::Xamarin.Forms.Button>("CiinToss");
+            CoinToss = this.FindByName<global::Xamarin.Forms.Button>("CoinToss");
             DiceThrow = this.FindByName<global::Xamarin.Forms.Button>("DiceThrow");
         }
     }

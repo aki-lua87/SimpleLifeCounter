@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using SimpleLifeCounter.Models;
 using SimpleLifeCounter.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -14,25 +15,21 @@ namespace SimpleLifeCounter
 
     public partial class MenuPage : ContentPage
     {
-        private AllPagesViewModel vm = new AllPagesViewModel();
+        private AllPageModel model = new AllPageModel();
         Dictionary<string, Color> stringToColor;
 
         public MenuPage()
         {
             InitializeComponent();
-            this.BindingContext = vm;
-
 
             // 上の邪魔なの消すおまじない
             NavigationPage.SetHasNavigationBar(this, false);
 
             // 色と文字列のリストを取得
-            stringToColor = vm.getStringToColorList();
-
+            stringToColor = model.getVm().getStringToColorList();
             PickerSet();
-            JsonRead();
-
-            // SaveButton.Clicked += (sender, e) => SaveClicked(); // Xamlで指定できる
+            
+            // SaveButton.Clicked += (sender, e) => SaveClicked(); // Xamlで指定できるけどどっちがいいかな
 
             LifeFontColorPicker.SelectedIndexChanged += (sender, s) => 
             LifeFontColorPicker.BackgroundColor = stringToColor[LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex]];
@@ -40,19 +37,19 @@ namespace SimpleLifeCounter
             BackgroundColorPicker.SelectedIndexChanged += (sender, e) =>
             BackgroundColorPicker.BackgroundColor = stringToColor[BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex]];
 
+            model.JsonRead();
+            this.BindingContext = model.getVm();
         }
 
         // セーブ
         private void SaveClicked(object sender, EventArgs e)
         {
             // データバインドできない部分をViewModelに手書き
-            vm.LifeFontColor = LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex];
-            vm.DefaultLifePoint = int.Parse(LifeNum.Items[LifeNum.SelectedIndex]);
-            vm.BackgroundColor = BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex];
-
-            var json = JsonConvert.SerializeObject(vm);
-            DependencyService.Get<ISaveAndLoad>().SaveData("temp.json", json);
-
+            model.DoNotBindingSetVM(
+                LifeNum.Items[LifeNum.SelectedIndex]
+                , LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex]
+                , BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex]);
+            model.JsonWrite();
             Navigation.PopAsync();
         }
 
@@ -68,14 +65,6 @@ namespace SimpleLifeCounter
                 LifeNum.Items.Add(Num.ToString()); //ついでにライフもPickerに追加
                 Num += 10; 
             }
-        }
-
-        // JSON読み出し 
-        private void JsonRead()
-        { 
-            var data = DependencyService.Get<ISaveAndLoad>().LoadData("temp.json");
-            this.vm = JsonConvert.DeserializeObject<AllPagesViewModel>(data);
-            this.BindingContext = vm;
         }
 
         // PIG
