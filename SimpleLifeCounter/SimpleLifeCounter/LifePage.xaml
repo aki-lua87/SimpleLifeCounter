@@ -43,7 +43,7 @@
     <BoxView Color="{Binding BackgroundColor}"
              AbsoluteLayout.LayoutFlags="All"
              AbsoluteLayout.LayoutBounds="0.5, 0.5, 0.1, 1.5"/>
-    
+
     <!-- ライフ数値 -->
     <Label x:Name="LeftPlyerLife"
            TextColor="{Binding LifeFontColor}"
@@ -62,23 +62,23 @@
     <Button x:Name="LifeResetButton"
             Text="Reset"
             AbsoluteLayout.LayoutFlags="All"
-            AbsoluteLayout.LayoutBounds="0.5, 0.95, 0.1, 0.15"/>
+            AbsoluteLayout.LayoutBounds="0.5, 0.95, 0.1, 0.18"/>
 
     <Button x:Name="toMenuPageButton"
             Text="設定"
             AbsoluteLayout.LayoutFlags="All"
-            AbsoluteLayout.LayoutBounds="0.5, 0.05, 0.1, 0.15"/>
+            AbsoluteLayout.LayoutBounds="0.5, 0.05, 0.1, 0.18"/>
 
     <Button x:Name="CoinToss"
-            Text="コイン"
+            Text="ｺｲﾝ"
             AbsoluteLayout.LayoutFlags="All"
-            AbsoluteLayout.LayoutBounds="0.5, 0.33, 0.1, 0.15"/>
+            AbsoluteLayout.LayoutBounds="0.5, 0.33, 0.1, 0.18"/>
 
     <Button x:Name="DiceThrow"
-            Text="ダイス"
+            Text="ﾀﾞｲｽ"
             AbsoluteLayout.LayoutFlags="All"
-            AbsoluteLayout.LayoutBounds="0.5, 0.66, 0.1, 0.15"/>
-    
+            AbsoluteLayout.LayoutBounds="0.5, 0.66, 0.1, 0.18"/>
+
     <!--
     - リセットボタン　-
     <Image x:Name="LifeReset"

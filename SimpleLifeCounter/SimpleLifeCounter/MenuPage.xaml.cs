@@ -28,15 +28,20 @@ namespace SimpleLifeCounter
             // 色と文字列のリストを取得
             stringToColor = model.getVm().getStringToColorList();
             PickerSet();
-            
+
             // SaveButton.Clicked += (sender, e) => SaveClicked(); // Xamlで指定できるけどどっちがいいかな
 
-            LifeFontColorPicker.SelectedIndexChanged += (sender, s) => 
-            LifeFontColorPicker.BackgroundColor = stringToColor[LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex]];
+            LifeFontColorPicker.SelectedIndexChanged += (sender, s) =>
+            {
+                LifeFontColorPicker.BackgroundColor = stringToColor[LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex]];
+                LifeFontColorPicker.TextColor = stringToColor[LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex]];
+            };
 
             BackgroundColorPicker.SelectedIndexChanged += (sender, e) =>
-            BackgroundColorPicker.BackgroundColor = stringToColor[BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex]];
-
+            {
+                BackgroundColorPicker.BackgroundColor = stringToColor[BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex]];
+                BackgroundColorPicker.TextColor = stringToColor[BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex]];
+            };
             model.JsonRead();
             this.BindingContext = model.getVm();
         }

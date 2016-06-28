@@ -49,7 +49,7 @@ namespace SimpleLifeCounter.Models
             DependencyService.Get<ISaveAndLoad>().SaveData("temp.json", json);
         }
 
-        public void DoNotBindingSetVM(string lifePoint,string fontColor,string backgroundColor)
+        public void DoNotBindingSetVM(string lifePoint, string fontColor, string backgroundColor)
         {
             // データバインドできない部分をViewModelに手書き
             vm.DefaultLifePoint = int.Parse(lifePoint);

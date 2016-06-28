@@ -43,12 +43,7 @@ namespace SimpleLifeCounter
             };
 
             DiceThrow.Clicked += async (sender, e) => await DisplayAlert("ダイス", model.Random20().ToString(), "OK");
-
             CoinToss.Clicked += async (sender, e) => await DisplayAlert("コイン", model.RandomBoolean() ? "おもて" : "うら", "OK");
-
-
-
-
         }
 
         // CIP
