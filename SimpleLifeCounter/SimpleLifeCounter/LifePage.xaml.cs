@@ -52,6 +52,9 @@ namespace SimpleLifeCounter
             base.OnAppearing();
             model.JsonRead();
             BindingContext = model.getVm();
+            // もしデフォルトライフとVMの値が違うならデフォルトライフに代入して適用とかにする
+            LeftPlyerLife.Text = model.getStringDefaultLife();
+            RightPlyerLife.Text = model.getStringDefaultLife();
         }
 
     }
