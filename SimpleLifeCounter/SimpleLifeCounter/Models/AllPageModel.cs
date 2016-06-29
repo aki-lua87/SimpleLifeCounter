@@ -2,14 +2,34 @@
 using SimpleLifeCounter.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ServiceModel.Channels;
 using Xamarin.Forms;
 
 namespace SimpleLifeCounter.Models
 {
-    class AllPageModel
+    public class AllPageModel : INotifyPropertyChanged
     {
-        private AllPagesViewModel vm = new AllPagesViewModel();
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private DataModel _datalist;
+        public DataModel DataList
+        {
+            get { return _datalist; }
+            set
+            {
+                if (_datalist != value)
+                {
+                    _datalist = value;
+                    OnPropertyChanged(nameof(_datalist));
+                }
+            }
+        }
 
         public AllPageModel()
         {
@@ -21,23 +41,23 @@ namespace SimpleLifeCounter.Models
             try
             {
                 var data = DependencyService.Get<ISaveAndLoad>().LoadData("temp.json");
-                vm = JsonConvert.DeserializeObject<AllPagesViewModel>(data);
+                DataList = JsonConvert.DeserializeObject<DataModel>(data);
             }
             catch (Exception)
             {
                 // Jsonが無いときは作る
-                vm.LifeIndex = 1;
-                vm.DefaultLifePoint = 20;
+                DataList.LifeIndex = 1;
+                DataList.DefaultLifePoint = 20;
 
-                vm.LifeColorIndex = 13;
-                vm.LifeFontColor = "White";
+                DataList.LifeColorIndex = 13;
+                DataList.LifeFontColor = "White";
 
-                vm.BackgroundColorIndex = 3;
-                vm.BackgroundColor = "Blue";
+                DataList.BackgroundColorIndex = 3;
+                DataList.BackgroundColor = "Blue";
 
-                vm.LifeResetCheck = true;
+                DataList.LifeResetCheck = true;
 
-                var json = JsonConvert.SerializeObject(vm);
+                var json = JsonConvert.SerializeObject(DataList);
                 DependencyService.Get<ISaveAndLoad>().SaveData("temp.json", json);
 
                 JsonRead();
@@ -45,50 +65,16 @@ namespace SimpleLifeCounter.Models
         }
         public void JsonWrite()
         {
-            var json = JsonConvert.SerializeObject(vm);
+            var json = JsonConvert.SerializeObject(DataList);
             DependencyService.Get<ISaveAndLoad>().SaveData("temp.json", json);
         }
 
         public void DoNotBindingSetVM(string lifePoint, string fontColor, string backgroundColor)
         {
             // データバインドできない部分をViewModelに手書き
-            vm.DefaultLifePoint = int.Parse(lifePoint);
-            vm.LifeFontColor = fontColor;
-            vm.BackgroundColor = backgroundColor;
+            DataList.DefaultLifePoint = int.Parse(lifePoint);
+            DataList.LifeFontColor = fontColor;
+            DataList.BackgroundColor = backgroundColor;
         }
-
-        public Boolean RandomBoolean()
-        {
-            Random rnd = new Random();
-            return rnd.Next(0, 100) < 50;
-        }
-        public int Random20()
-        {
-            Random rnd = new Random();
-            return rnd.Next(1, 21);
-        }
-
-        public string LifeUp(Label Lifelabel)
-        {
-            return (int.Parse(Lifelabel.Text) + 1).ToString();
-        }
-        public string LifeDown(Label Lifelabel)
-        {
-            return (int.Parse(Lifelabel.Text) - 1).ToString();
-        }
-
-        public AllPagesViewModel getVm()
-        {
-            return vm;
-        }
-        public bool getResetCheck()
-        {
-            return vm.LifeResetCheck;
-        }
-        public string getStringDefaultLife()
-        {
-            return vm.DefaultLifePoint.ToString();
-        }
-
     }
 }

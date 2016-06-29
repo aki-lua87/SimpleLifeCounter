@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimpleLifeCounter.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -9,8 +10,10 @@ using Xamarin.Forms;
 
 namespace SimpleLifeCounter.ViewModels
 {
-    class AllPagesViewModel : INotifyPropertyChanged
+    public class AllPagesViewModel : DataModel
     {
+        // Model
+        private AllPageModel Model { get; } = new AllPageModel();
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
@@ -20,7 +23,7 @@ namespace SimpleLifeCounter.ViewModels
 
         // MenuPage Binding
         private int _lifeIndex;
-        public int LifeIndex
+        public new int LifeIndex
         {
             get { return _lifeIndex; }
             set
@@ -34,7 +37,7 @@ namespace SimpleLifeCounter.ViewModels
         }
 
         private int _backgroundColorIndex;
-        public int BackgroundColorIndex
+        public new int BackgroundColorIndex
         {
             get { return _backgroundColorIndex; }
             set
@@ -48,7 +51,7 @@ namespace SimpleLifeCounter.ViewModels
         }
 
         private int _lifeColorIndex;
-        public int LifeColorIndex
+        public new int LifeColorIndex
         {
             get { return _lifeColorIndex; }
             set
@@ -62,7 +65,7 @@ namespace SimpleLifeCounter.ViewModels
         }
 
         private bool _lifeResetCheck;
-        public bool LifeResetCheck
+        public new bool LifeResetCheck
         {
             get { return _lifeResetCheck; }
             set
@@ -77,7 +80,7 @@ namespace SimpleLifeCounter.ViewModels
 
         //LifePage Bainding
         private string _backgroundColor;
-        public string BackgroundColor
+        public new string BackgroundColor
         {
             get { return _backgroundColor; }
             set
@@ -89,14 +92,9 @@ namespace SimpleLifeCounter.ViewModels
                 }
             }
         }
-        public Color getBackgroundColor()
-        {
-            return nameToColor[_backgroundColor];
-        }
-
 
         private string _lifeFontColor;
-        public string LifeFontColor
+        public new string LifeFontColor
         {
             get { return _lifeFontColor; }
             set
@@ -108,13 +106,9 @@ namespace SimpleLifeCounter.ViewModels
                 }
             }
         }
-        public Color getLifeFontColor()
-        {
-            return nameToColor[_lifeFontColor];
-        }
 
         private int _defaultLifePoint;
-        public int DefaultLifePoint
+        public new int DefaultLifePoint
         {
             get { return _defaultLifePoint; }
             set
@@ -127,7 +121,7 @@ namespace SimpleLifeCounter.ViewModels
             }
         }
 
-        
+
 
         //"""""""""""""""""""""""""""""""""""""""""""""""""""""
         Dictionary<string, Color> nameToColor = new Dictionary<string, Color>
@@ -145,6 +139,37 @@ namespace SimpleLifeCounter.ViewModels
         {
             return nameToColor;
         }
+
+
+        public AllPagesViewModel()
+        {
+            this.Model.PropertyChanged += (_, e) =>
+             {
+
+                 if (e.PropertyName == nameof(AllPageModel.DataList))
+                 {
+                     this.DefaultLifePoint = Model.DataList.DefaultLifePoint;
+                     this.LifeColorIndex = Model.DataList.LifeColorIndex;
+                     this.BackgroundColorIndex = Model.DataList.BackgroundColorIndex;
+                     this.LifeResetCheck = Model.DataList.LifeResetCheck;
+                     this.LifeFontColor = Model.DataList.LifeFontColor;
+                     this.BackgroundColor = Model.DataList.BackgroundColor;
+                 }
+             };
+            Model.JsonRead();
+        }
+
+        // Model呼び出し
+        public void  DataSave(string a, string b, string c)
+        {
+
+        }
+        public AllPagesViewModel JsonRead()
+        {
+            return (AllPagesViewModel)Model.DataList;
+        }
+
+
 
     }
 }

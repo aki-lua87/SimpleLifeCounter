@@ -15,7 +15,8 @@ namespace SimpleLifeCounter
 
     public partial class MenuPage : ContentPage
     {
-        private AllPageModel model = new AllPageModel();
+        // private AllPageModel model = new AllPageModel();
+        private AllPagesViewModel vm = new AllPagesViewModel();
         Dictionary<string, Color> stringToColor;
 
         public MenuPage()
@@ -26,10 +27,8 @@ namespace SimpleLifeCounter
             NavigationPage.SetHasNavigationBar(this, false);
 
             // 色と文字列のリストを取得
-            stringToColor = model.getVm().getStringToColorList();
+            stringToColor = vm.getStringToColorList();
             PickerSet();
-
-            // SaveButton.Clicked += (sender, e) => SaveClicked(); // Xamlで指定できるけどどっちがいいかな
 
             LifeFontColorPicker.SelectedIndexChanged += (sender, s) =>
             {
@@ -42,19 +41,19 @@ namespace SimpleLifeCounter
                 BackgroundColorPicker.BackgroundColor = stringToColor[BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex]];
                 BackgroundColorPicker.TextColor = stringToColor[BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex]];
             };
-            model.JsonRead();
-            this.BindingContext = model.getVm();
+            vm = vm.JsonRead();
+            this.BindingContext = vm;
         }
 
         // セーブ
         private void SaveClicked(object sender, EventArgs e)
         {
             // データバインドできない部分をViewModelに手書き
-            model.DoNotBindingSetVM(
+            vm.DataSave(
                 LifeNum.Items[LifeNum.SelectedIndex]
                 , LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex]
                 , BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex]);
-            model.JsonWrite();
+            
             Navigation.PopAsync();
         }
 
