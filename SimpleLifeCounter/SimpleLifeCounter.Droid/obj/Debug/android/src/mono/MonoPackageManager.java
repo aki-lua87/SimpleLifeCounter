@@ -137,10 +137,6 @@ class MonoPackageManager_Resources {
 		"System.Resources.ResourceManager.dll",
 		"System.Diagnostics.Tools.dll",
 		"Newtonsoft.Json.dll",
-		"System.Xml.XDocument.dll",
-		"System.Runtime.Serialization.Primitives.dll",
-		"System.Text.Encoding.dll",
-		"System.Text.Encoding.Extensions.dll",
 	};
 	public static final String[] Dependencies = new String[]{
 	};

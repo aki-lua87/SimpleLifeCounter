@@ -13,77 +13,49 @@ namespace SimpleLifeCounter
 {
     public partial class LifePage : ContentPage
     {
-        // private AllPageModel model = new AllPageModel();
-        private AllPagesViewModel vm = new AllPagesViewModel();
+        private AllPageModel model = new AllPageModel();
 
         public LifePage()
         {
             InitializeComponent();
-            BindingContext = vm;
+            BindingContext = model.getVm();
 
             // 上の邪魔なの消すおまじない
             NavigationPage.SetHasNavigationBar(this, false);
 
             // LifeSet
-            LeftPlyerLife.Text = vm.DefaultLifePoint.ToString();
-            RightPlyerLife.Text = vm.DefaultLifePoint.ToString();
+            LeftPlyerLife.Text = model.getStringDefaultLife();
+            RightPlyerLife.Text = model.getStringDefaultLife();
 
-            LeftPlyerLifeUp.Clicked += (sender, e) => LeftPlyerLife.Text = intToStr(CountUp(LeftPlyerLife.Text));
-            LeftPlyerLifeDown.Clicked += (sender, e) => LeftPlyerLife.Text = intToStr(CountDown(LeftPlyerLife.Text));
-            RightPlyerLifeUp.Clicked += (sender, e) => RightPlyerLife.Text = intToStr(CountUp(RightPlyerLife.Text));
-            RightPlyerLifeDown.Clicked += (sender, e) => RightPlyerLife.Text = intToStr(CountDown(RightPlyerLife.Text));
+            LeftPlyerLifeUp.Clicked += (sender, e) => LeftPlyerLife.Text = model.LifeUp(LeftPlyerLife);
+            LeftPlyerLifeDown.Clicked += (sender, e) => LeftPlyerLife.Text = model.LifeDown(LeftPlyerLife);
+            RightPlyerLifeUp.Clicked += (sender, e) => RightPlyerLife.Text = model.LifeUp(RightPlyerLife);
+            RightPlyerLifeDown.Clicked += (sender, e) => RightPlyerLife.Text = model.LifeDown(RightPlyerLife);
 
             toMenuPageButton.Clicked += async(sender,e) => await Navigation.PushAsync(new MenuPage());
             LifeResetButton.Clicked += async (sender, e) =>
             {
-                if (vm.LifeResetCheck ? (await DisplayAlert("リセット", "ライフを初期値に戻しますか？", "はい", "いいえ")) : true)
+                if (model.getResetCheck() ? (await DisplayAlert("リセット", "ライフを初期値に戻しますか？", "はい", "いいえ")) : true)
                 {
-                    LeftPlyerLife.Text = vm.DefaultLifePoint.ToString();
-                    RightPlyerLife.Text = vm.DefaultLifePoint.ToString();
+                    LeftPlyerLife.Text = model.getStringDefaultLife();
+                    RightPlyerLife.Text = model.getStringDefaultLife();
                 }
             };
 
-            DiceThrow.Clicked += async (sender, e) => await DisplayAlert("ダイス", Random20().ToString(), "OK");
-            CoinToss.Clicked += async (sender, e) => await DisplayAlert("コイン", RandomBoolean() ? "おもて" : "うら", "OK");
+            DiceThrow.Clicked += async (sender, e) => await DisplayAlert("ダイス", model.Random20().ToString(), "OK");
+            CoinToss.Clicked += async (sender, e) => await DisplayAlert("コイン", model.RandomBoolean() ? "おもて" : "うら", "OK");
         }
 
         // CIP
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            vm.JsonRead();
-            BindingContext = vm;
+            model.JsonRead();
+            BindingContext = model.getVm();
 
             // もしデフォルトライフとVMの値が違うならデフォルトライフに代入して適用とかにする
-            LeftPlyerLife.Text = vm.DefaultLifePoint.ToString();
-            RightPlyerLife.Text = vm.DefaultLifePoint.ToString();
-        }
-
-        public Boolean RandomBoolean()
-        {
-            Random rnd = new Random();
-            return rnd.Next(0, 100) < 50;
-        }
-        public int Random20()
-        {
-            Random rnd = new Random();
-            return rnd.Next(1, 21);
-        }
-        public int CountUp(string count)
-        {
-            return strToInt(count) + 1;
-        }
-        public int CountDown(string count)
-        {
-            return strToInt(count) - 1;
-        }
-        public int strToInt(string str)
-        {
-            return int.Parse(str);
-        }
-        public string intToStr(int i)
-        {
-            return i.ToString();
+            LeftPlyerLife.Text = model.getStringDefaultLife();
+            RightPlyerLife.Text = model.getStringDefaultLife();
         }
 
     }
