@@ -63,15 +63,11 @@ G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\Xama
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\Newtonsoft.Json.dll
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\SimpleLifeCounter.pdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\FormsViewGroup.pdb
-G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\FormsViewGroup.dll.mdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\Xamarin.Forms.Core.pdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\Xamarin.Forms.Core.xml
-G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\Xamarin.Forms.Core.dll.mdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\Xamarin.Forms.Platform.Android.pdb
-G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\Xamarin.Forms.Platform.Android.dll.mdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\Xamarin.Forms.Xaml.pdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\Xamarin.Forms.Xaml.xml
-G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\Xamarin.Forms.Xaml.dll.mdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\Newtonsoft.Json.xml
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\SimpleLifeCounter.Droid.csprojResolveAssemblyReference.cache
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\SimpleLifeCounter.Droid.dll
