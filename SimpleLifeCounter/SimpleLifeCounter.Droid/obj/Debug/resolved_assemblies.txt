@@ -46,3 +46,9 @@ G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\andr
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\android\assets\System.Resources.ResourceManager.dll
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\android\assets\System.Diagnostics.Tools.dll
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\android\assets\Newtonsoft.Json.dll
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\android\assets\System.Xml.XDocument.dll
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\android\assets\System.Runtime.Serialization.Primitives.dll
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\android\assets\System.Text.Encoding.dll
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\android\assets\System.Text.Encoding.Extensions.dll
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\android\assets\Microsoft.CSharp.dll
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\android\assets\Mono.CSharp.dll
