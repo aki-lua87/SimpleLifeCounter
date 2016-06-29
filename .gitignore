@@ -6,6 +6,8 @@ obj/
 Debug/
 debug/
 packages/
+Packages/
+**/packages/*
 
 test1/
 test3/
