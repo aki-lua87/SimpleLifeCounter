@@ -14,7 +14,8 @@
                VerticalOptions="CenterAndExpand"/>
         <Picker x:Name="LifeFontColorPicker"
                 SelectedIndex="{Binding LifeColorIndex}"
-                BackgroundColor="{Binding LifeFontColor}"
+                BackgroundColor="{Binding ConfirmationLifeFontColor}"
+                TextColor="{Binding ConfirmationLifeFontColor}"
                 AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="1, 0.5, 0.1, 1"/>
       </AbsoluteLayout>
@@ -27,7 +28,8 @@
                VerticalOptions="CenterAndExpand"/>
         <Picker x:Name="BackgroundColorPicker"
                 SelectedIndex="{Binding BackgroundColorIndex}"
-                BackgroundColor="{Binding BackgroundColor}"
+                BackgroundColor="{Binding ConfirmationBackgroundColor}"
+                TextColor="{Binding ConfirmationBackgroundColor}"
                 AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="1, 0.5, 0.1, 1"/>
       </AbsoluteLayout>

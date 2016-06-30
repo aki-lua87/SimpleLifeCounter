@@ -94,7 +94,7 @@ namespace SimpleLifeCounter.ViewModels
         // Modelを購読
         public LifePageViewModel()
         {
-            this.Model.PropertyChanged += (_, e) =>
+            this.Model.PropertyChanged += (sender, e) =>
               {
                   if (e.PropertyName == nameof(AllPageModel.BackgroundColor))
                   {
@@ -151,7 +151,7 @@ namespace SimpleLifeCounter.ViewModels
         public void DiceMessegeGenerate()
         {
             Model.DiceMessegeGenerate();
-            this.Message = Model.Message;
+            //this.Message = Model.Message;
         }
     }
 }

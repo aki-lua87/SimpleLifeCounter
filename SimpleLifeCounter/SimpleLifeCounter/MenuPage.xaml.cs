@@ -29,18 +29,14 @@ namespace SimpleLifeCounter
             stringToColor = vm.getStringToColorList();
             PickerSet();
 
-            // SaveButton.Clicked += (sender, e) => SaveClicked(); // Xamlで指定できるけどどっちがいいかな
-
             LifeFontColorPicker.SelectedIndexChanged += (sender, s) =>
             {
-                LifeFontColorPicker.BackgroundColor = stringToColor[LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex]];
-                LifeFontColorPicker.TextColor = stringToColor[LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex]];
+                vm.ConfirmationLifeFontColor = stringToColor[LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex]];
             };
 
             BackgroundColorPicker.SelectedIndexChanged += (sender, e) =>
             {
-                BackgroundColorPicker.BackgroundColor = stringToColor[BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex]];
-                BackgroundColorPicker.TextColor = stringToColor[BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex]];
+                vm.ConfirmationBackgroundColor = stringToColor[BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex]];
             };
             vm.Load();
             this.BindingContext = vm;
@@ -49,7 +45,7 @@ namespace SimpleLifeCounter
         // セーブ
         private void SaveClicked(object sender, EventArgs e)
         {
-            // データバインドできない部分をViewModelに手書き
+            // データバインドできない部分を手書き
             vm.SaveClicked
                 (
                 LifeNum.Items[LifeNum.SelectedIndex],
