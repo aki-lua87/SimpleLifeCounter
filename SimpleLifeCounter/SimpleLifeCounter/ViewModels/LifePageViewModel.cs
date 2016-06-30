@@ -20,7 +20,7 @@ namespace SimpleLifeCounter.ViewModels
         //private AllPageModel Model { get; } = new AllPageModel();
         private AllPageModel Model = new AllPageModel();
 
-        private Boolean TempBool = true;
+        private Boolean TempBool = true; // めうめうめうめうめうめうめう
 
 
         //LifePage Bainding
@@ -139,8 +139,6 @@ namespace SimpleLifeCounter.ViewModels
             }
             
         }
-
-
 
         // 分からないからズル
         // データロード
