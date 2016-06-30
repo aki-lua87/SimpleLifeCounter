@@ -89,11 +89,6 @@ namespace SimpleLifeCounter.ViewModels
                 }
             }
         }
-        public Color getBackgroundColor()
-        {
-            return nameToColor[_backgroundColor];
-        }
-
 
         private string _lifeFontColor;
         public string LifeFontColor
@@ -107,10 +102,6 @@ namespace SimpleLifeCounter.ViewModels
                     OnPropertyChanged(nameof(LifeFontColor));
                 }
             }
-        }
-        public Color getLifeFontColor()
-        {
-            return nameToColor[_lifeFontColor];
         }
 
         private int _defaultLifePoint;

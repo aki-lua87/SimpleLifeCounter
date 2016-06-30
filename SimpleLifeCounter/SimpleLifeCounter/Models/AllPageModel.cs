@@ -2,70 +2,155 @@
 using SimpleLifeCounter.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ServiceModel.Channels;
 using Xamarin.Forms;
 
 namespace SimpleLifeCounter.Models
 {
-    class AllPageModel
+    public class AllPageModel : INotifyPropertyChanged
     {
-        private AllPagesViewModel vm = new AllPagesViewModel();
+        public event PropertyChangedEventHandler PropertyChanged;
 
-        public AllPageModel()
+        protected virtual void OnPropertyChanged(string propertyName)
         {
-            JsonRead();
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void JsonRead()
+        // MenuPage Binding
+        private int _lifeIndex;
+        public int LifeIndex
         {
-            try
+            get { return _lifeIndex; }
+            set
             {
-                var data = DependencyService.Get<ISaveAndLoad>().LoadData("temp.json");
-                vm = JsonConvert.DeserializeObject<AllPagesViewModel>(data);
-            }
-            catch (Exception)
-            {
-                // Jsonが無いときは作る
-                vm.LifeIndex = 1;
-                vm.DefaultLifePoint = 20;
-
-                vm.LifeColorIndex = 13;
-                vm.LifeFontColor = "White";
-
-                vm.BackgroundColorIndex = 3;
-                vm.BackgroundColor = "Blue";
-
-                vm.LifeResetCheck = true;
-
-                var json = JsonConvert.SerializeObject(vm);
-                DependencyService.Get<ISaveAndLoad>().SaveData("temp.json", json);
-
-                JsonRead();
+                if (_lifeIndex != value)
+                {
+                    _lifeIndex = value;
+                    OnPropertyChanged(nameof(LifeIndex));
+                }
             }
         }
-        public void JsonWrite()
+
+        private int _backgroundColorIndex;
+        public int BackgroundColorIndex
         {
-            var json = JsonConvert.SerializeObject(vm);
-            DependencyService.Get<ISaveAndLoad>().SaveData("temp.json", json);
+            get { return _backgroundColorIndex; }
+            set
+            {
+                if (_backgroundColorIndex != value)
+                {
+                    _backgroundColorIndex = value;
+                    OnPropertyChanged(nameof(BackgroundColorIndex));
+                }
+            }
         }
+
+        private int _lifeColorIndex;
+        public int LifeColorIndex
+        {
+            get { return _lifeColorIndex; }
+            set
+            {
+                if (_lifeColorIndex != value)
+                {
+                    _lifeColorIndex = value;
+                    OnPropertyChanged(nameof(LifeColorIndex));
+                }
+            }
+        }
+
+        private bool _lifeResetCheck;
+        public bool LifeResetCheck
+        {
+            get { return _lifeResetCheck; }
+            set
+            {
+                if (_lifeResetCheck != value)
+                {
+                    _lifeResetCheck = value;
+                    OnPropertyChanged(nameof(LifeResetCheck));
+                }
+            }
+        }
+
+        //LifePage Bainding
+        private string _backgroundColor;
+        public string BackgroundColor
+        {
+            get { return _backgroundColor; }
+            set
+            {
+                if (_backgroundColor != value)
+                {
+                    _backgroundColor = value;
+                    OnPropertyChanged(nameof(BackgroundColor));
+                }
+            }
+        }
+
+        private string _lifeFontColor;
+        public string LifeFontColor
+        {
+            get { return _lifeFontColor; }
+            set
+            {
+                if (_lifeFontColor != value)
+                {
+                    _lifeFontColor = value;
+                    OnPropertyChanged(nameof(LifeFontColor));
+                }
+            }
+        }
+
+        private int _defaultLifePoint;
+        public int DefaultLifePoint
+        {
+            get { return _defaultLifePoint; }
+            set
+            {
+                if (_defaultLifePoint != value)
+                {
+                    _defaultLifePoint = value;
+                    OnPropertyChanged(nameof(DefaultLifePoint));
+                }
+            }
+        }
+
+        private string _message;
+        public string Message
+        {
+            get { return _message; }
+            set
+            {
+                if (_message != value)
+                {
+                    _message = value;
+                    OnPropertyChanged(nameof(Message));
+                }
+            }
+        }
+
+
+
 
         public void DoNotBindingSetVM(string lifePoint, string fontColor, string backgroundColor)
         {
             // データバインドできない部分をViewModelに手書き
-            vm.DefaultLifePoint = int.Parse(lifePoint);
-            vm.LifeFontColor = fontColor;
-            vm.BackgroundColor = backgroundColor;
+            DefaultLifePoint = int.Parse(lifePoint);
+            LifeFontColor = fontColor;
+            BackgroundColor = backgroundColor;
         }
 
-        public Boolean RandomBoolean()
+        public void CoinMessegeGenerate()
         {
             Random rnd = new Random();
-            return rnd.Next(0, 100) < 50;
+            this.Message = rnd.Next(0, 100) < 50 ? "おもて":"うら";
         }
-        public int Random20()
+        public void DiceMessegeGenerate()
         {
             Random rnd = new Random();
-            return rnd.Next(1, 21);
+            this.Message = $"{rnd.Next(1, 21).ToString()}";
         }
 
         public string LifeUp(Label Lifelabel)
@@ -77,17 +162,24 @@ namespace SimpleLifeCounter.Models
             return (int.Parse(Lifelabel.Text) - 1).ToString();
         }
 
-        public AllPagesViewModel getVm()
+        // jsonにセーブ
+        // セーブしたときにイベント発行
+        // VMで発火してJsonの値を格納
+
+
+        public AllPageModel()
         {
-            return vm;
-        }
-        public bool getResetCheck()
-        {
-            return vm.LifeResetCheck;
-        }
-        public string getStringDefaultLife()
-        {
-            return vm.DefaultLifePoint.ToString();
+            LifeIndex = 1;
+            BackgroundColorIndex = 2;
+            LifeColorIndex = 13;
+
+            LifeResetCheck = true;
+
+            BackgroundColor = "Blue";
+            LifeFontColor = "White";
+            DefaultLifePoint = 20;
+
+            Message = "Test";
         }
 
     }
