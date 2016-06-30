@@ -18,6 +18,8 @@ namespace SimpleLifeCounter
         public LifePage()
         {
             InitializeComponent();
+            
+
             BindingContext = vm;
 
             // 上の邪魔なの消すおまじない
@@ -42,14 +44,20 @@ namespace SimpleLifeCounter
                 }
             };
 
+            
+
             DiceThrow.Clicked += async (sender, e) =>
             {
+                vm.DebugMethod(); // 解せない-0------------------------------------
+
                 vm.DiceMessegeGenerate();
                 await DisplayAlert("ダイス", $"{vm.Message}", "OK");
             };
 
             CoinToss.Clicked += async (sender, e) =>
             {
+                vm.DebugMethod(); // 解せない-0------------------------------------
+
                 vm.CoinMessegeGenerate();
                 await DisplayAlert("コイン", $"{vm.Message}", "OK");
             };
@@ -59,6 +67,7 @@ namespace SimpleLifeCounter
         protected override void OnAppearing()
         {
             base.OnAppearing();
+
             vm.Load();
             BindingContext = vm;
 

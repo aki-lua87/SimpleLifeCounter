@@ -155,6 +155,7 @@ namespace SimpleLifeCounter.ViewModels
             Model.LifeColorIndex = LifeColorIndex;
             Model.BackgroundColorIndex = BackgroundColorIndex;
             Model.LifeIndex = LifeIndex;
+
             Model.LifeResetCheck = LifeResetCheck;
 
             Model.DefaultLifePoint = int.Parse(lifePoint);

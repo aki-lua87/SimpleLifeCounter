@@ -38,6 +38,7 @@ namespace SimpleLifeCounter
             {
                 vm.ConfirmationBackgroundColor = stringToColor[BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex]];
             };
+
             vm.Load();
             this.BindingContext = vm;
         }

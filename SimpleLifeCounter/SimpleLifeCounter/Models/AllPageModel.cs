@@ -146,11 +146,15 @@ namespace SimpleLifeCounter.Models
         {
             Random rnd = new Random();
             this.Message = rnd.Next(0, 100) < 50 ? "おもて":"うら";
+
+            System.Diagnostics.Debug.WriteLine($"【CoinGenerate---{Message}---------】");
         }
         public void DiceMessegeGenerate()
         {
             Random rnd = new Random();
             this.Message = $"{rnd.Next(1, 21).ToString()}";
+
+            System.Diagnostics.Debug.WriteLine($"【DiceGenerate---{Message}---------】");
         }
 
         public string LifeUp(Label Lifelabel)

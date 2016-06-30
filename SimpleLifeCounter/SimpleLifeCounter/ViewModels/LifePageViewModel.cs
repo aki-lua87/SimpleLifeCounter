@@ -20,6 +20,9 @@ namespace SimpleLifeCounter.ViewModels
         //private AllPageModel Model { get; } = new AllPageModel();
         private AllPageModel Model = new AllPageModel();
 
+        private Boolean TempBool = true;
+
+
         //LifePage Bainding
         private string _backgroundColor;
         public string BackgroundColor
@@ -91,34 +94,53 @@ namespace SimpleLifeCounter.ViewModels
             }
         }
 
-        // Modelを購読
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public LifePageViewModel()
         {
-            this.Model.PropertyChanged += (sender, e) =>
-              {
-                  if (e.PropertyName == nameof(AllPageModel.BackgroundColor))
-                  {
-                      this.BackgroundColor = Model.BackgroundColor;
-                  }
-                  if (e.PropertyName == nameof(AllPageModel.LifeFontColor))
-                  {
-                      this.LifeFontColor = Model.LifeFontColor;
-                  }
-                  if (e.PropertyName == nameof(AllPageModel.DefaultLifePoint))
-                  {
-                      this.DefaultLifePoint = Model.DefaultLifePoint;
-                  }
-                  if (e.PropertyName == nameof(AllPageModel.LifeResetCheck))
-                  {
-                      this.LifeResetCheck = Model.LifeResetCheck;
-                  }
-                  if (e.PropertyName == nameof(AllPageModel.Message))
-                  {
-                      this.Message = Model.Message;
-                  }
-              };
+
+            System.Diagnostics.Debug.WriteLine("【Const----------------------------1】");
+
+            this.Model.PropertyChanged += ModelPropertyChanged;
+
             Load();
         }
+
+        // Model購読
+        public void ModelPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            switch (e.PropertyName)
+            {
+                case nameof(AllPageModel.BackgroundColor):
+                    break;
+                case nameof(AllPageModel.LifeFontColor):
+                    break;
+                case nameof(AllPageModel.DefaultLifePoint):
+                    break;
+                case nameof(AllPageModel.LifeResetCheck):
+                    break;
+                case nameof(AllPageModel.Message):
+                    this.Message = Model.Message;
+                    System.Diagnostics.Debug.WriteLine("【Messegeﾀﾞﾖｰｰｰ(´・ω・`)】");
+                    break;
+                default:
+                    System.Diagnostics.Debug.WriteLine("【(´・ω・`)】");
+                    break;
+            }
+        }
+
+        public void DebugMethod() // なんだよこれーーーーーーーーーーーーーーーーーーーー
+        {
+            if(TempBool)
+            {
+                this.Model.PropertyChanged += ModelPropertyChanged;
+                TempBool = false;
+            }
+            
+        }
+
+
 
         // 分からないからズル
         // データロード
@@ -145,12 +167,16 @@ namespace SimpleLifeCounter.ViewModels
         // Model呼び出し
         public void CoinMessegeGenerate()
         {
+            System.Diagnostics.Debug.WriteLine($"【Coin------------{Message}-----------1】");
             Model.CoinMessegeGenerate();
-            this.Message = Model.Message;
+
+            //this.Message = Model.Message;
         }
         public void DiceMessegeGenerate()
         {
+            System.Diagnostics.Debug.WriteLine($"【Dice------------{Message}-----------1】");
             Model.DiceMessegeGenerate();
+
             //this.Message = Model.Message;
         }
     }
