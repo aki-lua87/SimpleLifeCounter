@@ -13,21 +13,22 @@ namespace SimpleLifeCounter
 {
     public partial class LifePage : ContentPage
     {
+        int DefaultLifePoint;
+
         private LifePageViewModel vm { get; } = new LifePageViewModel();
 
         public LifePage()
         {
             InitializeComponent();
             
-
             BindingContext = vm;
 
             // 上の邪魔なの消すおまじない
             NavigationPage.SetHasNavigationBar(this, false);
 
             // LifeSet
-            LeftPlyerLife.Text = vm.DefaultLifePoint.ToString();
-            RightPlyerLife.Text = vm.DefaultLifePoint.ToString();
+            DefaultLifePoint = vm.DefaultLifePoint;
+            setDefaltLifePoint();
 
             LeftPlyerLifeUp.Clicked += (sender, e) => LeftPlyerLife.Text = LifeUp(LeftPlyerLife);
             LeftPlyerLifeDown.Clicked += (sender, e) => LeftPlyerLife.Text = LifeDown(LeftPlyerLife);
@@ -39,13 +40,9 @@ namespace SimpleLifeCounter
             {
                 if (vm.LifeResetCheck ? (await DisplayAlert("リセット", "ライフを初期値に戻しますか？", "はい", "いいえ")) : true)
                 {
-                    LeftPlyerLife.Text = vm.DefaultLifePoint.ToString();
-                    RightPlyerLife.Text = vm.DefaultLifePoint.ToString();
+                    setDefaltLifePoint();
                 }
             };
-
-            
-
             DiceThrow.Clicked += async (sender, e) =>
             {
                 vm.DebugMethod(); // 解せない-0------------------------------------
@@ -72,8 +69,11 @@ namespace SimpleLifeCounter
             BindingContext = vm;
 
             // もしデフォルトライフとVMの値が違うならデフォルトライフに代入して適用とかにする
-            LeftPlyerLife.Text = vm.DefaultLifePoint.ToString();
-            RightPlyerLife.Text = vm.DefaultLifePoint.ToString();
+            if(DefaultLifePoint != vm.DefaultLifePoint)
+            {
+                DefaultLifePoint = vm.DefaultLifePoint;
+                setDefaltLifePoint();
+            }
         }
 
         // とりあえず動かすためにここに置く
@@ -84,6 +84,11 @@ namespace SimpleLifeCounter
         private string LifeDown(Label l)
         {
             return (int.Parse(l.Text) - 1).ToString();
+        }
+        private void setDefaltLifePoint()
+        {
+            LeftPlyerLife.Text = DefaultLifePoint.ToString();
+            RightPlyerLife.Text = DefaultLifePoint.ToString();
         }
 
     }
