@@ -35,7 +35,10 @@ namespace SimpleLifeCounter
             RightPlyerLifeUp.Clicked += (sender, e) => RightPlyerLife.Text = LifeUp(RightPlyerLife);
             RightPlyerLifeDown.Clicked += (sender, e) => RightPlyerLife.Text = LifeDown(RightPlyerLife);
 
-            toMenuPageButton.Clicked += async(sender,e) => await Navigation.PushAsync(new MenuPage());
+            toMenuPageButton.Clicked += async (sender, e) =>
+            {
+                await Navigation.PushAsync(new MenuPage());
+            };
             LifeResetButton.Clicked += async (sender, e) =>
             {
                 if (vm.LifeResetCheck ? (await DisplayAlert("リセット", "ライフを初期値に戻しますか？", "はい", "いいえ")) : true)
@@ -45,16 +48,12 @@ namespace SimpleLifeCounter
             };
             DiceThrow.Clicked += async (sender, e) =>
             {
-                vm.DebugMethod(); // 解せない-0------------------------------------
-
                 vm.DiceMessegeGenerate();
                 await DisplayAlert("ダイス", $"{vm.Message}", "OK");
             };
 
             CoinToss.Clicked += async (sender, e) =>
             {
-                vm.DebugMethod(); // 解せない-0------------------------------------
-
                 vm.CoinMessegeGenerate();
                 await DisplayAlert("コイン", $"{vm.Message}", "OK");
             };
@@ -64,6 +63,8 @@ namespace SimpleLifeCounter
         protected override void OnAppearing()
         {
             base.OnAppearing();
+
+            vm.tempBoolReset(); // なんだよこれ・・・・・
 
             vm.Load();
             BindingContext = vm;

@@ -102,7 +102,7 @@ namespace SimpleLifeCounter.ViewModels
 
             System.Diagnostics.Debug.WriteLine("【Const----------------------------1】");
 
-            this.Model.PropertyChanged += ModelPropertyChanged;
+            this.Model.PropertyChanged += ModelPropertyChanged; //これが反映されない
 
             Load();
         }
@@ -137,8 +137,14 @@ namespace SimpleLifeCounter.ViewModels
                 this.Model.PropertyChanged += ModelPropertyChanged;
                 TempBool = false;
             }
-            
         }
+        public void tempBoolReset()
+        {
+            TempBool = true;
+        }
+
+
+
 
         // 分からないからズル
         // データロード
@@ -147,7 +153,9 @@ namespace SimpleLifeCounter.ViewModels
             try
             {
                 var data = DependencyService.Get<ISaveAndLoad>().LoadData("temp.json");
+                System.Diagnostics.Debug.WriteLine("【Jsonエラーここ？ｰｰ(・ω・`)】");
                 Model = JsonConvert.DeserializeObject<AllPageModel>(data);
+                System.Diagnostics.Debug.WriteLine("【Jsonエラーここ？ｰｰ(・ω・`)】");
                 this.BackgroundColor = Model.BackgroundColor;
                 this.LifeFontColor = Model.LifeFontColor;
                 this.DefaultLifePoint = Model.DefaultLifePoint;
@@ -156,8 +164,10 @@ namespace SimpleLifeCounter.ViewModels
             }
             catch (Exception)
             {
+                System.Diagnostics.Debug.WriteLine("【例外だよーJsonﾂｸﾙﾖｰｰｰ(´・ω・)】");
                 var json = JsonConvert.SerializeObject(Model);
                 DependencyService.Get<ISaveAndLoad>().SaveData("temp.json", json);
+                System.Diagnostics.Debug.WriteLine("【Jsonﾂｸｯﾀﾖｰｰ(・ω・`)】");
                 Load();
             }
         }
@@ -165,15 +175,17 @@ namespace SimpleLifeCounter.ViewModels
         // Model呼び出し
         public void CoinMessegeGenerate()
         {
-            System.Diagnostics.Debug.WriteLine($"【Coin------------{Message}-----------1】");
+            DebugMethod();
             Model.CoinMessegeGenerate();
-
-            //this.Message = Model.Message;
+            System.Diagnostics.Debug.WriteLine($"【Coin------------{Message}-----------1】");
+            
+            // this.Message = Model.Message;
         }
         public void DiceMessegeGenerate()
         {
-            System.Diagnostics.Debug.WriteLine($"【Dice------------{Message}-----------1】");
+            //DebugMethod();
             Model.DiceMessegeGenerate();
+            System.Diagnostics.Debug.WriteLine($"【Dice------------{Message}-----------1】");
 
             //this.Message = Model.Message;
         }
