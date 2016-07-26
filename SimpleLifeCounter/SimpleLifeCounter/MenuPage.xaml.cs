@@ -15,7 +15,7 @@ namespace SimpleLifeCounter
 
     public partial class MenuPage : ContentPage
     {
-        private MenuPagesViewModel vm { get; } = new MenuPagesViewModel();
+        private MenuPageViewModel vm { get; } = new MenuPageViewModel();
         Dictionary<string, Color> stringToColor;
 
         public MenuPage()

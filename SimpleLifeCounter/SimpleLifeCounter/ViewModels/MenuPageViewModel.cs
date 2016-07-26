@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace SimpleLifeCounter.ViewModels
 {
-    class MenuPagesViewModel : INotifyPropertyChanged
+    class MenuPageViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
@@ -108,7 +108,7 @@ namespace SimpleLifeCounter.ViewModels
         }
 
         // Model購読
-        public MenuPagesViewModel()
+        public MenuPageViewModel()
         {
             this.Model.PropertyChanged += (_, e) =>
             {
