@@ -155,12 +155,13 @@ namespace SimpleLifeCounter.ViewModels
                 var data = DependencyService.Get<ISaveAndLoad>().LoadData("temp.json");
                 System.Diagnostics.Debug.WriteLine("【Jsonエラーここ？ｰｰ(・ω・`)】");
                 Model = JsonConvert.DeserializeObject<AllPageModel>(data);
-                System.Diagnostics.Debug.WriteLine("【Jsonエラーここ？ｰｰ(・ω・`)】");
+                System.Diagnostics.Debug.WriteLine("【Jsonエラーそれともここ？ｰｰ(・ω・`)】");
                 this.BackgroundColor = Model.BackgroundColor;
                 this.LifeFontColor = Model.LifeFontColor;
                 this.DefaultLifePoint = Model.DefaultLifePoint;
                 this.LifeResetCheck = Model.LifeResetCheck;
                 this.Message = Model.Message;
+                System.Diagnostics.Debug.WriteLine("【(・ω・`)｛ロードメソッドはここで終わっている(ｷﾘｯ】");
             }
             catch (Exception)
             {

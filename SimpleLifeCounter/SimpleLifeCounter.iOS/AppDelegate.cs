@@ -27,12 +27,6 @@ namespace SimpleLifeCounter.iOS
 
             return base.FinishedLaunching(app, options);
         }
-        // 横画面固定(不明)
-        [Export("application:supportedInterfaceOrientationsForWindow:")]
-        public UIInterfaceOrientationMask GetSupportedInterfaceOrientations(UIApplication application, IntPtr forWindow)
-        {
-            return UIInterfaceOrientationMask.Landscape;
-        }
-        // 横画面固定(不明)
+        
     }
 }

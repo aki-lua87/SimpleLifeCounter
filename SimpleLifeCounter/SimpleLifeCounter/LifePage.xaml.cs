@@ -9,27 +9,14 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-using Microsoft.Practices.Prism.Mvvm;
+//using Microsoft.Practices.Prism.Mvvm;
 
 namespace SimpleLifeCounter
 {
-    public partial class LifePage : ContentPage, IView
+    public partial class LifePage : ContentPage//, IView
     {
         int DefaultLifePoint;
         private LifePageViewModel vm { get; } = new LifePageViewModel();
-
-        public object DataContext
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
 
         public LifePage()
         {
@@ -79,8 +66,8 @@ namespace SimpleLifeCounter
             base.OnAppearing();
 
             vm.tempBoolReset(); // なんだよこれ・・・・・
-
             vm.Load();
+
             BindingContext = vm;
 
             // もしデフォルトライフとVMの値が違うならデフォルトライフに代入して適用とかにする
