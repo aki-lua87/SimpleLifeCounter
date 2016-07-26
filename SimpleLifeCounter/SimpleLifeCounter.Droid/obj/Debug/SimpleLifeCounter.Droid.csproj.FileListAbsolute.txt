@@ -117,5 +117,9 @@ G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\andr
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\Microsoft.Practices.Prism.Mvvm.dll
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\Microsoft.Practices.Prism.SharedInterfaces.dll
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\Microsoft.Practices.Prism.Mvvm.xml
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\Microsoft.Practices.Prism.SharedInterfaces.xml
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\SimpleLifeCounter.Droid.dll.mdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\bin\Debug\SimpleLifeCounter.Droid.dll.mdb

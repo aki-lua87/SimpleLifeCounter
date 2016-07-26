@@ -9,13 +9,27 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
+using Microsoft.Practices.Prism.Mvvm;
+
 namespace SimpleLifeCounter
 {
-    public partial class LifePage : ContentPage
+    public partial class LifePage : ContentPage, IView
     {
         int DefaultLifePoint;
-
         private LifePageViewModel vm { get; } = new LifePageViewModel();
+
+        public object DataContext
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
 
         public LifePage()
         {
