@@ -1,136 +1,73 @@
-﻿using Newtonsoft.Json;
-using SimpleLifeCounter.ViewModels;
+﻿using SimpleLifeCounter.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ServiceModel.Channels;
+
 using Xamarin.Forms;
+using Newtonsoft.Json;
+using Prism.Mvvm;
 
 namespace SimpleLifeCounter.Models
 {
-    public class AllPageModel : INotifyPropertyChanged
+    public class AllPageModel : BindableBase
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        private int _lifeIndex;
+        private int _backgroundColorIndex;
+        private int _lifeColorIndex;
 
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        private bool _lifeResetCheck;
+
+        private string _backgroundColor;
+        private string _lifeFontColor;
+        private int _defaultLifePoint;
+        private string _message;
 
         // MenuPage Binding
-        private int _lifeIndex;
         public int LifeIndex
         {
             get { return _lifeIndex; }
-            set
-            {
-                if (_lifeIndex != value)
-                {
-                    _lifeIndex = value;
-                    OnPropertyChanged(nameof(LifeIndex));
-                }
-            }
+            set { this.SetProperty(ref this._lifeIndex, value); }
         }
-
-        private int _backgroundColorIndex;
         public int BackgroundColorIndex
         {
             get { return _backgroundColorIndex; }
-            set
-            {
-                if (_backgroundColorIndex != value)
-                {
-                    _backgroundColorIndex = value;
-                    OnPropertyChanged(nameof(BackgroundColorIndex));
-                }
-            }
+            set { this.SetProperty(ref this._backgroundColorIndex, value); }
         }
-
-        private int _lifeColorIndex;
         public int LifeColorIndex
         {
             get { return _lifeColorIndex; }
-            set
-            {
-                if (_lifeColorIndex != value)
-                {
-                    _lifeColorIndex = value;
-                    OnPropertyChanged(nameof(LifeColorIndex));
-                }
-            }
+            set { this.SetProperty(ref this._lifeColorIndex, value); }
         }
-
-        private bool _lifeResetCheck;
         public bool LifeResetCheck
         {
             get { return _lifeResetCheck; }
-            set
-            {
-                if (_lifeResetCheck != value)
-                {
-                    _lifeResetCheck = value;
-                    OnPropertyChanged(nameof(LifeResetCheck));
-                }
-            }
+            set { this.SetProperty(ref this._lifeResetCheck, value); }
         }
 
         //LifePage Bainding
-        private string _backgroundColor;
         public string BackgroundColor
         {
-            get { return _backgroundColor; }
-            set
-            {
-                if (_backgroundColor != value)
-                {
-                    _backgroundColor = value;
-                    OnPropertyChanged(nameof(BackgroundColor));
-                }
-            }
+            get { return this._backgroundColor; }
+            set { this.SetProperty(ref this._backgroundColor, value); }
         }
 
-        private string _lifeFontColor;
         public string LifeFontColor
         {
             get { return _lifeFontColor; }
-            set
-            {
-                if (_lifeFontColor != value)
-                {
-                    _lifeFontColor = value;
-                    OnPropertyChanged(nameof(LifeFontColor));
-                }
-            }
+            set { this.SetProperty(ref this._lifeFontColor, value); }
         }
 
-        private int _defaultLifePoint;
         public int DefaultLifePoint
         {
             get { return _defaultLifePoint; }
-            set
-            {
-                if (_defaultLifePoint != value)
-                {
-                    _defaultLifePoint = value;
-                    OnPropertyChanged(nameof(DefaultLifePoint));
-                }
-            }
+            set { this.SetProperty(ref this._defaultLifePoint, value); }
         }
-
-        private string _message;
         public string Message
         {
             get { return _message; }
-            set
-            {
-                if (_message != value)
-                {
-                    _message = value;
-                    OnPropertyChanged(nameof(Message));
-                }
-            }
+            set { this.SetProperty(ref this._message, value); }
         }
-
 
 
 
@@ -146,24 +83,11 @@ namespace SimpleLifeCounter.Models
         {
             Random rnd = new Random();
             this.Message = rnd.Next(0, 100) < 50 ? "おもて":"うら";
-
-            System.Diagnostics.Debug.WriteLine($"【CoinGenerate---{Message}---------】");
         }
         public void DiceMessegeGenerate()
         {
             Random rnd = new Random();
             this.Message = $"{rnd.Next(1, 21).ToString()}";
-
-            System.Diagnostics.Debug.WriteLine($"【DiceGenerate---{Message}---------】");
-        }
-
-        public string LifeUp(Label Lifelabel)
-        {
-            return (int.Parse(Lifelabel.Text) + 1).ToString();
-        }
-        public string LifeDown(Label Lifelabel)
-        {
-            return (int.Parse(Lifelabel.Text) - 1).ToString();
         }
 
         // jsonにセーブ

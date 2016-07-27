@@ -27,8 +27,11 @@ namespace SimpleLifeCounter
 
             // 色と文字列のリストを取得
             stringToColor = vm.getStringToColorList();
+
+            // Pickerに値をセット
             PickerSet();
 
+            //Commandできない部分を
             LifeFontColorPicker.SelectedIndexChanged += (sender, s) =>
             {
                 vm.ConfirmationLifeFontColor = stringToColor[LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex]];
@@ -39,7 +42,7 @@ namespace SimpleLifeCounter
                 vm.ConfirmationBackgroundColor = stringToColor[BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex]];
             };
 
-            vm.Load();
+            // バインド設定
             this.BindingContext = vm;
         }
 

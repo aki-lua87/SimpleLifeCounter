@@ -1,134 +1,71 @@
-﻿using Newtonsoft.Json;
-using SimpleLifeCounter.Models;
+﻿using SimpleLifeCounter.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Xamarin.Forms;
+using Newtonsoft.Json;
+using Prism.Commands;
+using Prism.Mvvm;
 
 namespace SimpleLifeCounter.ViewModels
 {
-    class MenuPageViewModel : INotifyPropertyChanged
+    class MenuPageViewModel : BindableBase
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        //private AllPageModel Model { get; } = new AllPageModel();
         private AllPageModel Model = new AllPageModel();
 
         // MenuPage Binding
         private int _lifeIndex;
+        private int _backgroundColorIndex;
+        private int _lifeColorIndex;
+        private bool _lifeResetCheck;
+
+        private Color _confirmationBackgroundColor;
+        private Color _confirmationLifeFontColor;
+
+        // PickerにIndexとスイッチ
         public int LifeIndex
         {
             get { return _lifeIndex; }
-            set
-            {
-                if (_lifeIndex != value)
-                {
-                    _lifeIndex = value;
-                    OnPropertyChanged(nameof(LifeIndex));
-                }
-            }
+            set { this.SetProperty(ref this._lifeIndex, value); }
         }
-
-        private int _backgroundColorIndex;
         public int BackgroundColorIndex
         {
             get { return _backgroundColorIndex; }
-            set
-            {
-                if (_backgroundColorIndex != value)
-                {
-                    _backgroundColorIndex = value;
-                    OnPropertyChanged(nameof(BackgroundColorIndex));
-                }
-            }
+            set { this.SetProperty(ref this._backgroundColorIndex, value); }
         }
-
-        private int _lifeColorIndex;
         public int LifeColorIndex
         {
             get { return _lifeColorIndex; }
-            set
-            {
-                if (_lifeColorIndex != value)
-                {
-                    _lifeColorIndex = value;
-                    OnPropertyChanged(nameof(LifeColorIndex));
-                }
-            }
+            set { this.SetProperty(ref this._lifeColorIndex, value); }
         }
-
-        private bool _lifeResetCheck;
         public bool LifeResetCheck
         {
             get { return _lifeResetCheck; }
-            set
-            {
-                if (_lifeResetCheck != value)
-                {
-                    _lifeResetCheck = value;
-                    OnPropertyChanged(nameof(LifeResetCheck));
-                }
-            }
+            set { this.SetProperty(ref this._lifeResetCheck, value); }
         }
 
 
-        // picker系
-        private Color _confirmationBackgroundColor;
+        // pickerの背景
         public Color ConfirmationBackgroundColor
         {
             get { return _confirmationBackgroundColor; }
-            set
-            {
-                if (_confirmationBackgroundColor != value)
-                {
-                    _confirmationBackgroundColor = value;
-                    OnPropertyChanged("ConfirmationBackgroundColor");
-                }
-            }
+            set { this.SetProperty(ref this._confirmationBackgroundColor, value); }
         }
-
-        private Color _confirmationLifeFontColor;
         public Color ConfirmationLifeFontColor
         {
             get { return _confirmationLifeFontColor; }
-            set
-            {
-                if(_confirmationLifeFontColor != value)
-                {
-                    _confirmationLifeFontColor = value;
-                    OnPropertyChanged("ConfirmationLifeFontColor");
-                }
-            }
+            set { this.SetProperty(ref this._confirmationLifeFontColor, value); }
         }
 
-        // Model購読
+
+        // コンストラクタ
         public MenuPageViewModel()
         {
-            this.Model.PropertyChanged += (_, e) =>
-            {
-                if (e.PropertyName == nameof(AllPageModel.BackgroundColorIndex))
-                {
-                    this.BackgroundColorIndex = Model.BackgroundColorIndex;
-                }
-                if (e.PropertyName == nameof(AllPageModel.LifeColorIndex))
-                {
-                    this.LifeColorIndex = Model.LifeColorIndex;
-                }
-                if (e.PropertyName == nameof(AllPageModel.LifeIndex))
-                {
-                    this.LifeIndex = Model.LifeIndex;
-                }
-                if (e.PropertyName == nameof(AllPageModel.LifeResetCheck))
-                {
-                    this.LifeResetCheck = Model.LifeResetCheck;
-                }
-            };
+            this.Load();
         }
 
         // データセーブ 分からないからズル

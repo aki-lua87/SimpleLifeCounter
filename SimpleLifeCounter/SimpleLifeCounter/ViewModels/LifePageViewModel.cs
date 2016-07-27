@@ -1,152 +1,109 @@
-﻿using Newtonsoft.Json;
-using SimpleLifeCounter.Models;
+﻿using SimpleLifeCounter.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Xamarin.Forms;
+using Newtonsoft.Json;
+using Prism.Commands;
+using Prism.Mvvm;
 
 namespace SimpleLifeCounter.ViewModels
 {
-    class LifePageViewModel : INotifyPropertyChanged
+    class LifePageViewModel : BindableBase
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
         //private AllPageModel Model { get; } = new AllPageModel();
         private AllPageModel Model = new AllPageModel();
 
-        private Boolean TempBool = true; // めうめうめうめうめうめうめう
-
-
         //LifePage Bainding
         private string _backgroundColor;
-        public string BackgroundColor
+        private string _lifeFontColor;
+        private int _defaultLifePoint;
+        private bool _lifeResetCheck;
+        private string _message;
+
+        private int _leftLifePoint, _rightLifePoint;
+        public int LeftLifePoint
         {
-            get { return _backgroundColor; }
-            set
-            {
-                if (_backgroundColor != value)
-                {
-                    _backgroundColor = value;
-                    OnPropertyChanged(nameof(BackgroundColor));
-                }
-            }
+            get { return _leftLifePoint; }
+            set { this.SetProperty(ref this._leftLifePoint, value); }
+        }
+        public int RightLifePoint
+        {
+            get { return _rightLifePoint; }
+            set { this.SetProperty(ref this._rightLifePoint, value); }
         }
 
-        private string _lifeFontColor;
+        public string BackgroundColor
+        {
+            get { return this._backgroundColor; }
+            set { this.SetProperty(ref this._backgroundColor, value); }
+        }
+
         public string LifeFontColor
         {
             get { return _lifeFontColor; }
-            set
-            {
-                if (_lifeFontColor != value)
-                {
-                    _lifeFontColor = value;
-                    OnPropertyChanged(nameof(LifeFontColor));
-                }
-            }
+            set { this.SetProperty(ref this._lifeFontColor, value); }
         }
 
-        private int _defaultLifePoint;
         public int DefaultLifePoint
         {
             get { return _defaultLifePoint; }
-            set
-            {
-                if (_defaultLifePoint != value)
-                {
-                    _defaultLifePoint = value;
-                    OnPropertyChanged(nameof(DefaultLifePoint));
-                }
-            }
+            set { this.SetProperty(ref this._defaultLifePoint, value); }
         }
 
-        private bool _lifeResetCheck;
         public bool LifeResetCheck
         {
             get { return _lifeResetCheck; }
-            set
-            {
-                if (_lifeResetCheck != value)
-                {
-                    _lifeResetCheck = value;
-                    OnPropertyChanged(nameof(LifeResetCheck));
-                }
-            }
+            set { this.SetProperty(ref this._lifeResetCheck, value); }
         }
 
-        private string _message;
         public string Message
         {
             get { return _message; }
-            set
-            {
-                if (_message != value)
-                {
-                    _message = value;
-                    OnPropertyChanged(nameof(Message));
-                }
-            }
+            set { this.SetProperty(ref this._message, value); }
         }
+
+        public DelegateCommand RightUpCommand { get; private set; }
+        public DelegateCommand RightDownCommand { get; private set; }
+        public DelegateCommand LeftUpCommand { get; private set; }
+        public DelegateCommand LeftDownCommand { get; private set; }
+        public DelegateCommand ResetLifeCommand { get; private set; }
+        public DelegateCommand CoinTossCommand { get; private set; }
+        public DelegateCommand DiceCollCommand { get; private set; }
 
         /// <summary>
         /// コンストラクタ
         /// </summary>
         public LifePageViewModel()
         {
-
-            System.Diagnostics.Debug.WriteLine("【Const----------------------------1】");
-
-            this.Model.PropertyChanged += ModelPropertyChanged; //これが反映されない
-
+            // this.Model.PropertyChanged += ModelPropertyChanged; //これが反映されない
             Load();
+
+            this.RightUpCommand = new DelegateCommand(() => this.RightLifePoint++);
+            this.RightDownCommand = new DelegateCommand(() => this.RightLifePoint--);
+            this.LeftUpCommand = new DelegateCommand(() => this.LeftLifePoint++);
+            this.LeftDownCommand = new DelegateCommand(() => this.LeftLifePoint--);
+            this.ResetLifeCommand = new DelegateCommand(() => setLifePoint());
+
+            this.CoinTossCommand = new DelegateCommand(() =>
+            {
+                
+            });
+            this.DiceCollCommand = new DelegateCommand(() =>
+            {
+                
+            });
+
+            setLifePoint();
         }
 
         // Model購読
-        public void ModelPropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            switch (e.PropertyName)
-            {
-                case nameof(AllPageModel.BackgroundColor):
-                    break;
-                case nameof(AllPageModel.LifeFontColor):
-                    break;
-                case nameof(AllPageModel.DefaultLifePoint):
-                    break;
-                case nameof(AllPageModel.LifeResetCheck):
-                    break;
-                case nameof(AllPageModel.Message):
-                    this.Message = Model.Message;
-                    System.Diagnostics.Debug.WriteLine("【Messegeﾀﾞﾖｰｰｰ(´・ω・`)】");
-                    break;
-                default:
-                    System.Diagnostics.Debug.WriteLine("【(´・ω・`)】");
-                    break;
-            }
-        }
+        
 
-        public void DebugMethod() // なんだよこれーーーーーーーーーーーーーーーーーーーー
-        {
-            if(TempBool)
-            {
-                this.Model.PropertyChanged += ModelPropertyChanged;
-                TempBool = false;
-            }
-        }
-        public void tempBoolReset()
-        {
-            TempBool = true;
-        }
-
-
-
-
-        // 分からないからズル
         // データロード
         public void Load()
         {
@@ -166,7 +123,7 @@ namespace SimpleLifeCounter.ViewModels
             catch (Exception)
             {
                 System.Diagnostics.Debug.WriteLine("【例外だよーJsonﾂｸﾙﾖｰｰｰ(´・ω・)】");
-                var json = JsonConvert.SerializeObject(Model);
+                var json = JsonConvert.SerializeObject(new AllPageModel());
                 DependencyService.Get<ISaveAndLoad>().SaveData("temp.json", json);
                 System.Diagnostics.Debug.WriteLine("【Jsonﾂｸｯﾀﾖｰｰ(・ω・`)】");
                 Load();
@@ -176,19 +133,19 @@ namespace SimpleLifeCounter.ViewModels
         // Model呼び出し
         public void CoinMessegeGenerate()
         {
-            DebugMethod();
             Model.CoinMessegeGenerate();
-            System.Diagnostics.Debug.WriteLine($"【Coin------------{Message}-----------1】");
-            
-            // this.Message = Model.Message;
+            this.Message = Model.Message;
         }
         public void DiceMessegeGenerate()
         {
-            //DebugMethod();
             Model.DiceMessegeGenerate();
-            System.Diagnostics.Debug.WriteLine($"【Dice------------{Message}-----------1】");
+            this.Message = Model.Message;
+        }
 
-            //this.Message = Model.Message;
+        public void setLifePoint()
+        {
+            LeftLifePoint = DefaultLifePoint;
+            RightLifePoint = DefaultLifePoint;
         }
     }
 }

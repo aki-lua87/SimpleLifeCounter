@@ -35,9 +35,12 @@ G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\obj\Debug\SimpleLife
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\obj\Debug\SimpleLifeCounter.pdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\System.ServiceModel.Primitives.dll
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\obj\Debug\SimpleLifeCounter.csprojResolveAssemblyReference.cache
-G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\Microsoft.Practices.Prism.Mvvm.dll
-G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\Microsoft.Practices.Prism.SharedInterfaces.dll
-G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\Microsoft.Practices.Prism.Mvvm.xml
-G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\Microsoft.Practices.Prism.SharedInterfaces.xml
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\Prism.dll
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\Prism.Forms.dll
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\Prism.xml
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\Prism.Forms.xml
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\obj\Debug\SimpleLifeCounter.dll.mdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\SimpleLifeCounter.dll.mdb
