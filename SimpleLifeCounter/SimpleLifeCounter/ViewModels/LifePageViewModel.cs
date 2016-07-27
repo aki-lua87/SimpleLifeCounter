@@ -123,7 +123,7 @@ namespace SimpleLifeCounter.ViewModels
             catch (Exception)
             {
                 System.Diagnostics.Debug.WriteLine("【例外だよーJsonﾂｸﾙﾖｰｰｰ(´・ω・)】");
-                var json = JsonConvert.SerializeObject(new AllPageModel());
+                var json = JsonConvert.SerializeObject(new AllPageModel("初期化"));
                 DependencyService.Get<ISaveAndLoad>().SaveData("temp.json", json);
                 System.Diagnostics.Debug.WriteLine("【Jsonﾂｸｯﾀﾖｰｰ(・ω・`)】");
                 Load();

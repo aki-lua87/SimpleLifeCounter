@@ -97,6 +97,10 @@ namespace SimpleLifeCounter.Models
 
         public AllPageModel()
         {
+            
+        }
+        public AllPageModel(string messege)
+        {
             LifeIndex = 1;
             BackgroundColorIndex = 2;
             LifeColorIndex = 13;
@@ -107,7 +111,7 @@ namespace SimpleLifeCounter.Models
             LifeFontColor = "White";
             DefaultLifePoint = 20;
 
-            Message = "Test";
+            Message = messege;
         }
 
     }
