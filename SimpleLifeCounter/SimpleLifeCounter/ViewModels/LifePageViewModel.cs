@@ -87,7 +87,8 @@ namespace SimpleLifeCounter.ViewModels
             this.RightDownCommand = new DelegateCommand(() => this.RightLifePoint--);
             this.LeftUpCommand = new DelegateCommand(() => this.LeftLifePoint++);
             this.LeftDownCommand = new DelegateCommand(() => this.LeftLifePoint--);
-            this.ResetLifeCommand = new DelegateCommand(() => setLifePoint());
+            // DisplayAlat使いたいのでVに記述中
+            // this.ResetLifeCommand = new DelegateCommand(() => setLifePoint());
 
             this.CoinTossCommand = new DelegateCommand(() =>
             {
