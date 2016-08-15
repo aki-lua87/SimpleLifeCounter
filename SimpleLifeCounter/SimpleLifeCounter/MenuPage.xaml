@@ -7,7 +7,7 @@
     <StackLayout>
 
       <AbsoluteLayout>
-        <Label Text=" Life Font Coloer"
+        <Label Text=" フォントの色"
                x:Name="lc"
                AbsoluteLayout.LayoutFlags="All"
                AbsoluteLayout.LayoutBounds="0.1, 0.5, 0.8, 1"
@@ -21,7 +21,7 @@
       </AbsoluteLayout>
 
       <AbsoluteLayout>
-        <Label Text=" Background Coloer"
+        <Label Text=" 背景の色"
                x:Name="bc"
                AbsoluteLayout.LayoutFlags="All"
                AbsoluteLayout.LayoutBounds="0.1, 0.5, 0.8, 1"
@@ -35,7 +35,7 @@
       </AbsoluteLayout>
 
       <AbsoluteLayout>
-        <Label Text=" Default Life"
+        <Label Text=" 初期ライフ"
                x:Name="cc"
                AbsoluteLayout.LayoutFlags="All"
                AbsoluteLayout.LayoutBounds="0.1, 0.5, 0.8, 1"
@@ -47,7 +47,7 @@
       </AbsoluteLayout>
 
       <AbsoluteLayout>
-        <Label Text="Life Reset Confirmation"
+        <Label Text="ライフリセット時に確認画面を表示"
                x:Name="lrc"
                AbsoluteLayout.LayoutFlags="All"
                AbsoluteLayout.LayoutBounds="0.1, 0.5, 0.7, 1"
