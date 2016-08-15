@@ -105,7 +105,7 @@ namespace SimpleLifeCounter.Models
             BackgroundColorIndex = 2;
             LifeColorIndex = 13;
 
-            LifeResetCheck = true;
+            LifeResetCheck = false;
 
             BackgroundColor = "Blue";
             LifeFontColor = "White";
