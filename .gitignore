@@ -8,6 +8,7 @@ debug/
 packages/
 Packages/
 **/packages/*
+*.apk
 
 test1/
 test3/
