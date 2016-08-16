@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="jp.outlook.aki_lua87.SimpleLifeCounter" android:versionName="0.1.2" android:versionCode="2">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="jp.outlook.aki_lua87.SimpleLifeCounter" android:versionName="0.1.3" android:versionCode="3">
 	<uses-sdk android:minSdkVersion="15" />
-	<application android:label="ライフカウンターくん for MTG" android:icon="@drawable/icon"></application>
+	<application android:icon="@drawable/icon" android:label="ライフカウンターくん for MTG"></application>
 </manifest>
