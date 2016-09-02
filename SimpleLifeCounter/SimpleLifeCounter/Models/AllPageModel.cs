@@ -102,12 +102,12 @@ namespace SimpleLifeCounter.Models
         public AllPageModel(string messege)
         {
             LifeIndex = 1;
-            BackgroundColorIndex = 2;
+            BackgroundColorIndex = 3;
             LifeColorIndex = 13;
 
             LifeResetCheck = false;
 
-            BackgroundColor = "Blue";
+            BackgroundColor = "Gray";
             LifeFontColor = "White";
             DefaultLifePoint = 20;
 
