@@ -39,8 +39,8 @@ G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\andr
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\android\assets\System.Reflection.Extensions.dll
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\android\assets\System.ComponentModel.dll
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\android\assets\System.Xml.ReaderWriter.dll
-G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\android\assets\System.Dynamic.Runtime.dll
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\android\assets\System.IO.dll
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\android\assets\System.Dynamic.Runtime.dll
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\android\assets\System.Runtime.Extensions.dll
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\android\assets\System.Net.Http.dll
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter.Droid\obj\Debug\android\assets\System.Runtime.Serialization.dll

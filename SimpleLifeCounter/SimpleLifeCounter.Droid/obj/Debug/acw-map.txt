@@ -502,6 +502,10 @@ Xamarin.Forms.Platform.Android.AppCompat.FrameRenderer, Xamarin.Forms.Platform.A
 Xamarin.Forms.Platform.Android.AppCompat.FrameRenderer, Xamarin.Forms.Platform.Android, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null;md5270abb39e60627f0f200893b490a1ade.FrameRenderer
 Xamarin.Forms.Platform.Android.AppCompat.FrameRenderer;md5270abb39e60627f0f200893b490a1ade.FrameRenderer
 xamarin.forms.platform.android.appcompat.FrameRenderer;md5270abb39e60627f0f200893b490a1ade.FrameRenderer
+Xamarin.Forms.Platform.Android.AppCompat.MasterDetailContainer, Xamarin.Forms.Platform.Android;md5270abb39e60627f0f200893b490a1ade.MasterDetailContainer
+Xamarin.Forms.Platform.Android.AppCompat.MasterDetailContainer, Xamarin.Forms.Platform.Android, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null;md5270abb39e60627f0f200893b490a1ade.MasterDetailContainer
+Xamarin.Forms.Platform.Android.AppCompat.MasterDetailContainer;md5270abb39e60627f0f200893b490a1ade.MasterDetailContainer
+xamarin.forms.platform.android.appcompat.MasterDetailContainer;md5270abb39e60627f0f200893b490a1ade.MasterDetailContainer
 Xamarin.Forms.Platform.Android.AppCompat.Platform/ModalContainer, Xamarin.Forms.Platform.Android;md5270abb39e60627f0f200893b490a1ade.Platform_ModalContainer
 Xamarin.Forms.Platform.Android.AppCompat.Platform+ModalContainer, Xamarin.Forms.Platform.Android, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null;md5270abb39e60627f0f200893b490a1ade.Platform_ModalContainer
 Xamarin.Forms.Platform.Android.AppCompat.Platform.ModalContainer;md5270abb39e60627f0f200893b490a1ade.Platform_ModalContainer

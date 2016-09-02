@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="jp.outlook.aki_lua87.SimpleLifeCounter" android:versionCode="1" android:versionName="0.1.1">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="jp.outlook.aki_lua87.SimpleLifeCounter" android:versionCode="3" android:versionName="0.1.3">
   <!--suppress UsesMinSdkAttributes-->
   <uses-sdk android:minSdkVersion="15" />
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-  <application android:label="ライフカウンターくん for MTG" android:icon="@drawable/icon" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
-    <activity android:configChanges="orientation|screenSize" android:icon="@drawable/icon" android:label="SimpleLifeCounter" android:name="md5e560074bc959fb6d161c306fc4c1dd3c.MainActivity">
+  <application android:label="ライフカウンターくん for MTG" android:name="android.app.Application" android:allowBackup="true" android:icon="@drawable/icon" android:debuggable="true">
+    <activity android:configChanges="orientation|screenSize" android:icon="@drawable/icon" android:label="ライフカウンターくん for MTG" android:name="md5e560074bc959fb6d161c306fc4c1dd3c.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
