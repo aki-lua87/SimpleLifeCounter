@@ -23,6 +23,7 @@ namespace SimpleLifeCounter.ViewModels
         private string _lifeFontColor;
         private int _defaultLifePoint;
         private bool _lifeResetCheck;
+        private bool _bigButtonCheck;
         private string _message;
 
         private int _leftLifePoint, _rightLifePoint;
@@ -60,6 +61,11 @@ namespace SimpleLifeCounter.ViewModels
             get { return _lifeResetCheck; }
             set { this.SetProperty(ref this._lifeResetCheck, value); }
         }
+        public bool BigButtonCheck
+        {
+            get { return _bigButtonCheck; }
+            set { this.SetProperty(ref this._bigButtonCheck, value); }
+        }
 
         public string Message
         {
@@ -89,7 +95,7 @@ namespace SimpleLifeCounter.ViewModels
             this.LeftDownCommand = new DelegateCommand(() => this.LeftLifePoint--);
             // DisplayAlat使いたいのでVに記述中
             // this.ResetLifeCommand = new DelegateCommand(() => setLifePoint());
-
+            // した二つも
             this.CoinTossCommand = new DelegateCommand(() =>
             {
                 
@@ -116,7 +122,9 @@ namespace SimpleLifeCounter.ViewModels
                 this.LifeFontColor = Model.LifeFontColor;
                 this.DefaultLifePoint = Model.DefaultLifePoint;
                 this.LifeResetCheck = Model.LifeResetCheck;
+                this.BigButtonCheck = Model.BigButtonCheck;
                 this.Message = Model.Message;
+
             }
             catch (Exception)
             {

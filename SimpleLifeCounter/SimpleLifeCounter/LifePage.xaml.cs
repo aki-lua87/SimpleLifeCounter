@@ -24,6 +24,9 @@ namespace SimpleLifeCounter
             // 上の邪魔なの消すおまじない
             NavigationPage.SetHasNavigationBar(this, false);
 
+            // ResetButtonの大きさ
+            SettingLayout();
+
             // 画面遷移
             toMenuPageButton.Clicked += async (sender, e) =>
             {
@@ -60,7 +63,22 @@ namespace SimpleLifeCounter
 
             vm.Load();
             BindingContext = vm;
+
+            SettingLayout();
         }
+
+        private void SettingLayout()
+        {
+            if (vm.BigButtonCheck)
+            {
+                AbsoluteLayout.SetLayoutBounds(LifeResetButton, new Rectangle(0.5, 1, 0.19, 0.18));
+            }
+            else
+            {
+                AbsoluteLayout.SetLayoutBounds(LifeResetButton, new Rectangle(0.5, 1, 0.11, 0.2));
+            }
+        }
+
 
     }
 }

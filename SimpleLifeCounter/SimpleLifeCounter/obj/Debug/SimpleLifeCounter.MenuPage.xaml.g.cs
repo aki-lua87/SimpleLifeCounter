@@ -41,6 +41,12 @@ namespace SimpleLifeCounter {
         private global::Xamarin.Forms.Switch lrcSwitch;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label BigButtonText;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Switch BigButtonSwitch;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Button SaveButton;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
@@ -54,6 +60,8 @@ namespace SimpleLifeCounter {
             LifeNum = this.FindByName<global::Xamarin.Forms.Picker>("LifeNum");
             lrc = this.FindByName<global::Xamarin.Forms.Label>("lrc");
             lrcSwitch = this.FindByName<global::Xamarin.Forms.Switch>("lrcSwitch");
+            BigButtonText = this.FindByName<global::Xamarin.Forms.Label>("BigButtonText");
+            BigButtonSwitch = this.FindByName<global::Xamarin.Forms.Switch>("BigButtonSwitch");
             SaveButton = this.FindByName<global::Xamarin.Forms.Button>("SaveButton");
         }
     }

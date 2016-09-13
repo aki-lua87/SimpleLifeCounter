@@ -68,23 +68,23 @@
     <Button x:Name="toMenuPageButton"
             Text="設定"
             AbsoluteLayout.LayoutFlags="All"
-            AbsoluteLayout.LayoutBounds="0.5, 0, 0.1, 0.2"/>
+            AbsoluteLayout.LayoutBounds="0.5, 0, 0.11, 0.2"/>
 
     <Button x:Name="CoinToss"
             Text="ｺｲﾝ"
             AbsoluteLayout.LayoutFlags="All"
-            AbsoluteLayout.LayoutBounds="0.5, 0.33, 0.1, 0.2"/>
+            AbsoluteLayout.LayoutBounds="0.5, 0.33, 0.11, 0.2"/>
 
     <Button x:Name="DiceThrow"
             Text="ﾀﾞｲｽ"
             AbsoluteLayout.LayoutFlags="All"
-            AbsoluteLayout.LayoutBounds="0.5, 0.66, 0.1, 0.2"/>
+            AbsoluteLayout.LayoutBounds="0.5, 0.66, 0.11, 0.2"/>
 
     <Button x:Name="LifeResetButton"
             Command="{Binding ResetLifeCommand}"
             Text="Reset"
             AbsoluteLayout.LayoutFlags="All"
-            AbsoluteLayout.LayoutBounds="0.5, 1, 0.2, 0.18"/>
+            AbsoluteLayout.LayoutBounds="0.5, 1, 0.19, 0.18"/>
 
   </AbsoluteLayout>
 
