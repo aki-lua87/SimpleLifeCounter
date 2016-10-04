@@ -17,6 +17,9 @@ namespace SimpleLifeCounter {
     public partial class LifePage : global::Xamarin.Forms.ContentPage {
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.AbsoluteLayout absoluteLayout;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Button LeftPlyerLifeUp;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
@@ -49,6 +52,7 @@ namespace SimpleLifeCounter {
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(LifePage));
+            absoluteLayout = this.FindByName<global::Xamarin.Forms.AbsoluteLayout>("absoluteLayout");
             LeftPlyerLifeUp = this.FindByName<global::Xamarin.Forms.Button>("LeftPlyerLifeUp");
             LeftPlyerLifeDown = this.FindByName<global::Xamarin.Forms.Button>("LeftPlyerLifeDown");
             RightPlyerLifeUp = this.FindByName<global::Xamarin.Forms.Button>("RightPlyerLifeUp");

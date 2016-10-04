@@ -69,6 +69,18 @@
                 AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="1, 0.5, 0.3, 1"/>
       </AbsoluteLayout>
+
+      <AbsoluteLayout>
+        <Label Text="エネルギーカウンターを表示"
+               x:Name="EnergyCounterCheck"
+               AbsoluteLayout.LayoutFlags="All"
+               AbsoluteLayout.LayoutBounds="0.1, 0.5, 0.7, 1"
+               VerticalOptions="CenterAndExpand"/>
+        <Switch x:Name="EnergyCounterSwitch"
+                IsToggled="{Binding EnergyCounterCheck}"
+                AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutBounds="1, 0.5, 0.3, 1"/>
+      </AbsoluteLayout>
       
       <Button x:Name="SaveButton"
               Text="Save"

@@ -23,6 +23,7 @@ namespace SimpleLifeCounter.ViewModels
         private int _lifeColorIndex;
         private bool _lifeResetCheck;
         private bool _bigButtonCheck;
+        private bool _energyCounterCheck;
 
         private Color _confirmationBackgroundColor;
         private Color _confirmationLifeFontColor;
@@ -52,6 +53,11 @@ namespace SimpleLifeCounter.ViewModels
         {
             get { return _bigButtonCheck; }
             set { this.SetProperty(ref this._bigButtonCheck, value); }
+        }
+        public bool EnergyCounterCheck
+        {
+            get { return _energyCounterCheck; }
+            set { this.SetProperty(ref this._energyCounterCheck, value); }
         }
 
 
@@ -91,6 +97,7 @@ namespace SimpleLifeCounter.ViewModels
             this.LifeIndex = Model.LifeIndex;
             this.LifeResetCheck = Model.LifeResetCheck;
             this.BigButtonCheck = Model.BigButtonCheck;
+            this.EnergyCounterCheck = Model.EnergyCounterCheck;
         }
 
         // SaveButtonClick
@@ -102,6 +109,7 @@ namespace SimpleLifeCounter.ViewModels
 
             Model.LifeResetCheck = LifeResetCheck;
             Model.BigButtonCheck = BigButtonCheck;
+            Model.EnergyCounterCheck = EnergyCounterCheck;
 
             Model.DefaultLifePoint = int.Parse(lifePoint);
             Model.LifeFontColor = fontColor;

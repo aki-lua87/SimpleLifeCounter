@@ -18,6 +18,7 @@ namespace SimpleLifeCounter.Models
 
         private bool _lifeResetCheck;
         private bool _bigButtonCheck;
+        private bool _energyCounterCheck;
 
         private string _backgroundColor;
         private string _lifeFontColor;
@@ -49,6 +50,11 @@ namespace SimpleLifeCounter.Models
         {
             get { return _bigButtonCheck; }
             set { this.SetProperty(ref this._bigButtonCheck, value); }
+        }
+        public bool EnergyCounterCheck
+        {
+            get { return _energyCounterCheck; }
+            set { this.SetProperty(ref this._energyCounterCheck, value); }
         }
 
         //LifePage Bainding
@@ -113,6 +119,8 @@ namespace SimpleLifeCounter.Models
 
             LifeResetCheck = false;
             BigButtonCheck = true;
+            EnergyCounterCheck = false;
+
 
             BackgroundColor = "Gray";
             LifeFontColor = "White";

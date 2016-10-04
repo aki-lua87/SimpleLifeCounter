@@ -24,6 +24,7 @@ namespace SimpleLifeCounter.ViewModels
         private int _defaultLifePoint;
         private bool _lifeResetCheck;
         private bool _bigButtonCheck;
+        private bool _energyCounterCheck;
         private string _message;
 
         private int _leftLifePoint, _rightLifePoint;
@@ -65,6 +66,11 @@ namespace SimpleLifeCounter.ViewModels
         {
             get { return _bigButtonCheck; }
             set { this.SetProperty(ref this._bigButtonCheck, value); }
+        }
+        public bool EnergyCounterCheck
+        {
+            get { return _energyCounterCheck; }
+            set { this.SetProperty(ref this._energyCounterCheck, value); }
         }
 
         public string Message
@@ -123,6 +129,7 @@ namespace SimpleLifeCounter.ViewModels
                 this.DefaultLifePoint = Model.DefaultLifePoint;
                 this.LifeResetCheck = Model.LifeResetCheck;
                 this.BigButtonCheck = Model.BigButtonCheck;
+                this.EnergyCounterCheck = Model.EnergyCounterCheck;
                 this.Message = Model.Message;
 
             }
