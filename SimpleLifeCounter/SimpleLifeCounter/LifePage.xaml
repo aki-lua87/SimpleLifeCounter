@@ -17,7 +17,7 @@
             BackgroundColor="{Binding BackgroundColor}"
             BorderColor="{Binding BackgroundColor}"
             AbsoluteLayout.LayoutFlags="All"
-            AbsoluteLayout.LayoutBounds="0, 0, 0.5, 0.5"/>
+            AbsoluteLayout.LayoutBounds="0, 0, 0.45, 0.5"/>
 
     <Button Text="DOWN"
             x:Name="LeftPlyerLifeDown"
@@ -25,7 +25,7 @@
             BackgroundColor="{Binding BackgroundColor}"
             BorderColor="{Binding BackgroundColor}"
             AbsoluteLayout.LayoutFlags="All"
-            AbsoluteLayout.LayoutBounds="0, 1, 0.5, 0.5"/>
+            AbsoluteLayout.LayoutBounds="0, 1, 0.45, 0.5"/>
 
     <Button Text="UP"
             x:Name="RightPlyerLifeUp"
@@ -33,7 +33,7 @@
             BackgroundColor="{Binding BackgroundColor}"
             BorderColor="{Binding BackgroundColor}"
             AbsoluteLayout.LayoutFlags="All"
-            AbsoluteLayout.LayoutBounds="1, 0, 0.5, 0.5"/>
+            AbsoluteLayout.LayoutBounds="1, 0, 0.45, 0.5"/>
 
     <Button Text="DOWN"
             x:Name="RightPlyerLifeDown"
@@ -41,9 +41,9 @@
             BackgroundColor="{Binding BackgroundColor}"
             BorderColor="{Binding BackgroundColor}"
             AbsoluteLayout.LayoutFlags="All"
-            AbsoluteLayout.LayoutBounds="1, 1, 0.5, 0.5"/>
+            AbsoluteLayout.LayoutBounds="1, 1, 0.45, 0.5"/>
 
-    <!-- 縦棒 -->
+    <!-- 縦棒 設定とかダイスとかの裏の色 -->
     <BoxView Color="{Binding BackgroundColor}"
              AbsoluteLayout.LayoutFlags="All"
              AbsoluteLayout.LayoutBounds="0.5, 0.5, 0.1, 1.5"/>
@@ -53,17 +53,19 @@
            Text="{Binding LeftLifePoint}"
            TextColor="{Binding LifeFontColor}"
            FontSize="120"
-           AbsoluteLayout.LayoutFlags="PositionProportional"
-           AbsoluteLayout.LayoutBounds="0.21, 0.5, AutoSize, AutoSize"
-           VerticalOptions="CenterAndExpand" />
+           HorizontalTextAlignment="Center"
+           VerticalTextAlignment="Center"
+           AbsoluteLayout.LayoutFlags="All"
+           AbsoluteLayout.LayoutBounds="0.11, 0.5, 0.31, 0.7" />
 
     <Label x:Name="RightPlyerLife"
            Text="{Binding RightLifePoint}"
            TextColor="{Binding LifeFontColor}"
            FontSize="120"
-           AbsoluteLayout.LayoutFlags="PositionProportional"
-           AbsoluteLayout.LayoutBounds="0.79, 0.5, AutoSize, AutoSize"
-           VerticalOptions="CenterAndExpand" />
+           HorizontalTextAlignment="Center"
+           VerticalTextAlignment="Center"
+           AbsoluteLayout.LayoutFlags="All"
+           AbsoluteLayout.LayoutBounds="0.89, 0.5, 0.31, 0.7" />
 
     <Button x:Name="toMenuPageButton"
             Text="設定"

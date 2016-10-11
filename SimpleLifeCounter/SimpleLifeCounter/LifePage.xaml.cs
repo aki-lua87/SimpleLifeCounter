@@ -17,6 +17,7 @@ namespace SimpleLifeCounter
 
         Label LeftPlyerEnergy,RightPlyerEnergy;
         Button LeftPlyerEnergyUp, LeftPlyerEnergyDown, RightPlyerEnergyUp, RightPlyerEnergyDown;
+        BoxView LeftPlayerTateLine, RightPlayerTateLine;
 
 
         public LifePage()
@@ -33,12 +34,29 @@ namespace SimpleLifeCounter
             stringToColor = nameToColor;
 
             // EN
-            LeftPlyerEnergyUp = new Button { BackgroundColor = nameToColor[vm.BackgroundColor] };
-            LeftPlyerEnergyDown = new Button { BackgroundColor = nameToColor[vm.BackgroundColor] };
-            RightPlyerEnergyUp = new Button { BackgroundColor = nameToColor[vm.BackgroundColor] };
-            RightPlyerEnergyDown = new Button { BackgroundColor = nameToColor[vm.BackgroundColor] };
-            LeftPlyerEnergy = new Label { Text = "0", FontSize = 40, TextColor = nameToColor[vm.LifeFontColor] };
-            RightPlyerEnergy = new Label { Text = "0", FontSize = 40, TextColor = nameToColor[vm.LifeFontColor] };
+            LeftPlyerEnergyUp = new Button { Text="+", BackgroundColor = nameToColor[vm.BackgroundColor] };
+            LeftPlyerEnergyDown = new Button { Text = "-", BackgroundColor = nameToColor[vm.BackgroundColor] };
+            RightPlyerEnergyUp = new Button { Text = "+", BackgroundColor = nameToColor[vm.BackgroundColor] };
+            RightPlyerEnergyDown = new Button { Text = "-", BackgroundColor = nameToColor[vm.BackgroundColor] };
+            LeftPlyerEnergy = new Label
+            {
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.CenterAndExpand,
+                Text = "0",
+                FontSize = 40,
+                TextColor = nameToColor[vm.LifeFontColor]
+            };
+            RightPlyerEnergy = new Label
+            {
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.CenterAndExpand,
+                Text = "0",
+                FontSize = 40,
+                TextColor = nameToColor[vm.LifeFontColor]
+            };
+            LeftPlayerTateLine = new BoxView { Color = nameToColor[vm.LifeFontColor] };
+            RightPlayerTateLine = new BoxView { Color = nameToColor[vm.LifeFontColor] };
+
             // ENイベント登録
             LeftPlyerEnergyUp.Clicked += (sender, e) => LeftPlyerEnergy.Text = (int.Parse(LeftPlyerEnergy.Text) + 1).ToString();
             LeftPlyerEnergyDown.Clicked += (sender, e) => LeftPlyerEnergy.Text = (int.Parse(LeftPlyerEnergy.Text) - 1).ToString();
@@ -104,40 +122,53 @@ namespace SimpleLifeCounter
             // エネルギーカウンター
             if (vm.EnergyCounterCheck)
             {
-                // 左ボタン
+                double EnergyButtonHorizon;
+                EnergyButtonHorizon = 0.125;
+
+                // 左ボタン設置
                 absoluteLayout.Children.Add(LeftPlyerEnergyUp);
                 absoluteLayout.Children.Add(LeftPlyerEnergyDown);
                 AbsoluteLayout.SetLayoutFlags(LeftPlyerEnergyUp, AbsoluteLayoutFlags.All);
                 AbsoluteLayout.SetLayoutFlags(LeftPlyerEnergyDown, AbsoluteLayoutFlags.All);
-                AbsoluteLayout.SetLayoutBounds(LeftPlyerEnergyUp, new Rectangle(0, 0, 0.15, 0.5));
-                AbsoluteLayout.SetLayoutBounds(LeftPlyerEnergyDown, new Rectangle(0, 1, 0.15, 0.5));
-                // 右ボタン
+                AbsoluteLayout.SetLayoutBounds(LeftPlyerEnergyUp, new Rectangle(0, 0, EnergyButtonHorizon, 0.5));
+                AbsoluteLayout.SetLayoutBounds(LeftPlyerEnergyDown, new Rectangle(0, 1, EnergyButtonHorizon, 0.5));
+                // 右ボタン設置
                 absoluteLayout.Children.Add(RightPlyerEnergyUp);
                 absoluteLayout.Children.Add(RightPlyerEnergyDown);
                 AbsoluteLayout.SetLayoutFlags(RightPlyerEnergyUp, AbsoluteLayoutFlags.All);
                 AbsoluteLayout.SetLayoutFlags(RightPlyerEnergyDown, AbsoluteLayoutFlags.All);
-                AbsoluteLayout.SetLayoutBounds(RightPlyerEnergyUp, new Rectangle(1, 0, 0.15, 0.5));
-                AbsoluteLayout.SetLayoutBounds(RightPlyerEnergyDown, new Rectangle(1, 1, 0.15, 0.5));
+                AbsoluteLayout.SetLayoutBounds(RightPlyerEnergyUp, new Rectangle(1, 0, EnergyButtonHorizon, 0.5));
+                AbsoluteLayout.SetLayoutBounds(RightPlyerEnergyDown, new Rectangle(1, 1, EnergyButtonHorizon, 0.5));
 
-                // 両数字
+                // 両数字設置
                 absoluteLayout.Children.Add(LeftPlyerEnergy);
                 absoluteLayout.Children.Add(RightPlyerEnergy);
-                AbsoluteLayout.SetLayoutFlags(LeftPlyerEnergy, AbsoluteLayoutFlags.PositionProportional);
-                AbsoluteLayout.SetLayoutFlags(RightPlyerEnergy, AbsoluteLayoutFlags.PositionProportional);
-                AbsoluteLayout.SetLayoutBounds(LeftPlyerEnergy, new Rectangle(0.05, 0.5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
-                AbsoluteLayout.SetLayoutBounds(RightPlyerEnergy, new Rectangle(0.95, 0.5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
+                AbsoluteLayout.SetLayoutFlags(LeftPlyerEnergy, AbsoluteLayoutFlags.All);
+                AbsoluteLayout.SetLayoutFlags(RightPlyerEnergy, AbsoluteLayoutFlags.All);
+                AbsoluteLayout.SetLayoutBounds(LeftPlyerEnergy, new Rectangle(0.013, 0.5, 0.1, 0.4));
+                AbsoluteLayout.SetLayoutBounds(RightPlyerEnergy, new Rectangle(0.987, 0.5, 0.1, 0.4));
 
                 // ライフボタン調整
-                AbsoluteLayout.SetLayoutBounds(LeftPlyerLifeUp, new Rectangle(0.2, 0, 0.3, 0.5));
-                AbsoluteLayout.SetLayoutBounds(LeftPlyerLifeDown, new Rectangle(0.2, 1, 0.3, 0.5));
-                AbsoluteLayout.SetLayoutBounds(RightPlyerLifeUp, new Rectangle(0.8, 0, 0.3, 0.5));
-                AbsoluteLayout.SetLayoutBounds(RightPlyerLifeDown, new Rectangle(0.8 , 1, 0.3, 0.5));
+                AbsoluteLayout.SetLayoutBounds(LeftPlyerLifeUp, new Rectangle(0.195, 0, 0.31, 0.5));
+                AbsoluteLayout.SetLayoutBounds(LeftPlyerLifeDown, new Rectangle(0.195, 1, 0.31, 0.5));
+                AbsoluteLayout.SetLayoutBounds(RightPlyerLifeUp, new Rectangle(0.805, 0, 0.31, 0.5));
+                AbsoluteLayout.SetLayoutBounds(RightPlyerLifeDown, new Rectangle(0.805 , 1, 0.31, 0.5));
+                // ライフ数字調整
+                AbsoluteLayout.SetLayoutBounds(LeftPlyerLife, new Rectangle(0.21, 0.5, 0.31, 0.7));
+                AbsoluteLayout.SetLayoutBounds(RightPlyerLife, new Rectangle(0.79, 0.5, 0.31, 0.7));
 
-                
+                // 縦棒設置
+                absoluteLayout.Children.Add(LeftPlayerTateLine);
+                absoluteLayout.Children.Add(RightPlayerTateLine);
+                AbsoluteLayout.SetLayoutFlags(LeftPlayerTateLine, AbsoluteLayoutFlags.All);
+                AbsoluteLayout.SetLayoutFlags(RightPlayerTateLine, AbsoluteLayoutFlags.All);
+                AbsoluteLayout.SetLayoutBounds(LeftPlayerTateLine, new Rectangle(0.13, 0, 0.001, 1));
+                AbsoluteLayout.SetLayoutBounds(RightPlayerTateLine, new Rectangle(0.87, 0, 0.001, 1));
 
             }
             else
             {
+                // EN関連除去
                 absoluteLayout.Children.Remove(LeftPlyerEnergyUp);
                 absoluteLayout.Children.Remove(LeftPlyerEnergyDown);
                 absoluteLayout.Children.Remove(RightPlyerEnergyUp);
@@ -145,10 +176,19 @@ namespace SimpleLifeCounter
 
                 absoluteLayout.Children.Remove(LeftPlyerEnergy);
                 absoluteLayout.Children.Remove(RightPlyerEnergy);
-                AbsoluteLayout.SetLayoutBounds(LeftPlyerLifeUp, new Rectangle(0, 0, 0.5, 0.5));
-                AbsoluteLayout.SetLayoutBounds(LeftPlyerLifeDown, new Rectangle(0, 1, 0.5, 0.5));
-                AbsoluteLayout.SetLayoutBounds(RightPlyerLifeUp, new Rectangle(1, 0, 0.5, 0.5));
-                AbsoluteLayout.SetLayoutBounds(RightPlyerLifeDown, new Rectangle(1, 1, 0.5, 0.5));
+
+                absoluteLayout.Children.Remove(LeftPlayerTateLine);
+                absoluteLayout.Children.Remove(RightPlayerTateLine);
+
+                // ライフを元に
+                double ButtonHorizon = 0.45;
+                AbsoluteLayout.SetLayoutBounds(LeftPlyerLifeUp, new Rectangle(0, 0, ButtonHorizon, 0.5));
+                AbsoluteLayout.SetLayoutBounds(LeftPlyerLifeDown, new Rectangle(0, 1, ButtonHorizon, 0.5));
+                AbsoluteLayout.SetLayoutBounds(RightPlyerLifeUp, new Rectangle(1, 0, ButtonHorizon, 0.5));
+                AbsoluteLayout.SetLayoutBounds(RightPlyerLifeDown, new Rectangle(1, 1, ButtonHorizon, 0.5));
+
+                AbsoluteLayout.SetLayoutBounds(LeftPlyerLife, new Rectangle(0.11, 0.5, 0.31, 0.7));
+                AbsoluteLayout.SetLayoutBounds(RightPlyerLife, new Rectangle(0.89, 0.5, 0.31, 0.7));
 
                 LeftPlyerEnergy.Text = 0.ToString();
                 RightPlyerEnergy.Text = 0.ToString();

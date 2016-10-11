@@ -27,13 +27,15 @@ namespace SimpleLifeCounter.ViewModels
         private bool _energyCounterCheck;
         private string _message;
 
-        private int _leftLifePoint, _rightLifePoint;
-        public int LeftLifePoint
+        private string _leftLifePoint, _rightLifePoint;
+        
+        public string LeftLifePoint
         {
             get { return _leftLifePoint; }
             set { this.SetProperty(ref this._leftLifePoint, value); }
         }
-        public int RightLifePoint
+        
+        public string RightLifePoint
         {
             get { return _rightLifePoint; }
             set { this.SetProperty(ref this._rightLifePoint, value); }
@@ -95,21 +97,10 @@ namespace SimpleLifeCounter.ViewModels
             // this.Model.PropertyChanged += ModelPropertyChanged; //これが反映されない
             Load();
 
-            this.RightUpCommand = new DelegateCommand(() => this.RightLifePoint++);
-            this.RightDownCommand = new DelegateCommand(() => this.RightLifePoint--);
-            this.LeftUpCommand = new DelegateCommand(() => this.LeftLifePoint++);
-            this.LeftDownCommand = new DelegateCommand(() => this.LeftLifePoint--);
-            // DisplayAlat使いたいのでVに記述中
-            // this.ResetLifeCommand = new DelegateCommand(() => setLifePoint());
-            // した二つも
-            this.CoinTossCommand = new DelegateCommand(() =>
-            {
-                
-            });
-            this.DiceCollCommand = new DelegateCommand(() =>
-            {
-                
-            });
+            this.RightUpCommand = new DelegateCommand(() => RightLifePoint = (int.Parse(RightLifePoint) + 1).ToString());
+            this.RightDownCommand = new DelegateCommand(() => RightLifePoint = (int.Parse(RightLifePoint) - 1).ToString());
+            this.LeftUpCommand = new DelegateCommand(() => LeftLifePoint = (int.Parse(LeftLifePoint) + 1).ToString());
+            this.LeftDownCommand = new DelegateCommand(() => LeftLifePoint = (int.Parse(LeftLifePoint) - 1).ToString());
 
             setLifePoint();
         }
@@ -155,8 +146,8 @@ namespace SimpleLifeCounter.ViewModels
 
         public void setLifePoint()
         {
-            LeftLifePoint = DefaultLifePoint;
-            RightLifePoint = DefaultLifePoint;
+            LeftLifePoint = DefaultLifePoint.ToString();
+            RightLifePoint = DefaultLifePoint.ToString();
         }
     }
 }

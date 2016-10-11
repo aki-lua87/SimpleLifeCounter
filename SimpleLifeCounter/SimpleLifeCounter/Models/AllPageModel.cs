@@ -119,8 +119,7 @@ namespace SimpleLifeCounter.Models
 
             LifeResetCheck = false;
             BigButtonCheck = true;
-            EnergyCounterCheck = false;
-
+            EnergyCounterCheck = true;
 
             BackgroundColor = "Gray";
             LifeFontColor = "White";
