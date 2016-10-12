@@ -113,12 +113,13 @@ namespace SimpleLifeCounter.Models
         }
         public AllPageModel(string messege)
         {
+            // 初期設定
             LifeIndex = 1;
             BackgroundColorIndex = 3;
             LifeColorIndex = 13;
 
             LifeResetCheck = false;
-            BigButtonCheck = true;
+            BigButtonCheck = false;
             EnergyCounterCheck = true;
 
             BackgroundColor = "Gray";
