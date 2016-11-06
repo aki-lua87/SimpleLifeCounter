@@ -165,6 +165,13 @@ namespace SimpleLifeCounter
                 AbsoluteLayout.SetLayoutBounds(LeftPlayerTateLine, new Rectangle(0.13, 0, 0.001, 1));
                 AbsoluteLayout.SetLayoutBounds(RightPlayerTateLine, new Rectangle(0.87, 0, 0.001, 1));
 
+                // 色
+                LeftPlyerEnergyUp.BackgroundColor = nameToColor[vm.BackgroundColor];
+                LeftPlyerEnergyDown.BackgroundColor = nameToColor[vm.BackgroundColor];
+                RightPlyerEnergyUp.BackgroundColor = nameToColor[vm.BackgroundColor];
+                RightPlyerEnergyDown.BackgroundColor= nameToColor[vm.BackgroundColor];
+                LeftPlyerEnergy.TextColor = nameToColor[vm.LifeFontColor];
+                RightPlyerEnergy.TextColor = nameToColor[vm.LifeFontColor];
             }
             else
             {
