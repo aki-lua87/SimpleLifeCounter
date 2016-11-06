@@ -54,6 +54,7 @@
                VerticalOptions="CenterAndExpand"/>
         <Switch x:Name="lrcSwitch"
                 IsToggled="{Binding LifeResetCheck}"
+                HorizontalOptions="End"
                 AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="1, 0.5, 0.3, 1"/>
       </AbsoluteLayout>
@@ -66,6 +67,7 @@
                VerticalOptions="CenterAndExpand"/>
         <Switch x:Name="BigButtonSwitch"
                 IsToggled="{Binding BigButtonCheck}"
+                HorizontalOptions="End"
                 AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="1, 0.5, 0.3, 1"/>
       </AbsoluteLayout>
@@ -78,6 +80,7 @@
                VerticalOptions="CenterAndExpand"/>
         <Switch x:Name="EnergyCounterSwitch"
                 IsToggled="{Binding EnergyCounterCheck}"
+                HorizontalOptions="End"
                 AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="1, 0.5, 0.3, 1"/>
       </AbsoluteLayout>
