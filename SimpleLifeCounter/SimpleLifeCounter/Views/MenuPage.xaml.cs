@@ -1,16 +1,9 @@
-﻿using Newtonsoft.Json;
-using SimpleLifeCounter.Models;
-using SimpleLifeCounter.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using SimpleLifeCounter.ViewModels;
 using Xamarin.Forms;
 
-namespace SimpleLifeCounter
+namespace SimpleLifeCounter.Views
 {
 
     public partial class MenuPage : ContentPage

@@ -82,7 +82,6 @@ namespace SimpleLifeCounter.Models
         }
 
 
-
         public void DoNotBindingSetVM(string lifePoint, string fontColor, string backgroundColor)
         {
             // データバインドできない部分をViewModelに手書き

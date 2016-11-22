@@ -5,11 +5,12 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-using Xamarin.Forms;
 using Newtonsoft.Json;
 using Prism.Commands;
 using Prism.Mvvm;
+using Prism.Navigation;
+using Prism.Services;
+using DependencyService = Xamarin.Forms.DependencyService;
 
 namespace SimpleLifeCounter.ViewModels
 {
@@ -17,6 +18,8 @@ namespace SimpleLifeCounter.ViewModels
     {
         //private AllPageModel Model { get; } = new AllPageModel();
         private AllPageModel Model = new AllPageModel();
+        private readonly INavigationService _navigationService;
+        private readonly IPageDialogService _pageDialogService;
 
         //LifePage Bainding
         private string _backgroundColor;
@@ -88,19 +91,28 @@ namespace SimpleLifeCounter.ViewModels
         public DelegateCommand ResetLifeCommand { get; private set; }
         public DelegateCommand CoinTossCommand { get; private set; }
         public DelegateCommand DiceCollCommand { get; private set; }
+        public DelegateCommand NavigationCommand { get; private set; }
+
+        private void Navigate()
+        {
+            _navigationService.NavigateAsync("MenuPage");
+        }
 
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        public LifePageViewModel()
+        public LifePageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
         {
-            // this.Model.PropertyChanged += ModelPropertyChanged; //これが反映されない
+            _navigationService = navigationService;
+            _pageDialogService = pageDialogService;
+            
             Load();
 
             this.RightUpCommand = new DelegateCommand(() => RightLifePoint = (int.Parse(RightLifePoint) + 1).ToString());
             this.RightDownCommand = new DelegateCommand(() => RightLifePoint = (int.Parse(RightLifePoint) - 1).ToString());
             this.LeftUpCommand = new DelegateCommand(() => LeftLifePoint = (int.Parse(LeftLifePoint) + 1).ToString());
             this.LeftDownCommand = new DelegateCommand(() => LeftLifePoint = (int.Parse(LeftLifePoint) - 1).ToString());
+            this.NavigationCommand = new DelegateCommand(Navigate);
 
             setLifePoint();
         }
@@ -148,6 +160,19 @@ namespace SimpleLifeCounter.ViewModels
         {
             LeftLifePoint = DefaultLifePoint.ToString();
             RightLifePoint = DefaultLifePoint.ToString();
+        }
+
+        public void OnNavigatedFrom(NavigationParameters parameters)
+        {
+        }
+
+        public void OnNavigatedTo(NavigationParameters parameters)
+        {
+        }
+
+        public Task<bool> CanNavigateAsync(NavigationParameters parameters)
+        {
+            throw new NotImplementedException();
         }
     }
 }

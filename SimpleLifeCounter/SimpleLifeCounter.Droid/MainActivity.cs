@@ -6,6 +6,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Prism.Unity;
+using Microsoft.Practices.Unity;
 
 namespace SimpleLifeCounter.Droid
 {
@@ -23,7 +25,15 @@ namespace SimpleLifeCounter.Droid
             this.Window.SetFlags(WindowManagerFlags.KeepScreenOn, WindowManagerFlags.KeepScreenOn);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App());
+            //LoadApplication(new App());
+            LoadApplication(new App(new AndroidInitializer()));
+        }
+    }
+    public class AndroidInitializer : IPlatformInitializer
+    {
+        public void RegisterTypes(IUnityContainer container)
+        {
+
         }
     }
 }

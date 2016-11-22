@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Input;
 using Xamarin.Forms;
 using Newtonsoft.Json;
 using Prism.Commands;
@@ -15,6 +15,7 @@ namespace SimpleLifeCounter.ViewModels
 {
     class MenuPageViewModel : BindableBase
     {
+
         private AllPageModel Model = new AllPageModel();
 
         // MenuPage Binding
