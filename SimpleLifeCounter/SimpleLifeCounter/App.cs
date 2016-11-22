@@ -2,34 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Prism;
+using Prism.Unity;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace SimpleLifeCounter
 {
-    public class App : Application
+    public class App : PrismApplication
     {
-        public App()
+        protected override void RegisterTypes()
         {
-            // The root page of your application
-            MainPage = new NavigationPage(new LifePage());
+            Container.RegisterTypeForNavigation<NavigationPage>();
+            Container.RegisterTypeForNavigation<LifePage>();
+            Container.RegisterTypeForNavigation<MenuPage>();
         }
 
-        protected override void OnStart()
+        protected override void OnInitialized()
         {
-            // Handle when your app starts
-        }
-
-        protected override void OnSleep()
-        {
-            // Handle when your app sleeps
-        }
-
-        protected override void OnResume()
-        {
-            // Handle when your app resumes
+            NavigationService.NavigateAsync("NavigationPage/LifePage");
         }
 
     }
