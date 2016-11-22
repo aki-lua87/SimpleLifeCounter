@@ -10,11 +10,16 @@ using Xamarin.Forms;
 using Newtonsoft.Json;
 using Prism.Commands;
 using Prism.Mvvm;
+using Prism.Navigation;
+using Prism.Services;
+using DependencyService = Xamarin.Forms.DependencyService;
 
 namespace SimpleLifeCounter.ViewModels
 {
     class MenuPageViewModel : BindableBase
     {
+        private readonly INavigationService _navigationService;
+        private readonly IPageDialogService _pageDialogService;
 
         private AllPageModel Model = new AllPageModel();
 
@@ -28,6 +33,8 @@ namespace SimpleLifeCounter.ViewModels
 
         private Color _confirmationBackgroundColor;
         private Color _confirmationLifeFontColor;
+
+        public DelegateCommand testCommand { get; private set; }
 
         // PickerにIndexとスイッチ
         public int LifeIndex
@@ -76,8 +83,13 @@ namespace SimpleLifeCounter.ViewModels
 
 
         // コンストラクタ
-        public MenuPageViewModel()
+        public MenuPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
         {
+            _navigationService = navigationService;
+            _pageDialogService = pageDialogService;
+
+            testCommand = new DelegateCommand(Navigate);
+
             this.Load();
         }
 
@@ -136,6 +148,12 @@ namespace SimpleLifeCounter.ViewModels
         public Dictionary<string, Color> getStringToColorList()
         {
             return nameToColor;
+        }
+
+        private void Navigate()
+        {
+            _pageDialogService.DisplayAlertAsync("a","b","ccc");
+            _navigationService.NavigateAsync("MenuPage");
         }
 
 

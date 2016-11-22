@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              mvvm:ViewModelLocator.AutowireViewModel="True"
-             Title="MenuPage"
+             Title="設定"
              x:Class="SimpleLifeCounter.Views.MenuPage">
   <ScrollView>
 
-    <StackLayout>
+    <StackLayout x:Name="stackLayout">
 
       <AbsoluteLayout>
         <Label Text=" フォントの色"

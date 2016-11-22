@@ -2,14 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-             x:Class="SimpleLifeCounter.Views.LifePage"
              mvvm:ViewModelLocator.AutowireViewModel="True"
              Title="LifePage"
-             BackgroundColor="{Binding BackgroundColor}" >
+             x:Class="SimpleLifeCounter.Views.LifePage">
 
-  <ContentPage.Padding>
-    0, 5, 0, 0
-  </ContentPage.Padding>
+        <!-- BackgroundColor="{Binding BackgroundColor}"-->
+    
 
   <AbsoluteLayout x:Name="absoluteLayout">
 

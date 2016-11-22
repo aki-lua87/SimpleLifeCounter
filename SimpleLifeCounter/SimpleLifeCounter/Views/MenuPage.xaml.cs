@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using SimpleLifeCounter.ViewModels;
 using Xamarin.Forms;
 
 namespace SimpleLifeCounter.Views
@@ -8,18 +7,24 @@ namespace SimpleLifeCounter.Views
 
     public partial class MenuPage : ContentPage
     {
-        private MenuPageViewModel vm { get; } = new MenuPageViewModel();
+        //private MenuPageViewModel vm { get; } = new MenuPageViewModel();
         Dictionary<string, Color> stringToColor;
+
+        private Button testButton;
 
         public MenuPage()
         {
             InitializeComponent();
 
+            testButton = new Button{Text = "TestButton"};
+            testButton.SetBinding(Button.CommandProperty,"testCommand");
+            stackLayout.Children.Add(testButton);
+
             // 上の邪魔なの消すおまじない
-            NavigationPage.SetHasNavigationBar(this, false);
+            //NavigationPage.SetHasNavigationBar(this, false);
 
             // 色と文字列のリストを取得
-            stringToColor = vm.getStringToColorList();
+            stringToColor = nameToColor;
 
             // Pickerに値をセット
             PickerSet();
@@ -27,28 +32,28 @@ namespace SimpleLifeCounter.Views
             //Commandできない部分を
             LifeFontColorPicker.SelectedIndexChanged += (sender, s) =>
             {
-                vm.ConfirmationLifeFontColor = stringToColor[LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex]];
+                //vm.ConfirmationLifeFontColor = stringToColor[LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex]];
             };
 
             BackgroundColorPicker.SelectedIndexChanged += (sender, e) =>
             {
-                vm.ConfirmationBackgroundColor = stringToColor[BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex]];
+                //vm.ConfirmationBackgroundColor = stringToColor[BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex]];
             };
 
             // バインド設定
-            this.BindingContext = vm;
+            // this.BindingContext = vm;
         }
 
         // セーブ
         private void SaveClicked(object sender, EventArgs e)
         {
             // データバインドできない部分を手書き
-            vm.SaveClicked
-                (
-                LifeNum.Items[LifeNum.SelectedIndex],
-                LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex],
-                BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex]
-                );
+            //vm.SaveClicked
+            //    (
+            //    LifeNum.Items[LifeNum.SelectedIndex],
+            //    LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex],
+            //    BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex]
+            //    );
             Navigation.PopAsync();
         }
 
@@ -65,6 +70,18 @@ namespace SimpleLifeCounter.Views
                 Num += 10; 
             }
         }
+
+        Dictionary<string, Color> nameToColor = new Dictionary<string, Color>
+        {
+            { "Aqua", Color.Aqua }, { "Black", Color.Black },
+            { "Blue", Color.Blue },
+            { "Gray", Color.Gray }, { "Green", Color.Green },
+            { "Lime", Color.Lime }, { "Maroon", Color.Maroon },
+            { "Navy", Color.Navy }, { "Olive", Color.Olive },
+            { "Purple", Color.Purple }, { "Red", Color.Red },
+            { "Silver", Color.Silver }, { "Teal", Color.Teal },
+            { "White", Color.White }, { "Yellow", Color.Yellow }
+        };
 
         // PIG
         protected override void OnDisappearing()

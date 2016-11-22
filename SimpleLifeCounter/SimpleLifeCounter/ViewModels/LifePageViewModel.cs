@@ -16,7 +16,6 @@ namespace SimpleLifeCounter.ViewModels
 {
     class LifePageViewModel : BindableBase
     {
-        //private AllPageModel Model { get; } = new AllPageModel();
         private AllPageModel Model = new AllPageModel();
         private readonly INavigationService _navigationService;
         private readonly IPageDialogService _pageDialogService;
@@ -101,7 +100,7 @@ namespace SimpleLifeCounter.ViewModels
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        public LifePageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
+        public LifePageViewModel(INavigationService navigationService, IPageDialogService pageDialogService) 
         {
             _navigationService = navigationService;
             _pageDialogService = pageDialogService;
@@ -118,7 +117,7 @@ namespace SimpleLifeCounter.ViewModels
         }
 
         // Model購読
-        
+
 
         // データロード
         public void Load()

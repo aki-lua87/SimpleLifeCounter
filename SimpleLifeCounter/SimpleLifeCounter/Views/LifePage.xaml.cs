@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using Xamarin.Forms;
+using System;
 
 namespace SimpleLifeCounter.Views
 {
     public partial class LifePage : ContentPage
     {
-        //private LifePageViewModel vm { get; } = new LifePageViewModel();
-
+        
         Label LeftPlyerEnergy,RightPlyerEnergy;
         Button LeftPlyerEnergyUp, LeftPlyerEnergyDown, RightPlyerEnergyUp, RightPlyerEnergyDown;
         BoxView LeftPlayerTateLine, RightPlayerTateLine;
@@ -16,10 +16,10 @@ namespace SimpleLifeCounter.Views
         {
             InitializeComponent();
 
-            //BindingContext = vm;
+            /*
 
             // 上の邪魔なの消すおまじない
-            NavigationPage.SetHasNavigationBar(this, false);
+            //NavigationPage.SetHasNavigationBar(this, false);
 
             // レイアウト設定の適用
             Dictionary<string, Color> stringToColor;
@@ -27,7 +27,7 @@ namespace SimpleLifeCounter.Views
 
             // EN
             LeftPlyerEnergyUp = new Button { Text="+" };
-            LeftPlyerEnergyUp.SetBinding(Button.BackgroundColorProperty, "BackgroundColor");
+            //LeftPlyerEnergyUp.SetBinding(Button.BackgroundColorProperty, "BackgroundColor");
             LeftPlyerEnergyDown = new Button { Text = "-" };
             RightPlyerEnergyUp = new Button { Text = "+" };
             RightPlyerEnergyDown = new Button { Text = "-" };
@@ -39,7 +39,7 @@ namespace SimpleLifeCounter.Views
                 FontSize = 40,
                 //TextColor = nameToColor[vm.LifeFontColor]
             };
-            LeftPlyerEnergy.SetBinding(Label.TextColorProperty, "LifeFontColor");
+            //LeftPlyerEnergy.SetBinding(Label.TextColorProperty, "LifeFontColor");
 
             RightPlyerEnergy = new Label
             {
@@ -90,9 +90,6 @@ namespace SimpleLifeCounter.Views
         {
             base.OnAppearing();
 
-            //vm.Load();
-            //BindingContext = vm;
-
             SettingLayout();
         }
 
@@ -109,7 +106,7 @@ namespace SimpleLifeCounter.Views
             }
 
             // エネルギーカウンター
-            if (true)//if (vm.EnergyCounterCheck)
+            if (false)//if (vm.EnergyCounterCheck)
             {
                 double EnergyButtonHorizon;
                 EnergyButtonHorizon = 0.125;
@@ -203,5 +200,7 @@ namespace SimpleLifeCounter.Views
             { "Silver", Color.Silver }, { "Teal", Color.Teal },
             { "White", Color.White }, { "Yellow", Color.Yellow }
         };
+        */
+        }
     }
 }

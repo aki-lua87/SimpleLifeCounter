@@ -1,7 +1,6 @@
 ﻿using Prism.Unity;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using SimpleLifeCounter.Models;
 using SimpleLifeCounter.Views;
 using Microsoft.Practices.Unity;
 
@@ -13,14 +12,16 @@ namespace SimpleLifeCounter
 
         protected override void OnInitialized()
         {
-            NavigationService.NavigateAsync("/NavigationPage/LifePage");
+            NavigationService.NavigateAsync("/NavigationPage/LifePage/");
         }
 
         protected override void RegisterTypes()
         {
             Container.RegisterTypeForNavigation<NavigationPage>();
-            Container.RegisterTypeForNavigation<LifePage>();
+            
             Container.RegisterTypeForNavigation<MenuPage>();
+
+            Container.RegisterTypeForNavigation<LifePage>();
         }
     }
 }

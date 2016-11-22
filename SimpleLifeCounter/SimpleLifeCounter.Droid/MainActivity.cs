@@ -25,7 +25,6 @@ namespace SimpleLifeCounter.Droid
             this.Window.SetFlags(WindowManagerFlags.KeepScreenOn, WindowManagerFlags.KeepScreenOn);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            //LoadApplication(new App());
             LoadApplication(new App(new AndroidInitializer()));
         }
     }
