@@ -22,6 +22,7 @@ namespace SimpleLifeCounter.ViewModels
         private string _message;
 
         private string _leftLifePoint, _rightLifePoint;
+        private string _subLeftLifePoint, _subRightLifePoint;
 
         public string LeftLifePoint
         {
@@ -33,6 +34,18 @@ namespace SimpleLifeCounter.ViewModels
         {
             get { return _rightLifePoint; }
             set { this.SetProperty(ref this._rightLifePoint, value); }
+        }
+
+        public string SubLeftLifePoint
+        {
+            get { return _subLeftLifePoint; }
+            set { this.SetProperty(ref this._subLeftLifePoint, value); }
+        }
+
+        public string SubRightLifePoint
+        {
+            get { return _subRightLifePoint; }
+            set { this.SetProperty(ref this._subRightLifePoint, value); }
         }
 
         public string BackgroundColor
@@ -76,11 +89,14 @@ namespace SimpleLifeCounter.ViewModels
         public DelegateCommand RightDownCommand { get; private set; }
         public DelegateCommand LeftUpCommand { get; private set; }
         public DelegateCommand LeftDownCommand { get; private set; }
-        public DelegateCommand ResetLifeCommand { get; private set; }
+        public DelegateCommand LifeResetCommand { get; private set; }
         public DelegateCommand CoinTossCommand { get; private set; }
-        public DelegateCommand DiceCollCommand { get; private set; }
+        public DelegateCommand DiceRollCommand { get; private set; }
         public DelegateCommand NavigationCommand { get; private set; }
-
+        public DelegateCommand SubRightUpCommand { get; private set; }
+        public DelegateCommand SubRightDownCommand { get; private set; }
+        public DelegateCommand SubLeftUpCommand { get; private set; }
+        public DelegateCommand SubLeftDownCommand { get; private set; }
 
 
 
@@ -89,17 +105,56 @@ namespace SimpleLifeCounter.ViewModels
             _navigationService = navigationService;
             _pageDialogService = pageDialogService;
 
+            this.LeftUpCommand = new DelegateCommand(() => LeftLifePoint = (int.Parse(LeftLifePoint) + 1).ToString());
+            this.LeftDownCommand = new DelegateCommand(() => LeftLifePoint = (int.Parse(LeftLifePoint) - 1).ToString());
+            this.RightUpCommand = new DelegateCommand(() => RightLifePoint = (int.Parse(RightLifePoint) + 1).ToString());
+            this.RightDownCommand = new DelegateCommand(() => RightLifePoint = (int.Parse(RightLifePoint) - 1).ToString());
+
+            this.SubLeftUpCommand = new DelegateCommand(() => SubLeftLifePoint = (int.Parse(SubLeftLifePoint) + 1).ToString());
+            this.SubLeftDownCommand = new DelegateCommand(() => SubLeftLifePoint = (int.Parse(SubLeftLifePoint) - 1).ToString());
+            this.SubRightUpCommand = new DelegateCommand(() => SubRightLifePoint = (int.Parse(SubRightLifePoint) + 1).ToString());
+            this.SubRightDownCommand = new DelegateCommand(() => SubRightLifePoint = (int.Parse(SubRightLifePoint) - 1).ToString());
+
             this.NavigationCommand = new DelegateCommand(Navigate);
+            this.DiceRollCommand = new DelegateCommand(DiceRoll);
+            this.CoinTossCommand = new DelegateCommand(CoinToss);
+            this.LifeResetCommand = new DelegateCommand(ResetLife);
+            
 
             LeftLifePoint = "20";
             RightLifePoint = "20";
+            SubLeftLifePoint = "0";
+            SubRightLifePoint = "0";
             BackgroundColor = "Blue";
             LifeFontColor = "White";
             DefaultLifePoint = 20;
+            LifeResetCheck = true;
         }
         private void Navigate()
         {
             _navigationService.NavigateAsync("MenuPage");
         }
+
+        private async void DiceRoll()
+        {
+            await _pageDialogService.DisplayAlertAsync("dice", "114514", "閉じる");
+        }
+
+        private async void CoinToss()
+        {
+            await _pageDialogService.DisplayAlertAsync("coin", "うら", "閉じる");
+        }
+
+        private async void ResetLife()
+        {
+            if (!LifeResetCheck || await _pageDialogService.DisplayAlertAsync("リセット", "ライフを初期値に戻しますか？", "はい", "いいえ"))
+            {
+                LeftLifePoint = DefaultLifePoint.ToString();
+                RightLifePoint = DefaultLifePoint.ToString();
+                SubLeftLifePoint = 0.ToString();
+                SubRightLifePoint = 0.ToString();
+            }
+        }
+
     }
 }

@@ -60,47 +60,44 @@ namespace SimpleLifeCounter.Views
             // カウント用ボタン
             LeftPlyerSubCounterUp = new Button { Text = "+" };
             LeftPlyerSubCounterUp.SetBinding(Button.BackgroundColorProperty, "BackgroundColor");
-            LeftPlyerSubCounterUp.SetBinding(Button.CommandProperty, "LeftPlyerSubCounterUpCommand");
+            LeftPlyerSubCounterUp.SetBinding(Button.CommandProperty, "SubLeftUpCommand");
 
             LeftPlyerSubCounterDown = new Button { Text = "-" };
             LeftPlyerSubCounterDown.SetBinding(Button.BackgroundColorProperty, "BackgroundColor");
-            LeftPlyerSubCounterDown.SetBinding(Button.CommandProperty, "LeftPlyerSubCounterDownCommand");
+            LeftPlyerSubCounterDown.SetBinding(Button.CommandProperty, "SubLeftDownCommand");
 
             RightPlyerSubCounterUp = new Button { Text = "+" };
             RightPlyerSubCounterUp.SetBinding(Button.BackgroundColorProperty, "BackgroundColor");
-            RightPlyerSubCounterUp.SetBinding(Button.CommandProperty, "RightPlyerSubCounterUpCommand");
+            RightPlyerSubCounterUp.SetBinding(Button.CommandProperty, "SubRightUpCommand");
 
             RightPlyerSubCounterDown = new Button { Text = "-" };
             RightPlyerSubCounterDown.SetBinding(Button.BackgroundColorProperty, "BackgroundColor");
-            RightPlyerSubCounterDown.SetBinding(Button.CommandProperty, "RightPlyerSubCounterDownCommand");
+            RightPlyerSubCounterDown.SetBinding(Button.CommandProperty, "SubRightDownCommand");
 
             // カウンタ用数字
             LeftPlyerSubCounter = new Label
             {
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
-                Text = "0",
                 FontSize = 40,
             };
             LeftPlyerSubCounter.SetBinding(Label.TextColorProperty, "LifeFontColor");
+            LeftPlyerSubCounter.SetBinding(Label.TextProperty, "SubLeftLifePoint");
 
             RightPlyerSubCounter = new Label
             {
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
-                Text = "0",
                 FontSize = 40,
             };
             RightPlyerSubCounter.SetBinding(Label.TextColorProperty, "LifeFontColor");
+            RightPlyerSubCounter.SetBinding(Label.TextProperty, "SubRightLifePoint");
 
             // なんか、線
             LeftPlayerTateLine = new BoxView { };
             LeftPlayerTateLine.SetBinding(BoxView.ColorProperty, "LifeFontColor");
             RightPlayerTateLine = new BoxView { };
             RightPlayerTateLine.SetBinding(BoxView.ColorProperty, "LifeFontColor");
-
-            // サブカウンタのコマンド登録
-            //LeftPlyerSubCounterUp.Clicked += (sender, e) => LeftPlyerSubCounter.Text = (int.Parse(LeftPlyerSubCounter.Text) + 1).ToString();
         }
 
         private void SetLayout()
