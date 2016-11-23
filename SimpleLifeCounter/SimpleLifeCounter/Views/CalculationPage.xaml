@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="SimpleLifeCounter.Views.CalculationPage"
+             Title="CalcPage1122"
+             BackgroundColor="{Binding BackgroundColor}" >
+
+    <AbsoluteLayout x:Name="absoluteLayout">
+
+        <!-- 値増減用ボタン　-->
+        <Button Text="UP"
+            x:Name="LeftPlyerLifeUp"
+            Command="{Binding LeftUpCommand}"
+            BackgroundColor="{Binding BackgroundColor}"
+            BorderColor="{Binding BackgroundColor}"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="0, 0, 0.45, 0.5"/>
+
+        <Button Text="DOWN"
+            x:Name="LeftPlyerLifeDown"
+            Command="{Binding LeftDownCommand}"
+            BackgroundColor="{Binding BackgroundColor}"
+            BorderColor="{Binding BackgroundColor}"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="0, 1, 0.45, 0.5"/>
+
+        <Button Text="UP"
+            x:Name="RightPlyerLifeUp"
+            Command="{Binding RightUpCommand}"
+            BackgroundColor="{Binding BackgroundColor}"
+            BorderColor="{Binding BackgroundColor}"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="1, 0, 0.45, 0.5"/>
+
+        <Button Text="DOWN"
+            x:Name="RightPlyerLifeDown"
+            Command="{Binding RightDownCommand}"
+            BackgroundColor="{Binding BackgroundColor}"
+            BorderColor="{Binding BackgroundColor}"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="1, 1, 0.45, 0.5"/>
+
+        <!-- 縦棒 設定とかダイスとかの裏の色 -->
+        <BoxView Color="{Binding BackgroundColor}"
+             AbsoluteLayout.LayoutFlags="All"
+             AbsoluteLayout.LayoutBounds="0.5, 0.5, 0.1, 1.5"/>
+
+        <!-- ライフ数値 -->
+        <Label x:Name="LeftPlyerLife"
+           Text="{Binding LeftLifePoint}"
+           TextColor="{Binding LifeFontColor}"
+           FontSize="120"
+           HorizontalTextAlignment="Center"
+           VerticalTextAlignment="Center"
+           AbsoluteLayout.LayoutFlags="All"
+           AbsoluteLayout.LayoutBounds="0.05, 0.5, 0.4, 0.5" />
+
+        <Label x:Name="RightPlyerLife"
+           Text="{Binding RightLifePoint}"
+           TextColor="{Binding LifeFontColor}"
+           FontSize="120"
+           HorizontalTextAlignment="Center"
+           VerticalTextAlignment="Center"
+           AbsoluteLayout.LayoutFlags="All"
+           AbsoluteLayout.LayoutBounds="0.95, 0.5, 0.4, 0.5" />
+
+        <Button x:Name="toMenuPageButton"
+            Text="設定"
+            Command="{Binding NavigationCommand}"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="0.5, 0, 0.11, 0.2"/>
+
+        <Button x:Name="CoinToss"
+            Text="ｺｲﾝ"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="0.5, 0.33, 0.11, 0.2"/>
+
+        <Button x:Name="DiceThrow"
+            Text="ﾀﾞｲｽ"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="0.5, 0.66, 0.11, 0.2"/>
+
+        <Button x:Name="LifeResetButton"
+            Command="{Binding ResetLifeCommand}"
+            Text="Reset"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="0.5, 1, 0.19, 0.18"/>
+
+    </AbsoluteLayout>
+
+</ContentPage>

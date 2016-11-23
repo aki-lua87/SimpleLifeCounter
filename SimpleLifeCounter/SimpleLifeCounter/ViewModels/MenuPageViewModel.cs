@@ -153,7 +153,7 @@ namespace SimpleLifeCounter.ViewModels
         private void Navigate()
         {
             _pageDialogService.DisplayAlertAsync("a","b","ccc");
-            _navigationService.NavigateAsync("MenuPage");
+            _navigationService.NavigateAsync("CalculationPage");
         }
 
 

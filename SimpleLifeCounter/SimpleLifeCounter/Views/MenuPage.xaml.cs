@@ -21,7 +21,7 @@ namespace SimpleLifeCounter.Views
             stackLayout.Children.Add(testButton);
 
             // 上の邪魔なの消すおまじない
-            //NavigationPage.SetHasNavigationBar(this, false);
+            NavigationPage.SetHasNavigationBar(this, false);
 
             // 色と文字列のリストを取得
             stringToColor = nameToColor;

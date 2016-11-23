@@ -16,10 +16,10 @@ namespace SimpleLifeCounter.Views
         {
             InitializeComponent();
 
-            /*
+            
 
             // 上の邪魔なの消すおまじない
-            //NavigationPage.SetHasNavigationBar(this, false);
+            NavigationPage.SetHasNavigationBar(this, false);
 
             // レイアウト設定の適用
             Dictionary<string, Color> stringToColor;
@@ -200,7 +200,7 @@ namespace SimpleLifeCounter.Views
             { "Silver", Color.Silver }, { "Teal", Color.Teal },
             { "White", Color.White }, { "Yellow", Color.Yellow }
         };
-        */
-        }
+        
+        
     }
 }

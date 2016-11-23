@@ -12,7 +12,9 @@ namespace SimpleLifeCounter
 
         protected override void OnInitialized()
         {
-            NavigationService.NavigateAsync("/NavigationPage/LifePage/");
+            NavigationService.NavigateAsync("/NavigationPage/CalculationPage");
+            // NavigationService.NavigateAsync("/NavigationPage/MenuPage");
+
         }
 
         protected override void RegisterTypes()
@@ -20,8 +22,8 @@ namespace SimpleLifeCounter
             Container.RegisterTypeForNavigation<NavigationPage>();
             
             Container.RegisterTypeForNavigation<MenuPage>();
-
             Container.RegisterTypeForNavigation<LifePage>();
+            Container.RegisterTypeForNavigation<CalculationPage>();
         }
     }
 }

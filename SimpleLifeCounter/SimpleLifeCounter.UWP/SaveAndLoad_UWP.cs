@@ -17,10 +17,9 @@ namespace SimpleLifeCounter.UWP
     class SaveAndLoad_UWP : ISaveAndLoad
     {
         
-        private AllPageModel Model = new AllPageModel();
         public string LoadData(string filename)
         {
-            var json = JsonConvert.SerializeObject(Model);
+            var json = JsonConvert.SerializeObject(new AllPageModel());
             return json;
         }
 
