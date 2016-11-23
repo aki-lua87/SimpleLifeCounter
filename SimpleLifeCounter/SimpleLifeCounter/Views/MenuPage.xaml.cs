@@ -54,7 +54,7 @@ namespace SimpleLifeCounter.Views
             //    LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex],
             //    BackgroundColorPicker.Items[BackgroundColorPicker.SelectedIndex]
             //    );
-            Navigation.PopAsync();
+            // Navigation.PopAsync();
         }
 
         // ピッカーに値をセット

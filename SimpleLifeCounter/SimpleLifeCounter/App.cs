@@ -22,7 +22,7 @@ namespace SimpleLifeCounter
             Container.RegisterTypeForNavigation<NavigationPage>();
             
             Container.RegisterTypeForNavigation<MenuPage>();
-            Container.RegisterTypeForNavigation<LifePage>();
+            // Container.RegisterTypeForNavigation<LifePage>();
             Container.RegisterTypeForNavigation<CalculationPage>();
         }
     }

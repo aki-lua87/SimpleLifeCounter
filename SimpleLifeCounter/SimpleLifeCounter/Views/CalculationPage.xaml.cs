@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace SimpleLifeCounter.Views
 {
@@ -19,41 +18,14 @@ namespace SimpleLifeCounter.Views
 
             CreateSubCounterElement();
             SetLayout();
-
-            // SettingLayout();
-
-            // DisplayAlert
-            //LifeResetButton.Clicked += async (sender, e) =>
-            //{
-            //    if (vm.LifeResetCheck ? (await DisplayAlert("リセット", "ライフを初期値に戻しますか？", "はい", "いいえ")) : true)
-            //    {
-            //        vm.setLifePoint();
-            //        LeftPlyerSubCounter.Text = 0.ToString();
-            //        RightPlyerSubCounter.Text = 0.ToString();
-            //    }
-            //};
-            //// DisplayAlert
-            //DiceThrow.Clicked += async (sender, e) =>
-            //{
-            //    vm.DiceMessegeGenerate();
-            //    await DisplayAlert("ダイス", $"{vm.Message}", "OK");
-            //};
-
-            //// DisplayAlert
-            //CoinToss.Clicked += async (sender, e) =>
-            //{
-            //    vm.CoinMessegeGenerate();
-            //    await DisplayAlert("コイン", $"{vm.Message}", "OK");
-            //};
         }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            // SettingLayout();
+            // DisplayAlert("test", "Onape", "OK");
+            SetLayout();
         }
-
-
 
         private void CreateSubCounterElement()
         {
@@ -102,18 +74,33 @@ namespace SimpleLifeCounter.Views
 
         private void SetLayout()
         {
+            // Viewに一瞬だけVMとデータバインドしたスイッチを配置して真理値を読み取ってそのあと即Removeする感じに
+            var tempReset = new Switch();
+            tempReset.SetBinding(Switch.IsToggledProperty, "BigButtonCheck");
+            absoluteLayout.Children.Add(tempReset);
+
+            var tempSubCount = new Switch();
+            tempSubCount.SetBinding(Switch.IsToggledProperty, "SubCounterCheck");
+            absoluteLayout.Children.Add(tempSubCount);
+            // ここまで
+
+            //DisplayAlert("test", "Re:" + tempReset.IsToggled + "ぬええ　 Sub:" + tempSubCount.IsToggled , "OK");
+
             // ボタンの大きさ
-            if (true)
+            if (tempReset.IsToggled)
             {
+                // big
                 AbsoluteLayout.SetLayoutBounds(LifeResetButton, new Rectangle(0.5, 1, 0.19, 0.18));
             }
             else
             {
+                // nomal
                 AbsoluteLayout.SetLayoutBounds(LifeResetButton, new Rectangle(0.5, 1, 0.11, 0.2));
             }
+            absoluteLayout.Children.Remove(tempReset);
 
             // エネルギーカウンター
-            if (true) //if (vm.SubCounterCounterCheck)
+            if (tempSubCount.IsToggled) //if (vm.SubCounterCounterCheck)
             {
                 double SubCounterButtonHorizon;
                 SubCounterButtonHorizon = 0.125;
@@ -157,14 +144,6 @@ namespace SimpleLifeCounter.Views
                 AbsoluteLayout.SetLayoutFlags(RightPlayerTateLine, AbsoluteLayoutFlags.All);
                 AbsoluteLayout.SetLayoutBounds(LeftPlayerTateLine, new Rectangle(0.13, 0, 0.001, 1));
                 AbsoluteLayout.SetLayoutBounds(RightPlayerTateLine, new Rectangle(0.87, 0, 0.001, 1));
-
-                // 色
-                //LeftPlyerSubCounterUp.BackgroundColor = nameToColor[vm.BackgroundColor];
-                //LeftPlyerSubCounterDown.BackgroundColor = nameToColor[vm.BackgroundColor];
-                //RightPlyerSubCounterUp.BackgroundColor = nameToColor[vm.BackgroundColor];
-                //RightPlyerSubCounterDown.BackgroundColor= nameToColor[vm.BackgroundColor];
-                //LeftPlyerSubCounter.TextColor = nameToColor[vm.LifeFontColor];
-                //RightPlyerSubCounter.TextColor = nameToColor[vm.LifeFontColor];
             }
             else
             {
@@ -193,26 +172,8 @@ namespace SimpleLifeCounter.Views
                 LeftPlyerSubCounter.Text = 0.ToString();
                 RightPlyerSubCounter.Text = 0.ToString();
             }
-
+            absoluteLayout.Children.Remove(tempSubCount);
         }
-
-
-
-
-
-
-
-        Dictionary<string, Color> _nameToColor = new Dictionary<string, Color>
-        {
-            { "Aqua", Color.Aqua }, { "Black", Color.Black },
-            { "Blue", Color.Blue },
-            { "Gray", Color.Gray }, { "Green", Color.Green },
-            { "Lime", Color.Lime }, { "Maroon", Color.Maroon },
-            { "Navy", Color.Navy }, { "Olive", Color.Olive },
-            { "Purple", Color.Purple }, { "Red", Color.Red },
-            { "Silver", Color.Silver }, { "Teal", Color.Teal },
-            { "White", Color.White }, { "Yellow", Color.Yellow }
-        };
     }
 
     

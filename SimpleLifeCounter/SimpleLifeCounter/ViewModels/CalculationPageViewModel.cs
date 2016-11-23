@@ -8,7 +8,7 @@ using Prism.Services;
 
 namespace SimpleLifeCounter.ViewModels
 {
-    public class CalculationPageViewModel : BindableBase
+    public class CalculationPageViewModel : BindableBase, INavigationAware
     {
         private readonly INavigationService _navigationService;
         private readonly IPageDialogService _pageDialogService;
@@ -129,6 +129,8 @@ namespace SimpleLifeCounter.ViewModels
             LifeFontColor = "White";
             DefaultLifePoint = 20;
             LifeResetCheck = true;
+            BigButtonCheck = true;
+            SubCounterCheck = true;
         }
         private void Navigate()
         {
@@ -155,6 +157,16 @@ namespace SimpleLifeCounter.ViewModels
                 SubRightLifePoint = 0.ToString();
             }
         }
+        public void OnNavigatedFrom(NavigationParameters parameters)
+        {
+            BigButtonCheck = false;
+            SubCounterCheck = false;
+        }
 
+        public void OnNavigatedTo(NavigationParameters parameters)
+        {
+            // 再描写処理
+            
+        }
     }
 }

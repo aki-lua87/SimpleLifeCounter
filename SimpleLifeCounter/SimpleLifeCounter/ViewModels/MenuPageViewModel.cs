@@ -12,6 +12,8 @@ using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
+using SimpleLifeCounter.Views;
+using Xamarin.Forms.Xaml;
 using DependencyService = Xamarin.Forms.DependencyService;
 
 namespace SimpleLifeCounter.ViewModels
@@ -152,8 +154,7 @@ namespace SimpleLifeCounter.ViewModels
 
         private void Navigate()
         {
-            _pageDialogService.DisplayAlertAsync("a","b","ccc");
-            _navigationService.NavigateAsync("CalculationPage");
+            _navigationService.GoBackAsync();
         }
 
 
