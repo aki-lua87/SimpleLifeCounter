@@ -10,8 +10,14 @@ using Prism.Mvvm;
 
 namespace SimpleLifeCounter.Models
 {
-    public class AllPageModel : BindableBase
+    public class AllPageModel : BindableBase,IAllPageModel
     {
+        public ISaveAndLoad SaveAndLoad { get; set; }
+
+        private Setting _Setting = new Setting();
+
+        private readonly string jsonName = "temp.json";
+
         private int _lifeIndex;
         private int _backgroundColorIndex;
         private int _lifeColorIndex;
@@ -24,6 +30,12 @@ namespace SimpleLifeCounter.Models
         private string _lifeFontColor;
         private int _defaultLifePoint;
         private string _message;
+
+        public Setting Setting
+        {
+            get { return _Setting; }
+            set { this.SetProperty(ref _Setting, value); }
+        }
 
         // MenuPage Binding
         public int LifeIndex
@@ -102,16 +114,23 @@ namespace SimpleLifeCounter.Models
         }
 
         // jsonにセーブ
+        public void SettingSave()
+        {
+            SaveAndLoad.SaveData(jsonName,JsonConvert.SerializeObject(Setting));
+        }
+
+        public void SettingLoad()
+        {
+            Setting = JsonConvert.DeserializeObject<Setting>(SaveAndLoad.LoadData(jsonName));
+        }
+
         // セーブしたときにイベント発行
         // VMで発火してJsonの値を格納
 
+        public AllPageModel(ISaveAndLoad saveAndLoad)
+        {
+            SaveAndLoad = saveAndLoad;
 
-        public AllPageModel()
-        {
-            
-        }
-        public AllPageModel(string messege)
-        {
             // 初期設定
             LifeIndex = 1;
             BackgroundColorIndex = 3;
@@ -125,7 +144,7 @@ namespace SimpleLifeCounter.Models
             LifeFontColor = "White";
             DefaultLifePoint = 20;
 
-            Message = messege;
+            Message = "aaaa";
         }
 
     }

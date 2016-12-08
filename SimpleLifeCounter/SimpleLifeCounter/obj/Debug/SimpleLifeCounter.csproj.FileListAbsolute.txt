@@ -27,9 +27,10 @@ G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\Microsoft.
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\Prism.Unity.Forms.dll
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\Microsoft.Practices.Unity.xml
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\Prism.Unity.Forms.xml
-G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\obj\Debug\SimpleLifeCounter.Views.LifePage.xaml.g.cs
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\obj\Debug\SimpleLifeCounter.Views.MenuPage.xaml.g.cs
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\obj\Debug\SimpleLifeCounter.Views.CalculationPage.xaml.g.cs
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\obj\Debug\SimpleLifeCounter.csprojResolveAssemblyReference.cache
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\obj\Debug\SimpleLifeCounter.dll.mdb
+G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\SimpleLifeCounter.dll.mdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\obj\Debug\SimpleLifeCounter.dll.mdb
 G:\vs\SympleLifeCounter\SimpleLifeCounter\SimpleLifeCounter\bin\Debug\SimpleLifeCounter.dll.mdb

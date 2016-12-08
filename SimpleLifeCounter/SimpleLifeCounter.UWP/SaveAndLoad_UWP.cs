@@ -19,7 +19,7 @@ namespace SimpleLifeCounter.UWP
         
         public string LoadData(string filename)
         {
-            var json = JsonConvert.SerializeObject(new AllPageModel());
+            var json = JsonConvert.SerializeObject(new Setting());
             return json;
         }
 

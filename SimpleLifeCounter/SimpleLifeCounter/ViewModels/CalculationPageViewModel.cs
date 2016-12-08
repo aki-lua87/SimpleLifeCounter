@@ -5,13 +5,21 @@ using System.Collections.Generic;
 using System.Linq;
 using Prism.Navigation;
 using Prism.Services;
+using SimpleLifeCounter.Models;
+using SimpleLifeCounter.Views;
 
 namespace SimpleLifeCounter.ViewModels
 {
     public class CalculationPageViewModel : BindableBase, INavigationAware
     {
+        private readonly IAllPageModel Model;
+
         private readonly INavigationService _navigationService;
         private readonly IPageDialogService _pageDialogService;
+
+        // public ReadOnlyReactiveProperty<Setting> CurrentPage { get; }
+
+        private readonly string ToMenuPage = "MenuPage";
 
         private string _backgroundColor;
         private string _lifeFontColor;
@@ -100,8 +108,10 @@ namespace SimpleLifeCounter.ViewModels
 
 
 
-        public CalculationPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
+        public CalculationPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService,IAllPageModel allPageModel)
         {
+            Model = allPageModel;
+
             _navigationService = navigationService;
             _pageDialogService = pageDialogService;
 
@@ -115,11 +125,12 @@ namespace SimpleLifeCounter.ViewModels
             this.SubRightUpCommand = new DelegateCommand(() => SubRightLifePoint = (int.Parse(SubRightLifePoint) + 1).ToString());
             this.SubRightDownCommand = new DelegateCommand(() => SubRightLifePoint = (int.Parse(SubRightLifePoint) - 1).ToString());
 
-            this.NavigationCommand = new DelegateCommand(Navigate);
-            this.DiceRollCommand = new DelegateCommand(DiceRoll);
-            this.CoinTossCommand = new DelegateCommand(CoinToss);
-            this.LifeResetCommand = new DelegateCommand(ResetLife);
-            
+            NavigationCommand = new DelegateCommand(Navigate);
+            DiceRollCommand = new DelegateCommand(DiceRoll);
+            CoinTossCommand = new DelegateCommand(CoinToss);
+            LifeResetCommand = new DelegateCommand(ResetLife);
+
+            Model.PropertyChanged += Model_PropertyChanged;
 
             LeftLifePoint = "20";
             RightLifePoint = "20";
@@ -132,19 +143,30 @@ namespace SimpleLifeCounter.ViewModels
             BigButtonCheck = true;
             SubCounterCheck = true;
         }
+
+        private void Model_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "Message")
+            {
+                this.Message = Model.Message;
+            }
+        }
+
         private void Navigate()
         {
-            _navigationService.NavigateAsync("MenuPage");
+            _navigationService.NavigateAsync(ToMenuPage);
         }
 
         private async void DiceRoll()
         {
-            await _pageDialogService.DisplayAlertAsync("dice", "114514", "閉じる");
+            Model.DiceMessegeGenerate();
+            await _pageDialogService.DisplayAlertAsync("dice", Message , "閉じる");
         }
 
         private async void CoinToss()
         {
-            await _pageDialogService.DisplayAlertAsync("coin", "うら", "閉じる");
+            Model.CoinMessegeGenerate();
+            await _pageDialogService.DisplayAlertAsync("Coin", Message , "閉じる");
         }
 
         private async void ResetLife()

@@ -36,13 +36,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Models\IAllPageModel.cs" />
     <Compile Include="Models\ISaveAndLoad.cs" />
+    <Compile Include="Models\Setting.cs" />
     <Compile Include="ViewModels\CalculationPageViewModel.cs" />
     <Compile Include="Views\CalculationPage.xaml.cs">
       <DependentUpon>CalculationPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\LifePage.xaml.cs">
-      <DependentUpon>LifePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
@@ -55,7 +54,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\LifePageViewModel.cs" />
     <Compile Include="ViewModels\MenuPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -63,10 +61,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\LifePage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

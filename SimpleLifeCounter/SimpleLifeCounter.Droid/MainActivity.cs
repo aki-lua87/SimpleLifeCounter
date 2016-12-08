@@ -8,6 +8,7 @@ using Android.Widget;
 using Android.OS;
 using Prism.Unity;
 using Microsoft.Practices.Unity;
+using SimpleLifeCounter.Models;
 
 namespace SimpleLifeCounter.Droid
 {
@@ -32,7 +33,7 @@ namespace SimpleLifeCounter.Droid
     {
         public void RegisterTypes(IUnityContainer container)
         {
-
+            container.RegisterType<ISaveAndLoad, SaveAndLoad_Android>(new ContainerControlledLifetimeManager());
         }
     }
 }

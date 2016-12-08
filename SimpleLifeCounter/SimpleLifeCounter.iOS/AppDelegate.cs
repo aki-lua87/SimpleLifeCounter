@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Microsoft.Practices.Unity;
+using Prism.Unity;
 using UIKit;
 
 namespace SimpleLifeCounter.iOS
@@ -28,5 +30,12 @@ namespace SimpleLifeCounter.iOS
             return base.FinishedLaunching(app, options);
         }
         
+    }
+    public class iOSInitializer : IPlatformInitializer
+    {
+        public void RegisterTypes(IUnityContainer container)
+        {
+            container.RegisterType<ISaveAndLoad, SaveAndLoad_iOS>(new ContainerControlledLifetimeManager());
+        }
     }
 }

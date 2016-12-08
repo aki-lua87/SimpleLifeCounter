@@ -20,10 +20,10 @@ namespace SimpleLifeCounter.ViewModels
 {
     class MenuPageViewModel : BindableBase
     {
+        private readonly IAllPageModel Model;
+
         private readonly INavigationService _navigationService;
         private readonly IPageDialogService _pageDialogService;
-
-        private AllPageModel Model = new AllPageModel();
 
         // MenuPage Binding
         private int _lifeIndex;
@@ -90,9 +90,19 @@ namespace SimpleLifeCounter.ViewModels
             _navigationService = navigationService;
             _pageDialogService = pageDialogService;
 
+            // ------------------------------------------
             testCommand = new DelegateCommand(Navigate);
+            ConfirmationBackgroundColor = Color.Aqua;
+            ConfirmationLifeFontColor = Color.Fuchsia;
+            EnergyCounterCheck = true;
+            BigButtonCheck = true;
+            LifeResetCheck = true;
+            LifeColorIndex = 1;
+            BackgroundColorIndex = 1;
+            LifeIndex = 2;
 
-            this.Load();
+
+            // this.Load();
         }
 
         // データセーブ 分からないからズル
@@ -104,20 +114,23 @@ namespace SimpleLifeCounter.ViewModels
         // データロード
         public void Load()
         {
-            var data = DependencyService.Get<ISaveAndLoad>().LoadData("temp.json");
-            Model = JsonConvert.DeserializeObject<AllPageModel>(data);
+            var data = Model.SaveAndLoad.LoadData("temp.json");
+            Model.Setting = JsonConvert.DeserializeObject<Setting>(data);
 
-            this.BackgroundColorIndex = Model.BackgroundColorIndex;
+            /*
+            this.BackgroundColorIndex = Model.Setting.BackgroundColorIndex;
             this.LifeColorIndex = Model.LifeColorIndex;
             this.LifeIndex = Model.LifeIndex;
             this.LifeResetCheck = Model.LifeResetCheck;
             this.BigButtonCheck = Model.BigButtonCheck;
             this.EnergyCounterCheck = Model.EnergyCounterCheck;
+            */
         }
 
         // SaveButtonClick
         public void SaveClicked(string lifePoint, string fontColor, string backgroundColor)
         {
+            /*
             Model.LifeColorIndex = LifeColorIndex;
             Model.BackgroundColorIndex = BackgroundColorIndex;
             Model.LifeIndex = LifeIndex;
@@ -133,6 +146,7 @@ namespace SimpleLifeCounter.ViewModels
             Model.Message = "null!!!!!!";
 
             this.Save();
+            */
         }
 
         //"""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -27,7 +27,7 @@ namespace SimpleLifeCounter.UWP
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
         /// <param name="uwpInitializer"></param>
-        public App(UWPInitializer uwpInitializer)
+        public App()
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
