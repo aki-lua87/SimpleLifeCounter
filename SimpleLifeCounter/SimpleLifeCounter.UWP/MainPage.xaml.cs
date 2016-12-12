@@ -9,7 +9,8 @@ namespace SimpleLifeCounter.UWP
         {
             this.InitializeComponent();
 
-            LoadApplication(new SimpleLifeCounter.App());
+            // LoadApplication(new SimpleLifeCounter.App());
+            LoadApplication(new SimpleLifeCounter.App(new UwpInitializer()));
         }
     }
     public class UwpInitializer : IPlatformInitializer
