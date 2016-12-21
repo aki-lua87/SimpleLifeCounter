@@ -32,6 +32,7 @@ namespace SimpleLifeCounter.Views
             //Commandできない部分を
             LifeFontColorPicker.SelectedIndexChanged += (sender, s) =>
             {
+                //セッターを弄る
                 //vm.ConfirmationLifeFontColor = stringToColor[LifeFontColorPicker.Items[LifeFontColorPicker.SelectedIndex]];
             };
 

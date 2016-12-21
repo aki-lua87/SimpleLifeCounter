@@ -16,18 +16,8 @@ namespace SimpleLifeCounter.Models
 
         private Setting _Setting = new Setting();
 
-        private readonly string jsonName = "temp.json";
-
-        private int _lifeIndex;
-        private int _backgroundColorIndex;
-        private int _lifeColorIndex;
-
-        private bool _lifeResetCheck;
-        private bool _bigButtonCheck;
-        private bool _energyCounterCheck;
-
-        private string _backgroundColor;
-        private string _lifeFontColor;
+        private Color _backgroundColor;
+        private Color _lifeFontColor;
         private int _defaultLifePoint;
         private string _message;
 
@@ -37,46 +27,16 @@ namespace SimpleLifeCounter.Models
             set { this.SetProperty(ref _Setting, value); }
         }
 
-        // MenuPage Binding
-        public int LifeIndex
-        {
-            get { return _lifeIndex; }
-            set { this.SetProperty(ref this._lifeIndex, value); }
-        }
-        public int BackgroundColorIndex
-        {
-            get { return _backgroundColorIndex; }
-            set { this.SetProperty(ref this._backgroundColorIndex, value); }
-        }
-        public int LifeColorIndex
-        {
-            get { return _lifeColorIndex; }
-            set { this.SetProperty(ref this._lifeColorIndex, value); }
-        }
-        public bool LifeResetCheck
-        {
-            get { return _lifeResetCheck; }
-            set { this.SetProperty(ref this._lifeResetCheck, value); }
-        }
-        public bool BigButtonCheck
-        {
-            get { return _bigButtonCheck; }
-            set { this.SetProperty(ref this._bigButtonCheck, value); }
-        }
-        public bool EnergyCounterCheck
-        {
-            get { return _energyCounterCheck; }
-            set { this.SetProperty(ref this._energyCounterCheck, value); }
-        }
+        public string JsonName => "setting.json";
 
         //LifePage Bainding
-        public string BackgroundColor
+        public Color BackgroundColor
         {
             get { return this._backgroundColor; }
             set { this.SetProperty(ref this._backgroundColor, value); }
         }
 
-        public string LifeFontColor
+        public Color LifeFontColor
         {
             get { return _lifeFontColor; }
             set { this.SetProperty(ref this._lifeFontColor, value); }
@@ -93,8 +53,8 @@ namespace SimpleLifeCounter.Models
             set { this.SetProperty(ref this._message, value); }
         }
 
-
-        public void DoNotBindingSetVM(string lifePoint, string fontColor, string backgroundColor)
+        
+        public void DoNotBindingSetVM(string lifePoint, Color fontColor, Color backgroundColor)
         {
             // データバインドできない部分をViewModelに手書き
             DefaultLifePoint = int.Parse(lifePoint);
@@ -116,12 +76,12 @@ namespace SimpleLifeCounter.Models
         // jsonにセーブ
         public void SettingSave()
         {
-            SaveAndLoad.SaveData(jsonName,JsonConvert.SerializeObject(Setting));
+            SaveAndLoad.SaveData(JsonName,JsonConvert.SerializeObject(Setting));
         }
 
         public void SettingLoad()
         {
-            Setting = JsonConvert.DeserializeObject<Setting>(SaveAndLoad.LoadData(jsonName));
+            Setting = JsonConvert.DeserializeObject<Setting>(SaveAndLoad.LoadData(JsonName));
         }
 
         // セーブしたときにイベント発行
@@ -130,21 +90,6 @@ namespace SimpleLifeCounter.Models
         public AllPageModel(ISaveAndLoad saveAndLoad)
         {
             SaveAndLoad = saveAndLoad;
-
-            // 初期設定
-            LifeIndex = 1;
-            BackgroundColorIndex = 3;
-            LifeColorIndex = 13;
-
-            LifeResetCheck = false;
-            BigButtonCheck = false;
-            EnergyCounterCheck = true;
-
-            BackgroundColor = "Gray";
-            LifeFontColor = "White";
-            DefaultLifePoint = 20;
-
-            Message = "aaaa";
         }
 
     }

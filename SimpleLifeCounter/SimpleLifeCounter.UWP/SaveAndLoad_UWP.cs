@@ -10,8 +10,6 @@ using System.Linq;
 using SimpleLifeCounter.Models;
 using Newtonsoft.Json;
 
-[assembly: Dependency(typeof(SaveAndLoad_UWP))]
-
 namespace SimpleLifeCounter.UWP
 {
     class SaveAndLoad_UWP : ISaveAndLoad
@@ -19,7 +17,15 @@ namespace SimpleLifeCounter.UWP
         
         public string LoadData(string filename)
         {
-            var json = JsonConvert.SerializeObject(new Setting());
+            Setting Setting = new Setting();
+            Setting.BackgroundColorIndex = 7;
+            Setting.LifeColorIndex = 11;
+            Setting.LifeIndex = 2;
+            Setting.LifeResetCheck = true;
+            Setting.BigButtonCheck = true;
+            Setting.SubCounterCheck = false;
+
+            var json = JsonConvert.SerializeObject(Setting);
             return json;
         }
 

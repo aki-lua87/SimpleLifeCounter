@@ -114,13 +114,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="images\rst.png" />
-    <EmbeddedResource Include="images\set.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="images\testImage.png" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Views\CalculationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>

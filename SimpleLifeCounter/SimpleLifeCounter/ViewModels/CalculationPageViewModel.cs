@@ -3,10 +3,12 @@ using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 using Prism.Navigation;
 using Prism.Services;
 using SimpleLifeCounter.Models;
 using SimpleLifeCounter.Views;
+using Xamarin.Forms;
 
 namespace SimpleLifeCounter.ViewModels
 {
@@ -132,16 +134,8 @@ namespace SimpleLifeCounter.ViewModels
 
             Model.PropertyChanged += Model_PropertyChanged;
 
-            LeftLifePoint = "20";
-            RightLifePoint = "20";
-            SubLeftLifePoint = "0";
-            SubRightLifePoint = "0";
-            BackgroundColor = "Blue";
-            LifeFontColor = "White";
-            DefaultLifePoint = 20;
-            LifeResetCheck = true;
-            BigButtonCheck = true;
-            SubCounterCheck = true;
+            Load();
+            InitLife();
         }
 
         private void Model_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -190,5 +184,53 @@ namespace SimpleLifeCounter.ViewModels
             // 再描写処理
             
         }
+
+        private async void InitLife()
+        {
+                LeftLifePoint = DefaultLifePoint.ToString();
+                RightLifePoint = DefaultLifePoint.ToString();
+                SubLeftLifePoint = 0.ToString();
+                SubRightLifePoint = 0.ToString();
+        }
+
+        public void Load()
+        {
+            try
+            {
+                var data = Model.SaveAndLoad.LoadData(Model.JsonName);
+                Model.Setting = JsonConvert.DeserializeObject<Setting>(data);
+
+                this.BackgroundColor = indexToColor[Model.Setting.BackgroundColorIndex];
+                this.LifeFontColor =indexToColor[Model.Setting.LifeColorIndex];
+                this.DefaultLifePoint = Model.Setting.LifeIndex * 10;
+                this.LifeResetCheck = Model.Setting.LifeResetCheck;
+                this.BigButtonCheck = Model.Setting.BigButtonCheck;
+                this.SubCounterCheck = Model.Setting.SubCounterCheck;
+            }
+            catch
+            {
+                Model.Setting.BackgroundColorIndex = 3;
+                Model.Setting.LifeColorIndex = 5;
+                Model.Setting.LifeIndex = 2;
+                Model.Setting.LifeResetCheck = true;
+                Model.Setting.BigButtonCheck = true;
+                Model.Setting.SubCounterCheck = true;
+
+                var json = JsonConvert.SerializeObject(Model.Setting);
+                Model.SaveAndLoad.SaveData(Model.JsonName, json);
+            }
+        }
+
+        Dictionary<int, string> indexToColor = new Dictionary<int, string>
+        {
+            { 1, "Aqua" }, { 2, "Black" },
+            { 3, "Blue" },
+            { 4, "Gray" }, { 5, "Green" },
+            { 6, "Lime" }, { 7, "Maroon" },
+            { 8, "Navy" }, { 9, "Olive" },
+            { 10, "Purple" }, { 11, "Red" },
+            { 12, "Silver" }, { 13, "Teal" },
+            { 14, "White" }, { 15, "Yellow" }
+        };
     }
 }

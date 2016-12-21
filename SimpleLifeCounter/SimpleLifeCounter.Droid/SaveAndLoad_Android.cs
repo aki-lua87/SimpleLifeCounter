@@ -2,8 +2,6 @@
 using Xamarin.Forms;
 using SimpleLifeCounter.Droid;
 
-[assembly: Dependency(typeof(SaveAndLoad_Android))]
-
 namespace SimpleLifeCounter.Droid
 {
     class SaveAndLoad_Android : ISaveAndLoad
@@ -29,7 +27,7 @@ namespace SimpleLifeCounter.Droid
             var documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             var filePath = System.IO.Path.Combine(documentsPath, filename);
             System.IO.File.Delete(filePath);
-            return (System.IO.File.Exists(filePath)) ? false : true;
+            return (!System.IO.File.Exists(filePath));
         }
     }
 }
