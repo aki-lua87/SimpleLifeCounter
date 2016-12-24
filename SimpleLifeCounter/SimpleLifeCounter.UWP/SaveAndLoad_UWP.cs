@@ -38,7 +38,21 @@ namespace SimpleLifeCounter.UWP
         {
             return true;
         }
-        
+
+        private string testJson()
+        {
+            Setting Setting = new Setting();
+            Setting.BackgroundColorIndex = 7;
+            Setting.LifeColorIndex = 11;
+            Setting.LifeIndex = 2;
+            Setting.LifeResetCheck = true;
+            Setting.BigButtonCheck = true;
+            Setting.SubCounterCheck = false;
+
+            var json = JsonConvert.SerializeObject(Setting);
+            return json;
+        }
+
 
         /*
         public string LoadData(string filename)

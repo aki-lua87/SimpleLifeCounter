@@ -2,21 +2,22 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:global="clr-namespace:;assembly=SimpleLifeCounter"
              mvvm:ViewModelLocator.AutowireViewModel="True"
              Title="設定"
              x:Class="SimpleLifeCounter.Views.MenuPage">
   <ScrollView>
 
-    <StackLayout x:Name="stackLayout">
+    <StackLayout>
 
       <AbsoluteLayout>
         <Label Text=" フォントの色"
-               x:Name="lc"
                AbsoluteLayout.LayoutFlags="All"
                AbsoluteLayout.LayoutBounds="0.1, 0.5, 0.8, 1"
                VerticalOptions="CenterAndExpand"/>
-        <Picker x:Name="LifeFontColorPicker"
-                SelectedIndex="{Binding LifeColorIndex}"
+        <global:BindablePicker 
+                ItemsSource="{Binding LifeColorSelection}"    
+                SelectedIndex="{Binding LifeColorIndex, Mode=TwoWay}"
                 BackgroundColor="{Binding ConfirmationLifeFontColor}"
                 TextColor="{Binding ConfirmationLifeFontColor}"
                 AbsoluteLayout.LayoutFlags="All"
@@ -25,12 +26,12 @@
 
       <AbsoluteLayout>
         <Label Text=" 背景の色"
-               x:Name="bc"
                AbsoluteLayout.LayoutFlags="All"
                AbsoluteLayout.LayoutBounds="0.1, 0.5, 0.8, 1"
                VerticalOptions="CenterAndExpand"/>
-        <Picker x:Name="BackgroundColorPicker"
-                SelectedIndex="{Binding BackgroundColorIndex}"
+        <global:BindablePicker 
+                ItemsSource="{Binding BackgroundColorSelection}"    
+                SelectedIndex="{Binding BackgroundColorIndex, Mode=TwoWay}"
                 BackgroundColor="{Binding ConfirmationBackgroundColor}"
                 TextColor="{Binding ConfirmationBackgroundColor}"
                 AbsoluteLayout.LayoutFlags="All"
@@ -39,24 +40,22 @@
 
       <AbsoluteLayout>
         <Label Text=" 初期ライフ"
-               x:Name="cc"
                AbsoluteLayout.LayoutFlags="All"
                AbsoluteLayout.LayoutBounds="0.1, 0.5, 0.8, 1"
                VerticalOptions="CenterAndExpand"/>
-        <Picker x:Name="LifeNum"
-                SelectedIndex="{Binding LifeIndex}"
+        <global:BindablePicker 
+          ItemsSource="{Binding LifeSelection}"    
+          SelectedIndex="{Binding LifeIndex}"
                 AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="1, 0.5, 0.1, 1"/>
       </AbsoluteLayout>
 
       <AbsoluteLayout>
         <Label Text="ライフリセット時に確認画面を表示"
-               x:Name="lrc"
                AbsoluteLayout.LayoutFlags="All"
                AbsoluteLayout.LayoutBounds="0.1, 0.5, 0.7, 1"
                VerticalOptions="CenterAndExpand"/>
-        <Switch x:Name="lrcSwitch"
-                IsToggled="{Binding LifeResetCheck}"
+        <Switch IsToggled="{Binding LifeResetCheck}"
                 HorizontalOptions="End"
                 AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="1, 0.5, 0.3, 1"/>
@@ -64,12 +63,10 @@
 
       <AbsoluteLayout>
         <Label Text="リセットボタンを大きく表示"
-               x:Name="BigButtonText"
                AbsoluteLayout.LayoutFlags="All"
                AbsoluteLayout.LayoutBounds="0.1, 0.5, 0.7, 1"
                VerticalOptions="CenterAndExpand"/>
-        <Switch x:Name="BigButtonSwitch"
-                IsToggled="{Binding BigButtonCheck}"
+        <Switch IsToggled="{Binding BigButtonCheck}"
                 HorizontalOptions="End"
                 AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="1, 0.5, 0.3, 1"/>
@@ -77,20 +74,17 @@
 
       <AbsoluteLayout>
         <Label Text="エネルギーカウンターを表示"
-               x:Name="EnergyCounterCheck"
                AbsoluteLayout.LayoutFlags="All"
                AbsoluteLayout.LayoutBounds="0.1, 0.5, 0.7, 1"
                VerticalOptions="CenterAndExpand"/>
-        <Switch x:Name="EnergyCounterSwitch"
-                IsToggled="{Binding EnergyCounterCheck}"
+        <Switch IsToggled="{Binding EnergyCounterCheck}"
                 HorizontalOptions="End"
                 AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="1, 0.5, 0.3, 1"/>
       </AbsoluteLayout>
       
-      <Button x:Name="SaveButton"
-              Text="Save"
-              Clicked="SaveClicked" />
+      <Button Text="Save"
+              Command="{Binding SaveClickCommand}" />
 
     </StackLayout>
 

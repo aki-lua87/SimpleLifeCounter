@@ -23,7 +23,6 @@ namespace SimpleLifeCounter.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            // DisplayAlert("test", "Onape", "OK");
             SetLayout();
         }
 
@@ -75,13 +74,15 @@ namespace SimpleLifeCounter.Views
         private void SetLayout()
         {
             // Viewに一瞬だけVMとデータバインドしたスイッチを配置して真理値を読み取ってそのあと即Removeする感じに
+            //var tempSubCount = new Switch();
+            //tempSubCount.SetBinding(Switch.IsToggledProperty, "SubCounterCheck");
+            //absoluteLayout.Children.Add(tempSubCount);
+
             var tempReset = new Switch();
             tempReset.SetBinding(Switch.IsToggledProperty, "BigButtonCheck");
             absoluteLayout.Children.Add(tempReset);
 
-            var tempSubCount = new Switch();
-            tempSubCount.SetBinding(Switch.IsToggledProperty, "SubCounterCheck");
-            absoluteLayout.Children.Add(tempSubCount);
+            
             // ここまで
 
             //DisplayAlert("test", "Re:" + tempReset.IsToggled + "ぬええ　 Sub:" + tempSubCount.IsToggled , "OK");
@@ -97,10 +98,9 @@ namespace SimpleLifeCounter.Views
                 // nomal
                 AbsoluteLayout.SetLayoutBounds(LifeResetButton, new Rectangle(0.5, 1, 0.11, 0.2));
             }
-            absoluteLayout.Children.Remove(tempReset);
 
             // エネルギーカウンター
-            if (tempSubCount.IsToggled) //if (vm.SubCounterCounterCheck)
+            if (true) //if (vm.SubCounterCounterCheck)
             {
                 double SubCounterButtonHorizon;
                 SubCounterButtonHorizon = 0.125;
@@ -172,7 +172,9 @@ namespace SimpleLifeCounter.Views
                 LeftPlyerSubCounter.Text = 0.ToString();
                 RightPlyerSubCounter.Text = 0.ToString();
             }
-            absoluteLayout.Children.Remove(tempSubCount);
+            //absoluteLayout.Children.Remove(tempSubCount);
+            absoluteLayout.Children.Remove(tempReset);
+
         }
     }
 

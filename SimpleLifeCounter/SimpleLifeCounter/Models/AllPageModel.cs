@@ -19,6 +19,7 @@ namespace SimpleLifeCounter.Models
         private Color _backgroundColor;
         private Color _lifeFontColor;
         private int _defaultLifePoint;
+        public string JsonName => "setting.json";
         private string _message;
 
         public Setting Setting
@@ -27,7 +28,7 @@ namespace SimpleLifeCounter.Models
             set { this.SetProperty(ref _Setting, value); }
         }
 
-        public string JsonName => "setting.json";
+        
 
         //LifePage Bainding
         public Color BackgroundColor

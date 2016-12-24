@@ -19,8 +19,6 @@ namespace SimpleLifeCounter.ViewModels
         private readonly INavigationService _navigationService;
         private readonly IPageDialogService _pageDialogService;
 
-        // public ReadOnlyReactiveProperty<Setting> CurrentPage { get; }
-
         private readonly string ToMenuPage = "MenuPage";
 
         private string _backgroundColor;
@@ -167,25 +165,11 @@ namespace SimpleLifeCounter.ViewModels
         {
             if (!LifeResetCheck || await _pageDialogService.DisplayAlertAsync("リセット", "ライフを初期値に戻しますか？", "はい", "いいえ"))
             {
-                LeftLifePoint = DefaultLifePoint.ToString();
-                RightLifePoint = DefaultLifePoint.ToString();
-                SubLeftLifePoint = 0.ToString();
-                SubRightLifePoint = 0.ToString();
+                InitLife();
             }
         }
-        public void OnNavigatedFrom(NavigationParameters parameters)
-        {
-            BigButtonCheck = false;
-            SubCounterCheck = false;
-        }
 
-        public void OnNavigatedTo(NavigationParameters parameters)
-        {
-            // 再描写処理
-            
-        }
-
-        private async void InitLife()
+        private void InitLife()
         {
                 LeftLifePoint = DefaultLifePoint.ToString();
                 RightLifePoint = DefaultLifePoint.ToString();
@@ -195,30 +179,45 @@ namespace SimpleLifeCounter.ViewModels
 
         public void Load()
         {
+            
             try
             {
                 var data = Model.SaveAndLoad.LoadData(Model.JsonName);
                 Model.Setting = JsonConvert.DeserializeObject<Setting>(data);
-
-                this.BackgroundColor = indexToColor[Model.Setting.BackgroundColorIndex];
-                this.LifeFontColor =indexToColor[Model.Setting.LifeColorIndex];
-                this.DefaultLifePoint = Model.Setting.LifeIndex * 10;
-                this.LifeResetCheck = Model.Setting.LifeResetCheck;
-                this.BigButtonCheck = Model.Setting.BigButtonCheck;
-                this.SubCounterCheck = Model.Setting.SubCounterCheck;
             }
             catch
             {
                 Model.Setting.BackgroundColorIndex = 3;
-                Model.Setting.LifeColorIndex = 5;
-                Model.Setting.LifeIndex = 2;
+                Model.Setting.LifeColorIndex = 4;
+                Model.Setting.LifeIndex = 5;
                 Model.Setting.LifeResetCheck = true;
                 Model.Setting.BigButtonCheck = true;
-                Model.Setting.SubCounterCheck = true;
+                Model.Setting.SubCounterCheck = false;
 
                 var json = JsonConvert.SerializeObject(Model.Setting);
                 Model.SaveAndLoad.SaveData(Model.JsonName, json);
+
+                Load();
+                return;
             }
+
+            this.BackgroundColor = indexToColor[Model.Setting.BackgroundColorIndex + 1];
+            this.LifeFontColor = indexToColor[Model.Setting.LifeColorIndex + 1];
+            this.DefaultLifePoint = (Model.Setting.LifeIndex + 1) * 10;
+            this.LifeResetCheck = Model.Setting.LifeResetCheck;
+            this.BigButtonCheck = Model.Setting.BigButtonCheck;
+            this.SubCounterCheck = Model.Setting.SubCounterCheck;
+        }
+
+        public void OnNavigatedFrom(NavigationParameters parameters)
+        {
+            
+        }
+
+        public void OnNavigatedTo(NavigationParameters parameters)
+        {
+            Load();
+            InitLife();
         }
 
         Dictionary<int, string> indexToColor = new Dictionary<int, string>

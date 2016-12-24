@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Microsoft.Practices.ObjectBuilder2;
 using Xamarin.Forms;
 using Newtonsoft.Json;
 using Prism.Commands;
@@ -45,12 +46,20 @@ namespace SimpleLifeCounter.ViewModels
         public int BackgroundColorIndex
         {
             get { return _backgroundColorIndex; }
-            set { this.SetProperty(ref this._backgroundColorIndex, value); }
+            set
+            {
+                this.SetProperty(ref this._backgroundColorIndex, value);
+                ConfirmationBackgroundColor = nameToColor[BackgroundColorSelection[BackgroundColorIndex]];
+            }
         }
         public int LifeColorIndex
         {
             get { return _lifeColorIndex; }
-            set { this.SetProperty(ref this._lifeColorIndex, value); }
+            set
+            {
+                this.SetProperty(ref this._lifeColorIndex, value);
+                ConfirmationLifeFontColor = nameToColor[LifeColorSelection[LifeColorIndex]];
+            }
         }
         public bool LifeResetCheck
         {
@@ -68,6 +77,8 @@ namespace SimpleLifeCounter.ViewModels
             set { this.SetProperty(ref this._SubCounterCheck, value); }
         }
 
+        public DelegateCommand SaveClickCommand { get; private set; }
+
 
         // pickerの背景
         public Color ConfirmationBackgroundColor
@@ -81,6 +92,26 @@ namespace SimpleLifeCounter.ViewModels
             set { this.SetProperty(ref this._confirmationLifeFontColor, value); }
         }
 
+        private int[] _lifeSelection;
+        private string[] _lifeColorSelection;
+        private string[] _backgroundColorSelection;
+
+        public int[] LifeSelection
+        {
+            get { return _lifeSelection; }
+            set { this.SetProperty(ref this._lifeSelection, value); }
+        }
+        public string[] LifeColorSelection
+        {
+            get { return _lifeColorSelection; }
+            set { this.SetProperty(ref this._lifeColorSelection, value); }
+        }
+        public string[] BackgroundColorSelection
+        {
+            get { return _backgroundColorSelection; }
+            set { this.SetProperty(ref this._backgroundColorSelection, value); }
+        }
+
 
         // コンストラクタ
         public MenuPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, IAllPageModel allPageModel)
@@ -89,6 +120,16 @@ namespace SimpleLifeCounter.ViewModels
 
             _navigationService = navigationService;
             _pageDialogService = pageDialogService;
+
+            LifeSelection = new[] {10, 20, 30, 40, 50, 60};
+
+            LifeColorSelection = new string[nameToColor.Values.Count];
+            nameToColor.Keys.CopyTo(LifeColorSelection, 0);
+
+            BackgroundColorSelection = new string[nameToColor.Values.Count];
+            nameToColor.Keys.CopyTo(BackgroundColorSelection, 0);
+
+            SaveClickCommand = new DelegateCommand(SaveClicked);
 
             Load();
         }
@@ -104,45 +145,43 @@ namespace SimpleLifeCounter.ViewModels
             Model.Setting.SubCounterCheck = SubCounterCheck;
 
             var json = JsonConvert.SerializeObject(Model.Setting);
-            DependencyService.Get<ISaveAndLoad>().SaveData(Model.JsonName, json);
-
-            _navigationService.GoBackAsync();
+            Model.SaveAndLoad.SaveData(Model.JsonName, json);
         }
         // データロード
         public void Load()
         {
             try
             {
-                var data = Model.SaveAndLoad.LoadData("setting.json");
+                var data = Model.SaveAndLoad.LoadData(Model.JsonName);
                 Model.Setting = JsonConvert.DeserializeObject<Setting>(data);
-
-                this.BackgroundColorIndex = Model.Setting.BackgroundColorIndex;
-                this.LifeColorIndex = Model.Setting.LifeColorIndex;
-                this.LifeIndex = Model.Setting.LifeIndex;
-                this.LifeResetCheck = Model.Setting.LifeResetCheck;
-                this.BigButtonCheck = Model.Setting.BigButtonCheck;
-                this.SubCounterCheck = Model.Setting.SubCounterCheck;
-
-                // 仮
-                ConfirmationBackgroundColor = Color.Aqua;
-                ConfirmationLifeFontColor = Color.Fuchsia;
             }
             catch
             {
-                Model.Setting.BackgroundColorIndex = 1;
-                Model.Setting.LifeColorIndex = 1;
-                Model.Setting.LifeIndex = 2;
-                Model.Setting.LifeResetCheck = true;
-                Model.Setting.BigButtonCheck = true;
-                Model.Setting.SubCounterCheck = true;
+                BackgroundColorIndex = 2;
+                LifeColorIndex = 2;
+                LifeIndex = 3;
+                LifeResetCheck = false;
+                BigButtonCheck = false;
+                SubCounterCheck = false;
 
-                var json = JsonConvert.SerializeObject(Model.Setting);
-                DependencyService.Get<ISaveAndLoad>().SaveData(Model.JsonName, json);
+                Save();
+                Load();
+                return;
             }
+
+            this.BackgroundColorIndex = Model.Setting.BackgroundColorIndex;
+            this.LifeColorIndex = Model.Setting.LifeColorIndex;
+            this.LifeIndex = Model.Setting.LifeIndex;
+            this.LifeResetCheck = Model.Setting.LifeResetCheck;
+            this.BigButtonCheck = Model.Setting.BigButtonCheck;
+            this.SubCounterCheck = Model.Setting.SubCounterCheck;
+
+            ConfirmationLifeFontColor = nameToColor[LifeColorSelection[LifeColorIndex]];
+            ConfirmationBackgroundColor = nameToColor[BackgroundColorSelection[BackgroundColorIndex]];
         }
 
         // SaveButtonClick
-        public void SaveClicked(string lifePoint, string fontColor, string backgroundColor)
+        public void SaveClicked()
         {
             
             Model.Setting.LifeColorIndex = LifeColorIndex;
@@ -153,14 +192,8 @@ namespace SimpleLifeCounter.ViewModels
             Model.Setting.BigButtonCheck = BigButtonCheck;
             Model.Setting.SubCounterCheck = SubCounterCheck;
 
-            Model.DefaultLifePoint = int.Parse(lifePoint);
-            Model.LifeFontColor = nameToColor[fontColor];
-            Model.BackgroundColor = nameToColor[backgroundColor];
-
-            Model.Message = "null!!!!!!";
-
             this.Save();
-            
+            _navigationService.GoBackAsync();
         }
 
         //"""""""""""""""""""""""""""""""""""""""""""""""""""""

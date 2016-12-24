@@ -1,14 +1,11 @@
-﻿using System;
-
+﻿
 using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
 using Android.Views;
-using Android.Widget;
 using Android.OS;
 using Prism.Unity;
 using Microsoft.Practices.Unity;
-using SimpleLifeCounter.Models;
+
 
 namespace SimpleLifeCounter.Droid
 {
@@ -17,13 +14,14 @@ namespace SimpleLifeCounter.Droid
     {
         protected override void OnCreate(Bundle bundle)
         {
-            base.OnCreate(bundle);
 
             // 横画面に固定
             this.RequestedOrientation = ScreenOrientation.SensorLandscape;
 
             // スリープモードにしない制御
             this.Window.SetFlags(WindowManagerFlags.KeepScreenOn, WindowManagerFlags.KeepScreenOn);
+
+            base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App(new AndroidInitializer()));

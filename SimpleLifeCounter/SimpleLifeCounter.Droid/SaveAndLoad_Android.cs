@@ -1,6 +1,8 @@
 ﻿using System.IO;
+using Newtonsoft.Json;
 using Xamarin.Forms;
 using SimpleLifeCounter.Droid;
+using SimpleLifeCounter.Models;
 
 namespace SimpleLifeCounter.Droid
 {
@@ -21,6 +23,7 @@ namespace SimpleLifeCounter.Droid
                 return System.IO.File.ReadAllText(filePath);
             }
             return null;
+
         }
         public bool ClearData(string filename)
         {
@@ -28,6 +31,20 @@ namespace SimpleLifeCounter.Droid
             var filePath = System.IO.Path.Combine(documentsPath, filename);
             System.IO.File.Delete(filePath);
             return (!System.IO.File.Exists(filePath));
+        }
+
+        private string testJson()
+        {
+            Setting Setting = new Setting();
+            Setting.BackgroundColorIndex = 7;
+            Setting.LifeColorIndex = 11;
+            Setting.LifeIndex = 2;
+            Setting.LifeResetCheck = true;
+            Setting.BigButtonCheck = true;
+            Setting.SubCounterCheck = false;
+
+            var json = JsonConvert.SerializeObject(Setting);
+            return json;
         }
     }
 }
