@@ -30,7 +30,7 @@ namespace SimpleLifeCounter.ViewModels
         private string _message;
 
         private string _leftLifePoint, _rightLifePoint;
-        private string _subLeftLifePoint, _subRightLifePoint;
+        private string _leftSubCounter, _subRightCounter;
 
         public string LeftLifePoint
         {
@@ -44,16 +44,16 @@ namespace SimpleLifeCounter.ViewModels
             set { this.SetProperty(ref this._rightLifePoint, value); }
         }
 
-        public string SubLeftLifePoint
+        public string LeftSubCounter
         {
-            get { return _subLeftLifePoint; }
-            set { this.SetProperty(ref this._subLeftLifePoint, value); }
+            get { return _leftSubCounter; }
+            set { this.SetProperty(ref this._leftSubCounter, value); }
         }
 
-        public string SubRightLifePoint
+        public string SubRightCounter
         {
-            get { return _subRightLifePoint; }
-            set { this.SetProperty(ref this._subRightLifePoint, value); }
+            get { return _subRightCounter; }
+            set { this.SetProperty(ref this._subRightCounter, value); }
         }
 
         public string BackgroundColor
@@ -120,10 +120,10 @@ namespace SimpleLifeCounter.ViewModels
             this.RightUpCommand = new DelegateCommand(() => RightLifePoint = (int.Parse(RightLifePoint) + 1).ToString());
             this.RightDownCommand = new DelegateCommand(() => RightLifePoint = (int.Parse(RightLifePoint) - 1).ToString());
 
-            this.SubLeftUpCommand = new DelegateCommand(() => SubLeftLifePoint = (int.Parse(SubLeftLifePoint) + 1).ToString());
-            this.SubLeftDownCommand = new DelegateCommand(() => SubLeftLifePoint = (int.Parse(SubLeftLifePoint) - 1).ToString());
-            this.SubRightUpCommand = new DelegateCommand(() => SubRightLifePoint = (int.Parse(SubRightLifePoint) + 1).ToString());
-            this.SubRightDownCommand = new DelegateCommand(() => SubRightLifePoint = (int.Parse(SubRightLifePoint) - 1).ToString());
+            this.SubLeftUpCommand = new DelegateCommand(() => LeftSubCounter = (int.Parse(LeftSubCounter) + 1).ToString());
+            this.SubLeftDownCommand = new DelegateCommand(() => LeftSubCounter = (int.Parse(LeftSubCounter) - 1).ToString());
+            this.SubRightUpCommand = new DelegateCommand(() => SubRightCounter = (int.Parse(SubRightCounter) + 1).ToString());
+            this.SubRightDownCommand = new DelegateCommand(() => SubRightCounter = (int.Parse(SubRightCounter) - 1).ToString());
 
             NavigationCommand = new DelegateCommand(Navigate);
             DiceRollCommand = new DelegateCommand(DiceRoll);
@@ -173,8 +173,8 @@ namespace SimpleLifeCounter.ViewModels
         {
                 LeftLifePoint = DefaultLifePoint.ToString();
                 RightLifePoint = DefaultLifePoint.ToString();
-                SubLeftLifePoint = 0.ToString();
-                SubRightLifePoint = 0.ToString();
+                LeftSubCounter = 0.ToString();
+                SubRightCounter = 0.ToString();
         }
 
         public void Load()
@@ -192,7 +192,7 @@ namespace SimpleLifeCounter.ViewModels
                 Model.Setting.LifeIndex = 5;
                 Model.Setting.LifeResetCheck = true;
                 Model.Setting.BigButtonCheck = true;
-                Model.Setting.SubCounterCheck = false;
+                Model.Setting.SubCounterCheck = true;
 
                 var json = JsonConvert.SerializeObject(Model.Setting);
                 Model.SaveAndLoad.SaveData(Model.JsonName, json);

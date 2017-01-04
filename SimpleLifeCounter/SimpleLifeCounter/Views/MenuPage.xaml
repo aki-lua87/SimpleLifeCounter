@@ -77,7 +77,7 @@
                AbsoluteLayout.LayoutFlags="All"
                AbsoluteLayout.LayoutBounds="0.1, 0.5, 0.7, 1"
                VerticalOptions="CenterAndExpand"/>
-        <Switch IsToggled="{Binding EnergyCounterCheck}"
+        <Switch IsToggled="{Binding SubCounterCheck}"
                 HorizontalOptions="End"
                 AbsoluteLayout.LayoutFlags="All"
                 AbsoluteLayout.LayoutBounds="1, 0.5, 0.3, 1"/>

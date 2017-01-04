@@ -32,7 +32,7 @@ namespace SimpleLifeCounter.ViewModels
         private int _lifeColorIndex;
         private bool _lifeResetCheck;
         private bool _bigButtonCheck;
-        private bool _SubCounterCheck;
+        private bool _subCounterCheck;
 
         private Color _confirmationBackgroundColor;
         private Color _confirmationLifeFontColor;
@@ -73,8 +73,8 @@ namespace SimpleLifeCounter.ViewModels
         }
         public bool SubCounterCheck
         {
-            get { return _SubCounterCheck; }
-            set { this.SetProperty(ref this._SubCounterCheck, value); }
+            get { return _subCounterCheck; }
+            set { this.SetProperty(ref this._subCounterCheck, value); }
         }
 
         public DelegateCommand SaveClickCommand { get; private set; }

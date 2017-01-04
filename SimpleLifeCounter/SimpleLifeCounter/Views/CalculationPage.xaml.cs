@@ -26,6 +26,7 @@ namespace SimpleLifeCounter.Views
             SetLayout();
         }
 
+
         private void CreateSubCounterElement()
         {
             // カウント用ボタン
@@ -53,7 +54,6 @@ namespace SimpleLifeCounter.Views
                 FontSize = 40,
             };
             LeftPlyerSubCounter.SetBinding(Label.TextColorProperty, "LifeFontColor");
-            LeftPlyerSubCounter.SetBinding(Label.TextProperty, "SubLeftLifePoint");
 
             RightPlyerSubCounter = new Label
             {
@@ -62,7 +62,6 @@ namespace SimpleLifeCounter.Views
                 FontSize = 40,
             };
             RightPlyerSubCounter.SetBinding(Label.TextColorProperty, "LifeFontColor");
-            RightPlyerSubCounter.SetBinding(Label.TextProperty, "SubRightLifePoint");
 
             // なんか、線
             LeftPlayerTateLine = new BoxView { };
@@ -74,51 +73,37 @@ namespace SimpleLifeCounter.Views
         private void SetLayout()
         {
             // Viewに一瞬だけVMとデータバインドしたスイッチを配置して真理値を読み取ってそのあと即Removeする感じに
-            //var tempSubCount = new Switch();
-            //tempSubCount.SetBinding(Switch.IsToggledProperty, "SubCounterCheck");
-            //absoluteLayout.Children.Add(tempSubCount);
+            var tempSubCount = new Switch();
+            tempSubCount.SetBinding(Switch.IsToggledProperty, "SubCounterCheck");
+            absoluteLayout.Children.Add(tempSubCount);
 
             var tempReset = new Switch();
             tempReset.SetBinding(Switch.IsToggledProperty, "BigButtonCheck");
             absoluteLayout.Children.Add(tempReset);
 
-            
-            // ここまで
-
-            //DisplayAlert("test", "Re:" + tempReset.IsToggled + "ぬええ　 Sub:" + tempSubCount.IsToggled , "OK");
-
             // ボタンの大きさ
-            if (tempReset.IsToggled)
-            {
-                // big
-                AbsoluteLayout.SetLayoutBounds(LifeResetButton, new Rectangle(0.5, 1, 0.19, 0.18));
-            }
-            else
-            {
-                // nomal
-                AbsoluteLayout.SetLayoutBounds(LifeResetButton, new Rectangle(0.5, 1, 0.11, 0.2));
-            }
+            AbsoluteLayout.SetLayoutBounds(LifeResetButton, tempReset.IsToggled ? new Rectangle(0.5, 1, 0.19, 0.18) : new Rectangle(0.5, 1, 0.11, 0.2));
 
             // エネルギーカウンター
-            if (true) //if (vm.SubCounterCounterCheck)
+            if (tempSubCount.IsToggled) //if ()
             {
-                double SubCounterButtonHorizon;
-                SubCounterButtonHorizon = 0.125;
+                double subCounterButtonHorizon;
+                subCounterButtonHorizon = 0.125;
 
                 // 左ボタン設置
                 absoluteLayout.Children.Add(LeftPlyerSubCounterUp);
                 absoluteLayout.Children.Add(LeftPlyerSubCounterDown);
                 AbsoluteLayout.SetLayoutFlags(LeftPlyerSubCounterUp, AbsoluteLayoutFlags.All);
                 AbsoluteLayout.SetLayoutFlags(LeftPlyerSubCounterDown, AbsoluteLayoutFlags.All);
-                AbsoluteLayout.SetLayoutBounds(LeftPlyerSubCounterUp, new Rectangle(0, 0, SubCounterButtonHorizon, 0.5));
-                AbsoluteLayout.SetLayoutBounds(LeftPlyerSubCounterDown, new Rectangle(0, 1, SubCounterButtonHorizon, 0.5));
+                AbsoluteLayout.SetLayoutBounds(LeftPlyerSubCounterUp, new Rectangle(0, 0, subCounterButtonHorizon, 0.5));
+                AbsoluteLayout.SetLayoutBounds(LeftPlyerSubCounterDown, new Rectangle(0, 1, subCounterButtonHorizon, 0.5));
                 // 右ボタン設置
                 absoluteLayout.Children.Add(RightPlyerSubCounterUp);
                 absoluteLayout.Children.Add(RightPlyerSubCounterDown);
                 AbsoluteLayout.SetLayoutFlags(RightPlyerSubCounterUp, AbsoluteLayoutFlags.All);
                 AbsoluteLayout.SetLayoutFlags(RightPlyerSubCounterDown, AbsoluteLayoutFlags.All);
-                AbsoluteLayout.SetLayoutBounds(RightPlyerSubCounterUp, new Rectangle(1, 0, SubCounterButtonHorizon, 0.5));
-                AbsoluteLayout.SetLayoutBounds(RightPlyerSubCounterDown, new Rectangle(1, 1, SubCounterButtonHorizon, 0.5));
+                AbsoluteLayout.SetLayoutBounds(RightPlyerSubCounterUp, new Rectangle(1, 0, subCounterButtonHorizon, 0.5));
+                AbsoluteLayout.SetLayoutBounds(RightPlyerSubCounterDown, new Rectangle(1, 1, subCounterButtonHorizon, 0.5));
 
                 // 両数字設置
                 absoluteLayout.Children.Add(LeftPlyerSubCounter);
@@ -127,6 +112,8 @@ namespace SimpleLifeCounter.Views
                 AbsoluteLayout.SetLayoutFlags(RightPlyerSubCounter, AbsoluteLayoutFlags.All);
                 AbsoluteLayout.SetLayoutBounds(LeftPlyerSubCounter, new Rectangle(0.005, 0.5, 0.12, 0.4));
                 AbsoluteLayout.SetLayoutBounds(RightPlyerSubCounter, new Rectangle(0.995, 0.5, 0.12, 0.4));
+                LeftPlyerSubCounter.SetBinding(Label.TextProperty, "LeftSubCounter");
+                RightPlyerSubCounter.SetBinding(Label.TextProperty, "SubRightCounter");
 
                 // ライフボタン調整
                 AbsoluteLayout.SetLayoutBounds(LeftPlyerLifeUp, new Rectangle(0.195, 0, 0.31, 0.5));
@@ -172,7 +159,7 @@ namespace SimpleLifeCounter.Views
                 LeftPlyerSubCounter.Text = 0.ToString();
                 RightPlyerSubCounter.Text = 0.ToString();
             }
-            //absoluteLayout.Children.Remove(tempSubCount);
+            absoluteLayout.Children.Remove(tempSubCount);
             absoluteLayout.Children.Remove(tempReset);
 
         }
