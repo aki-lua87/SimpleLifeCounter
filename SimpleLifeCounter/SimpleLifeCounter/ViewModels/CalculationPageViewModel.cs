@@ -2,8 +2,10 @@
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Newtonsoft.Json;
+using PCLStorage;
 using Prism.Navigation;
 using Prism.Services;
 using SimpleLifeCounter.Models;
@@ -177,9 +179,9 @@ namespace SimpleLifeCounter.ViewModels
                 SubRightCounter = 0.ToString();
         }
 
-        public void Load()
+        public async void Load()
         {
-            
+            string filename = Model.JsonName;
             try
             {
                 var data = Model.SaveAndLoad.LoadData(Model.JsonName);
@@ -187,6 +189,8 @@ namespace SimpleLifeCounter.ViewModels
             }
             catch
             {
+                Debug.WriteLine("（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）キャッチ");
+
                 Model.Setting.BackgroundColorIndex = 3;
                 Model.Setting.LifeColorIndex = 4;
                 Model.Setting.LifeIndex = 5;

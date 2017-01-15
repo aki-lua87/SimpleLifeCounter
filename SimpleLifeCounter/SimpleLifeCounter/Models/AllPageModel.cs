@@ -2,10 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.ServiceModel.Channels;
-
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Newtonsoft.Json;
+using PCLStorage;
 using Prism.Mvvm;
 
 namespace SimpleLifeCounter.Models
@@ -88,10 +90,9 @@ namespace SimpleLifeCounter.Models
         // セーブしたときにイベント発行
         // VMで発火してJsonの値を格納
 
-        public AllPageModel(ISaveAndLoad saveAndLoad)
+        public AllPageModel( ISaveAndLoad saveAndLoad)
         {
             SaveAndLoad = saveAndLoad;
         }
-
     }
 }

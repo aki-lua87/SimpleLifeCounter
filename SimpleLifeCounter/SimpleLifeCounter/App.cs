@@ -13,8 +13,8 @@ namespace SimpleLifeCounter
 
         protected override void OnInitialized()
         {
+            // NavigationService.NavigateAsync("/NavigationPage/CalculationPage");
             NavigationService.NavigateAsync("/NavigationPage/CalculationPage");
-
         }
 
         protected override void RegisterTypes()
@@ -24,6 +24,7 @@ namespace SimpleLifeCounter
             Container.RegisterTypeForNavigation<CalculationPage>();
 
             Container.RegisterType<IAllPageModel, AllPageModel>(new ContainerControlledLifetimeManager());
+            Container.RegisterTypeForNavigation<PrismContentPage1>();
         }
     }
 }
