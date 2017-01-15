@@ -2,69 +2,44 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.ServiceModel.Channels;
-
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Newtonsoft.Json;
+using PCLStorage;
 using Prism.Mvvm;
 
 namespace SimpleLifeCounter.Models
 {
-    public class AllPageModel : BindableBase
+    public class AllPageModel : BindableBase,IAllPageModel
     {
-        private int _lifeIndex;
-        private int _backgroundColorIndex;
-        private int _lifeColorIndex;
+        // public ISaveAndLoad SaveAndLoad { get; set; }
 
-        private bool _lifeResetCheck;
-        private bool _bigButtonCheck;
-        private bool _energyCounterCheck;
+        private Setting _Setting = new Setting();
 
-        private string _backgroundColor;
-        private string _lifeFontColor;
+        private Color _backgroundColor;
+        private Color _lifeFontColor;
         private int _defaultLifePoint;
+        public string JsonName => "setting.json";
         private string _message;
 
-        // MenuPage Binding
-        public int LifeIndex
+        public Setting Setting
         {
-            get { return _lifeIndex; }
-            set { this.SetProperty(ref this._lifeIndex, value); }
-        }
-        public int BackgroundColorIndex
-        {
-            get { return _backgroundColorIndex; }
-            set { this.SetProperty(ref this._backgroundColorIndex, value); }
-        }
-        public int LifeColorIndex
-        {
-            get { return _lifeColorIndex; }
-            set { this.SetProperty(ref this._lifeColorIndex, value); }
-        }
-        public bool LifeResetCheck
-        {
-            get { return _lifeResetCheck; }
-            set { this.SetProperty(ref this._lifeResetCheck, value); }
-        }
-        public bool BigButtonCheck
-        {
-            get { return _bigButtonCheck; }
-            set { this.SetProperty(ref this._bigButtonCheck, value); }
-        }
-        public bool EnergyCounterCheck
-        {
-            get { return _energyCounterCheck; }
-            set { this.SetProperty(ref this._energyCounterCheck, value); }
+            get { return _Setting; }
+            set { this.SetProperty(ref _Setting, value); }
         }
 
+        
+
         //LifePage Bainding
-        public string BackgroundColor
+        public Color BackgroundColor
         {
             get { return this._backgroundColor; }
             set { this.SetProperty(ref this._backgroundColor, value); }
         }
 
-        public string LifeFontColor
+        public Color LifeFontColor
         {
             get { return _lifeFontColor; }
             set { this.SetProperty(ref this._lifeFontColor, value); }
@@ -81,9 +56,8 @@ namespace SimpleLifeCounter.Models
             set { this.SetProperty(ref this._message, value); }
         }
 
-
-
-        public void DoNotBindingSetVM(string lifePoint, string fontColor, string backgroundColor)
+        
+        public void DoNotBindingSetVM(string lifePoint, Color fontColor, Color backgroundColor)
         {
             // データバインドできない部分をViewModelに手書き
             DefaultLifePoint = int.Parse(lifePoint);
@@ -102,32 +76,36 @@ namespace SimpleLifeCounter.Models
             this.Message = $"{rnd.Next(1, 21).ToString()}";
         }
 
-        // jsonにセーブ
         // セーブしたときにイベント発行
         // VMで発火してJsonの値を格納
 
-
         public AllPageModel()
         {
-            
+            //SaveAndLoad = saveAndLoad;
         }
-        public AllPageModel(string messege)
+
+        public async Task SaveData()
         {
-            // 初期設定
-            LifeIndex = 1;
-            BackgroundColorIndex = 3;
-            LifeColorIndex = 13;
-
-            LifeResetCheck = false;
-            BigButtonCheck = false;
-            EnergyCounterCheck = true;
-
-            BackgroundColor = "Gray";
-            LifeFontColor = "White";
-            DefaultLifePoint = 20;
-
-            Message = messege;
+            Debug.WriteLine("（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）amarin.Formsの初期化完了前に、PCLStorage（というよりXamarin.Plugins）は利用できない点に注意(Save)");
+            IFolder rootFolder = FileSystem.Current.LocalStorage;
+            IFile file = await rootFolder.CreateFileAsync(JsonName, CreationCollisionOption.ReplaceExisting);
+            await file.WriteAllTextAsync(JsonConvert.SerializeObject(Setting));
         }
 
+        public async Task LoadData()
+        {
+            Debug.WriteLine("（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）amarin.Formsの初期化完了前に、PCLStorage（というよりXamarin.Plugins）は利用できない点に注意(Load)");
+            IFolder rootFolder = FileSystem.Current.LocalStorage;
+
+            ExistenceCheckResult res = await rootFolder.CheckExistsAsync(JsonName);
+            if (res == ExistenceCheckResult.NotFound)
+            {
+                await SaveData();
+            }
+
+
+            IFile file = await rootFolder.GetFileAsync(JsonName);
+            Setting = JsonConvert.DeserializeObject<Setting>(file.ReadAllTextAsync().Result);
+        }
     }
 }
