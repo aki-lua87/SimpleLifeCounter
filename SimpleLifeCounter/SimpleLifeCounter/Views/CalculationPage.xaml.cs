@@ -23,9 +23,7 @@ namespace SimpleLifeCounter.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            SetLayout();
-            SetLayout();
+            // DisplayAlert("aaa","bbb","ccc");
             SetLayout();
         }
 
