@@ -23,6 +23,9 @@ namespace SimpleLifeCounter.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
+
+            SetLayout();
+            SetLayout();
             SetLayout();
         }
 
@@ -161,7 +164,6 @@ namespace SimpleLifeCounter.Views
             }
             absoluteLayout.Children.Remove(tempSubCount);
             absoluteLayout.Children.Remove(tempReset);
-
         }
     }
 

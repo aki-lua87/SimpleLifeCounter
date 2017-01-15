@@ -192,9 +192,9 @@ namespace SimpleLifeCounter.ViewModels
                 Debug.WriteLine("（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）キャッチ");
 
                 Model.Setting.BackgroundColorIndex = 3;
-                Model.Setting.LifeColorIndex = 4;
-                Model.Setting.LifeIndex = 5;
-                Model.Setting.LifeResetCheck = true;
+                Model.Setting.LifeColorIndex = 13;
+                Model.Setting.LifeIndex = 1;
+                Model.Setting.LifeResetCheck = false;
                 Model.Setting.BigButtonCheck = true;
                 Model.Setting.SubCounterCheck = true;
 
