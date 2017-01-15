@@ -14,7 +14,7 @@ namespace SimpleLifeCounter.Models
 {
     public class AllPageModel : BindableBase,IAllPageModel
     {
-        public ISaveAndLoad SaveAndLoad { get; set; }
+        // public ISaveAndLoad SaveAndLoad { get; set; }
 
         private Setting _Setting = new Setting();
 
@@ -76,23 +76,36 @@ namespace SimpleLifeCounter.Models
             this.Message = $"{rnd.Next(1, 21).ToString()}";
         }
 
-        // jsonにセーブ
-        public void SettingSave()
-        {
-            SaveAndLoad.SaveData(JsonName,JsonConvert.SerializeObject(Setting));
-        }
-
-        public void SettingLoad()
-        {
-            Setting = JsonConvert.DeserializeObject<Setting>(SaveAndLoad.LoadData(JsonName));
-        }
-
         // セーブしたときにイベント発行
         // VMで発火してJsonの値を格納
 
-        public AllPageModel( ISaveAndLoad saveAndLoad)
+        public AllPageModel()
         {
-            SaveAndLoad = saveAndLoad;
+            //SaveAndLoad = saveAndLoad;
+        }
+
+        public async Task SaveData()
+        {
+            Debug.WriteLine("（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）amarin.Formsの初期化完了前に、PCLStorage（というよりXamarin.Plugins）は利用できない点に注意(Save)");
+            IFolder rootFolder = FileSystem.Current.LocalStorage;
+            IFile file = await rootFolder.CreateFileAsync(JsonName, CreationCollisionOption.ReplaceExisting);
+            await file.WriteAllTextAsync(JsonConvert.SerializeObject(Setting));
+        }
+
+        public async Task LoadData()
+        {
+            Debug.WriteLine("（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）amarin.Formsの初期化完了前に、PCLStorage（というよりXamarin.Plugins）は利用できない点に注意(Load)");
+            IFolder rootFolder = FileSystem.Current.LocalStorage;
+
+            ExistenceCheckResult res = await rootFolder.CheckExistsAsync(JsonName);
+            if (res == ExistenceCheckResult.NotFound)
+            {
+                await SaveData();
+            }
+
+
+            IFile file = await rootFolder.GetFileAsync(JsonName);
+            Setting = JsonConvert.DeserializeObject<Setting>(file.ReadAllTextAsync().Result);
         }
     }
 }

@@ -38,7 +38,6 @@
     <Compile Include="App.cs" />
     <Compile Include="Models\BindablePicker.cs" />
     <Compile Include="Models\IAllPageModel.cs" />
-    <Compile Include="Models\ISaveAndLoad.cs" />
     <Compile Include="Models\Setting.cs" />
     <Compile Include="ViewModels\CalculationPageViewModel.cs" />
     <Compile Include="ViewModels\PrismContentPage1ViewModel.cs" />

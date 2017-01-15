@@ -31,7 +31,7 @@ namespace SimpleLifeCounter.Droid
     {
         public void RegisterTypes(IUnityContainer container)
         {
-            container.RegisterType<ISaveAndLoad, SaveAndLoad_Android>(new ContainerControlledLifetimeManager());
+
         }
     }
 }

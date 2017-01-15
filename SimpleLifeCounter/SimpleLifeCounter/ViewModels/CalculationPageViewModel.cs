@@ -23,12 +23,12 @@ namespace SimpleLifeCounter.ViewModels
 
         private readonly string ToMenuPage = "MenuPage";
 
-        private string _backgroundColor;
-        private string _lifeFontColor;
-        private int _defaultLifePoint;
-        private bool _lifeResetCheck;
-        private bool _bigButtonCheck;
-        private bool _subCounterCheck;
+        private string _backgroundColor = "Black";
+        private string _lifeFontColor = "Black";
+        private int _defaultLifePoint = 20;
+        private bool _lifeResetCheck = true;
+        private bool _bigButtonCheck = true;
+        private bool _subCounterCheck = true;
         private string _message;
 
         private string _leftLifePoint, _rightLifePoint;
@@ -133,9 +133,6 @@ namespace SimpleLifeCounter.ViewModels
             LifeResetCommand = new DelegateCommand(ResetLife);
 
             Model.PropertyChanged += Model_PropertyChanged;
-
-            Load();
-            InitLife();
         }
 
         private void Model_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -181,29 +178,26 @@ namespace SimpleLifeCounter.ViewModels
 
         public async void Load()
         {
-            string filename = Model.JsonName;
-            try
-            {
-                var data = Model.SaveAndLoad.LoadData(Model.JsonName);
-                Model.Setting = JsonConvert.DeserializeObject<Setting>(data);
-            }
-            catch
-            {
-                Debug.WriteLine("（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）キャッチ");
 
-                Model.Setting.BackgroundColorIndex = 3;
-                Model.Setting.LifeColorIndex = 13;
-                Model.Setting.LifeIndex = 1;
-                Model.Setting.LifeResetCheck = false;
-                Model.Setting.BigButtonCheck = true;
-                Model.Setting.SubCounterCheck = true;
+                 await Model.LoadData();
+                // Model.Setting = JsonConvert.DeserializeObject<Setting>(data);
 
-                var json = JsonConvert.SerializeObject(Model.Setting);
-                Model.SaveAndLoad.SaveData(Model.JsonName, json);
+            //catch
+            //{
+            //    Debug.WriteLine("（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）キャッチ");
 
-                Load();
-                return;
-            }
+            //    Model.Setting.BackgroundColorIndex = 3;
+            //    Model.Setting.LifeColorIndex = 13;
+            //    Model.Setting.LifeIndex = 1;
+            //    Model.Setting.LifeResetCheck = false;
+            //    Model.Setting.BigButtonCheck = true;
+            //    Model.Setting.SubCounterCheck = true;
+
+            //    await Model.SaveData();
+            //    Debug.WriteLine("（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）キャッチ処理終了");
+            //    Load();
+            //    return;
+            //}
 
             this.BackgroundColor = indexToColor[Model.Setting.BackgroundColorIndex + 1];
             this.LifeFontColor = indexToColor[Model.Setting.LifeColorIndex + 1];
@@ -220,8 +214,10 @@ namespace SimpleLifeCounter.ViewModels
 
         public void OnNavigatedTo(NavigationParameters parameters)
         {
+            Debug.WriteLine("（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）ここ？");
             Load();
             InitLife();
+            Debug.WriteLine("（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）ふんす！！！");
         }
 
         Dictionary<int, string> indexToColor = new Dictionary<int, string>

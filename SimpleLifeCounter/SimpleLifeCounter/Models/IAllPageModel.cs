@@ -11,7 +11,7 @@ namespace SimpleLifeCounter.Models
     public interface IAllPageModel : INotifyPropertyChanged
     {
         
-        ISaveAndLoad SaveAndLoad { get; set; }
+        // ISaveAndLoad SaveAndLoad { get; set; }
 
         Setting Setting { get; set; }
 
@@ -19,7 +19,7 @@ namespace SimpleLifeCounter.Models
         Color LifeFontColor { get; set; }
         int DefaultLifePoint { get; set; }
 
-
+        
 
         string JsonName { get; }
         string Message { get; set; }
@@ -27,5 +27,9 @@ namespace SimpleLifeCounter.Models
         void CoinMessegeGenerate();
 
         void DiceMessegeGenerate();
+
+        Task LoadData();
+
+        Task SaveData();
     }
 }

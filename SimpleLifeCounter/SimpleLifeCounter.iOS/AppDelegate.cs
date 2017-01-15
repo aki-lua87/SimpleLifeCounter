@@ -39,7 +39,7 @@ namespace SimpleLifeCounter.iOS
     {
         public void RegisterTypes(IUnityContainer container)
         {
-            container.RegisterType<ISaveAndLoad, SaveAndLoad_iOS>(new ContainerControlledLifetimeManager());
+           
         }
     }
 }

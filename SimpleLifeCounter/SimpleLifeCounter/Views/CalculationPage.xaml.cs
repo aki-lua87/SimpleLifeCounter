@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System.Diagnostics;
+using Xamarin.Forms;
 
 namespace SimpleLifeCounter.Views
 {
@@ -12,6 +13,7 @@ namespace SimpleLifeCounter.Views
         public CalculationPage()
         {
             InitializeComponent();
+            Debug.WriteLine("（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）InitializeComponent();");
 
             // 上の邪魔なの消すおまじない
             NavigationPage.SetHasNavigationBar(this, false);
@@ -23,7 +25,7 @@ namespace SimpleLifeCounter.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            // DisplayAlert("aaa","bbb","ccc");
+            Debug.WriteLine("（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）どっちが早いねんっていう");
             SetLayout();
         }
 
@@ -89,7 +91,7 @@ namespace SimpleLifeCounter.Views
             if (tempSubCount.IsToggled) //if ()
             {
                 double subCounterButtonHorizon;
-                subCounterButtonHorizon = 0.125;
+                subCounterButtonHorizon = 0.13;
 
                 // 左ボタン設置
                 absoluteLayout.Children.Add(LeftPlyerSubCounterUp);

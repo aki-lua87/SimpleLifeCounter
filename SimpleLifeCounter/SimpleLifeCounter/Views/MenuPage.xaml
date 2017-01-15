@@ -73,7 +73,7 @@
       </AbsoluteLayout>
 
       <AbsoluteLayout>
-        <Label Text="エネルギーカウンターを表示"
+        <Label Text="サブカウンターを表示"
                AbsoluteLayout.LayoutFlags="All"
                AbsoluteLayout.LayoutBounds="0.1, 0.5, 0.7, 1"
                VerticalOptions="CenterAndExpand"/>

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ using DependencyService = Xamarin.Forms.DependencyService;
 
 namespace SimpleLifeCounter.ViewModels
 {
-    class MenuPageViewModel : BindableBase
+    class MenuPageViewModel : BindableBase, INavigationAware
     {
         private readonly IAllPageModel Model;
 
@@ -130,12 +131,10 @@ namespace SimpleLifeCounter.ViewModels
             nameToColor.Keys.CopyTo(BackgroundColorSelection, 0);
 
             SaveClickCommand = new DelegateCommand(SaveClicked);
-
-            Load();
         }
 
         // データセーブ 分からないからズル
-        public void Save()
+        public async void Save()
         {
             Model.Setting.BackgroundColorIndex = BackgroundColorIndex;
             Model.Setting.LifeColorIndex = LifeColorIndex;
@@ -144,30 +143,12 @@ namespace SimpleLifeCounter.ViewModels
             Model.Setting.BigButtonCheck = BigButtonCheck;
             Model.Setting.SubCounterCheck = SubCounterCheck;
 
-            var json = JsonConvert.SerializeObject(Model.Setting);
-            Model.SaveAndLoad.SaveData(Model.JsonName, json);
+            await Model.SaveData();
         }
         // データロード
-        public void Load()
+        public async void Load()
         {
-            try
-            {
-                var data = Model.SaveAndLoad.LoadData(Model.JsonName);
-                Model.Setting = JsonConvert.DeserializeObject<Setting>(data);
-            }
-            catch
-            {
-                BackgroundColorIndex = 2;
-                LifeColorIndex = 2;
-                LifeIndex = 3;
-                LifeResetCheck = false;
-                BigButtonCheck = false;
-                SubCounterCheck = false;
-
-                Save();
-                Load();
-                return;
-            }
+            await Model.LoadData();
 
             this.BackgroundColorIndex = Model.Setting.BackgroundColorIndex;
             this.LifeColorIndex = Model.Setting.LifeColorIndex;
@@ -211,6 +192,17 @@ namespace SimpleLifeCounter.ViewModels
         public Dictionary<string, Color> getStringToColorList()
         {
             return nameToColor;
+        }
+
+        public void OnNavigatedFrom(NavigationParameters parameters)
+        {
+
+        }
+
+        public void OnNavigatedTo(NavigationParameters parameters)
+        {
+            Debug.WriteLine("（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）ここ？Menu");
+            Load();
         }
 
         private void Navigate()

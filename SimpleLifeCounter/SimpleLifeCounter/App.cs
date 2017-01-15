@@ -24,7 +24,6 @@ namespace SimpleLifeCounter
             Container.RegisterTypeForNavigation<CalculationPage>();
 
             Container.RegisterType<IAllPageModel, AllPageModel>(new ContainerControlledLifetimeManager());
-            Container.RegisterTypeForNavigation<PrismContentPage1>();
         }
     }
 }

@@ -17,7 +17,7 @@ namespace SimpleLifeCounter.UWP
     {
         public void RegisterTypes(IUnityContainer container)
         {
-            container.RegisterType<ISaveAndLoad, SaveAndLoad_UWP>(new ContainerControlledLifetimeManager());
+            
         }
     }
 
