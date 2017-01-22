@@ -30,7 +30,6 @@ namespace SimpleLifeCounter.Models
             set { this.SetProperty(ref _Setting, value); }
         }
 
-        
 
         //LifePage Bainding
         public Color BackgroundColor
@@ -100,12 +99,21 @@ namespace SimpleLifeCounter.Models
             ExistenceCheckResult res = await rootFolder.CheckExistsAsync(JsonName);
             if (res == ExistenceCheckResult.NotFound)
             {
+                Debug.WriteLine("（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）ファイルないから作るやで");
+                _Setting.BackgroundColorIndex = 2;
+                _Setting.LifeColorIndex = 11;
+                _Setting.LifeIndex = 0;
+                _Setting.BigButtonCheck = false;
+                _Setting.LifeResetCheck = false;
+                _Setting.SubCounterCheck = true;
+
                 await SaveData();
             }
 
 
             IFile file = await rootFolder.GetFileAsync(JsonName);
             Setting = JsonConvert.DeserializeObject<Setting>(file.ReadAllTextAsync().Result);
+            Debug.WriteLine($"（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・)ロード結果{file.ReadAllTextAsync().Result}");
         }
     }
 }

@@ -91,7 +91,7 @@ namespace SimpleLifeCounter.Views
             if (tempSubCount.IsToggled) //if ()
             {
                 double subCounterButtonHorizon;
-                subCounterButtonHorizon = 0.13;
+                subCounterButtonHorizon = 0.135;
 
                 // 左ボタン設置
                 absoluteLayout.Children.Add(LeftPlyerSubCounterUp);
@@ -132,8 +132,8 @@ namespace SimpleLifeCounter.Views
                 absoluteLayout.Children.Add(RightPlayerTateLine);
                 AbsoluteLayout.SetLayoutFlags(LeftPlayerTateLine, AbsoluteLayoutFlags.All);
                 AbsoluteLayout.SetLayoutFlags(RightPlayerTateLine, AbsoluteLayoutFlags.All);
-                AbsoluteLayout.SetLayoutBounds(LeftPlayerTateLine, new Rectangle(0.13, 0, 0.001, 1));
-                AbsoluteLayout.SetLayoutBounds(RightPlayerTateLine, new Rectangle(0.87, 0, 0.001, 1));
+                AbsoluteLayout.SetLayoutBounds(LeftPlayerTateLine, new Rectangle(0.135, 0, 0.001, 1));
+                AbsoluteLayout.SetLayoutBounds(RightPlayerTateLine, new Rectangle(0.865, 0, 0.001, 1));
             }
             else
             {

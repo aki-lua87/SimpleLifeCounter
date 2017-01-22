@@ -26,9 +26,9 @@ namespace SimpleLifeCounter.ViewModels
         private string _backgroundColor = "Black";
         private string _lifeFontColor = "Black";
         private int _defaultLifePoint = 20;
-        private bool _lifeResetCheck = true;
-        private bool _bigButtonCheck = true;
-        private bool _subCounterCheck = true;
+        private bool _lifeResetCheck = false;
+        private bool _bigButtonCheck = false;
+        private bool _subCounterCheck = false;
         private string _message;
 
         private string _leftLifePoint, _rightLifePoint;
@@ -133,6 +133,8 @@ namespace SimpleLifeCounter.ViewModels
             LifeResetCommand = new DelegateCommand(ResetLife);
 
             Model.PropertyChanged += Model_PropertyChanged;
+
+            InitLife();
         }
 
         private void Model_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -178,26 +180,7 @@ namespace SimpleLifeCounter.ViewModels
 
         public async void Load()
         {
-
-                 await Model.LoadData();
-                // Model.Setting = JsonConvert.DeserializeObject<Setting>(data);
-
-            //catch
-            //{
-            //    Debug.WriteLine("（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）キャッチ");
-
-            //    Model.Setting.BackgroundColorIndex = 3;
-            //    Model.Setting.LifeColorIndex = 13;
-            //    Model.Setting.LifeIndex = 1;
-            //    Model.Setting.LifeResetCheck = false;
-            //    Model.Setting.BigButtonCheck = true;
-            //    Model.Setting.SubCounterCheck = true;
-
-            //    await Model.SaveData();
-            //    Debug.WriteLine("（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）キャッチ処理終了");
-            //    Load();
-            //    return;
-            //}
+            await Model.LoadData();
 
             this.BackgroundColor = indexToColor[Model.Setting.BackgroundColorIndex + 1];
             this.LifeFontColor = indexToColor[Model.Setting.LifeColorIndex + 1];
@@ -216,7 +199,6 @@ namespace SimpleLifeCounter.ViewModels
         {
             Debug.WriteLine("（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）ここ？");
             Load();
-            InitLife();
             Debug.WriteLine("（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）（´・ω・｀）ふんす！！！");
         }
 
