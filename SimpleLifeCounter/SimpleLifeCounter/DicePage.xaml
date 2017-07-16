@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SimpleLifeCounter.DicePage">
+    <ContentPage.Padding>
+        0, 5, 0, 0
+    </ContentPage.Padding>
+
+    <AbsoluteLayout x:Name="absoluteLayout">
+
+        <!-- 数値 -->
+        <Label x:Name="LeftPlyerDice"
+           Text="{Binding LeftDice}"
+           TextColor="White"
+           FontSize="120"
+           HorizontalTextAlignment="Center"
+           VerticalTextAlignment="Center"
+           AbsoluteLayout.LayoutFlags="All"
+           AbsoluteLayout.LayoutBounds="0.05, 0.5, 0.4, 0.5" />
+
+        <Label x:Name="RightPlyerDice"
+           Text="{Binding RightDice}"
+           TextColor="White"
+           FontSize="120"
+           HorizontalTextAlignment="Center"
+           VerticalTextAlignment="Center"
+           AbsoluteLayout.LayoutFlags="All"
+           AbsoluteLayout.LayoutBounds="0.95, 0.5, 0.4, 0.5" />
+
+        <!-- 縦棒 -->
+        <BoxView Color="White"
+             AbsoluteLayout.LayoutFlags="All"
+             AbsoluteLayout.LayoutBounds="0.5, 0.5, 0.03, 1"/>
+
+        <!-- 透明なボタン　押すとページが閉じる　-->
+        <Button
+            x:Name="ExitButton"
+            BackgroundColor="Transparent"
+            BorderColor="Transparent"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="0, 0, 1, 1"/>
+
+    </AbsoluteLayout>
+
+</ContentPage>
