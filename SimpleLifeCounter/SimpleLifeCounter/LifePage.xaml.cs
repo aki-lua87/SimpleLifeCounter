@@ -84,8 +84,7 @@ namespace SimpleLifeCounter
             // DisplayAlert
             DiceThrow.Clicked += async (sender, e) =>
             {
-                vm.DiceMessegeGenerate();
-                await DisplayAlert("ダイス", $"{vm.Message}", "OK");
+                await Navigation.PushAsync(new DicePage());
             };
 
             // DisplayAlert
