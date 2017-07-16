@@ -138,11 +138,11 @@ namespace SimpleLifeCounter.ViewModels
             Model.CoinMessegeGenerate();
             this.Message = Model.Message;
         }
-        public void DiceMessegeGenerate()
-        {
-            Model.DiceMessegeGenerate();
-            this.Message = Model.Message;
-        }
+        //public void DiceMessegeGenerate()
+        //{
+        //    Model.DiceMessegeGenerate();
+        //    this.Message = Model.Message;
+        //}
 
         public void setLifePoint()
         {
